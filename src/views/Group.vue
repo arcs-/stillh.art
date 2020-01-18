@@ -46,10 +46,9 @@ export default {
 		};
 	},
 	mounted() {
-		this.data = Projects.find(group => {
-			if (group.label.toUpperCase() == this.$route.params.group.toUpperCase())
-				return true;
-		});
+		this.data = Projects.find(
+			g => g.label.toUpperCase() == this.$route.params.group.toUpperCase()
+		);
 	}
 };
 </script>
@@ -112,7 +111,7 @@ h1 {
 .project {
 	h2 {
 		margin-top: 0;
-		transform: none!important;
+		transform: none !important;
 	}
 
 	.image {
@@ -133,7 +132,8 @@ h1 {
 		transition: all 0.3s;
 	}
 
-	&.view-in .info, &.view-in h2 {
+	&.view-in .info,
+	&.view-in h2 {
 		opacity: 1;
 		transform: translateX(0);
 	}

@@ -4,6 +4,10 @@ import Matter from 'matter-js'
 // constants
 // ------------------------------------------------------------
 
+const PRIMARY = 'rgb(231, 201, 33)'
+const BLACK = '#0f0f13'
+const GRAY = '#999'
+
 const TAU = Math.PI * 2
 const Bodies = Matter.Bodies
 
@@ -161,7 +165,6 @@ function loop() {
 	if (!running) return
 
 	update(delta / 1000)
-	draw()
 
 }
 
@@ -169,9 +172,6 @@ function update(delta) {
 
 	if (wheel) Matter.Body.rotate(wheel, .08 * delta)
 
-}
-
-function draw() {
 
 	var bodies = Matter.Composite.allBodies(engine.world)
 	var addHover = false
@@ -203,7 +203,7 @@ function draw() {
 			}
 			ctx.lineTo(vertices[0].x, vertices[0].y)
 
-			ctx.strokeStyle = '#999'
+			ctx.strokeStyle = GRAY
 			ctx.stroke()
 
 		}
@@ -212,13 +212,18 @@ function draw() {
 
 		else if (bodies[i].label.includes('BALL')) {
 
+			if(bodies[i].position.y > canvas.height * 2) {
+				Matter.Body.setPosition(bodies[i], {x: window.innerWidth / 2, y: -100})
+				Matter.Body.setVelocity(bodies[i], {x: 0, y: 0})
+			}
+
 			var hover = Matter.Query.point([bodies[i]], mouseHandler.position).length > 0
 
 			ctx.beginPath()
 			ctx.arc(bodies[i].position.x, bodies[i].position.y, bodies[i].circleRadius, 0, TAU)
-			ctx.fillStyle = 'rgb(231, 201, 33)'
+			ctx.fillStyle = PRIMARY
 			if (hover) {
-				ctx.fillStyle = '#0f0f13'
+				ctx.fillStyle = BLACK
 				addHover = true
 			}
 			ctx.fill()
@@ -227,14 +232,10 @@ function draw() {
 			ctx.translate(bodies[i].position.x, bodies[i].position.y)
 			ctx.rotate(bodies[i].angle)
 			ctx.textAlign = "center"
-			ctx.fillStyle = '#0f0f13'
+			ctx.fillStyle = BLACK
 
-			if (bodies[i].userData.icon) {
-				ctx.font = font + 'px Ionicons'
-
-			} else {
-				ctx.font = font + 'px Inter'
-			}
+			if (bodies[i].userData.icon) ctx.font = font + 'px Ionicons'
+			else ctx.font = font + 'px Inter'
 
 			if (hover) ctx.fillStyle = 'rgb(231, 201, 33)'
 			ctx.fillText(bodies[i].userData.icon ? bodies[i].userData.icon : bodies[i].userData.label, 0, lineHeight / 2)
