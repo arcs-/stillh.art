@@ -1,0 +1,55 @@
+img {
+  width: 100%;
+}
+
+img[lazy=error] {
+  background-color: $primary;
+}
+
+.image-label {
+  font-size: .8em;
+}
+
+.aspect {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+  }
+
+  &.a31::before {
+    padding-top: 33.33%;
+  }
+
+  &.a32::before {
+    padding-top: 66.67%;
+  }
+
+  &.a43::before {
+    padding-top: 75%;
+  }
+
+  &.a11::before {
+    padding-top: 100%;
+  }
+
+  &.cover>*:first-child {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &.center>*:first-child {
+    object-position: center;
+  }
+
+  >*:first-child {
+    height: 100%;
+    object-position: top;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}

@@ -1,19 +1,11 @@
 # awesomeness3
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
+### dev
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### prod
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

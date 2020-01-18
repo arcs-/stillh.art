@@ -1,0 +1,109 @@
+[
+	{
+		"label": "Games",
+		"projects": [
+			{
+				"title": "Outrun",
+				"image": "/projects/outrun.png",
+				"description": "In a dicussion with a prof I got intressted if you could code a game that would run smoothly in the browser with no canvas.<br /><br />I tried to replicate the awesome Outrun from 1986. I really enjoy the result.",
+				"link": {
+					"label": "Play&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://codepen.io/arcs/full/aGzNKY"
+				}
+			},
+			{
+				"title": "Glühbär",
+				"image": "/projects/glühbär.png",
+				"description": "Three designers and I had an idea, a simple one. A bear with sleep issues but he can sleep when he drinks enough. Simple, but good.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.",
+				"link": {
+					"label": "Play Store&nbsp;<i class='ion-play'></i>",
+					"target": "https://play.google.com/store/apps/details?id=art.stillh.gluhbar"
+				}
+			},
+			{
+				"title": "HUEBOO VR",
+				"image": "/projects/hueboo.png",
+				"description": "Two friends and I took on the challange to create our first VR Game.<br /><br /> I worked on both, the 3D models as well as the code.<br /><br /> You're asked to mixs drinks for the spooky ghosts. Can you do it? ;D",
+				"link": {
+					"label": "Trailer&nbsp;<i class='ion-social-youtube'></i>",
+					"target": "https://www.youtube.com/watch?v=b23qYNQ274g"
+				}
+			},
+			{
+				"title": "Transmission",
+				"image": "/projects/transmission.png",
+				"description": "My first time at the Global Game Jam. 48h to code a game. I coded a custom engine and the gameplay, two friends did the art<br /><br /> In transmission you try to send a single through the solar system.",
+				"link": {
+					"label": "Play&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://stillh.art/project/transmission/"
+				}
+			}
+		]
+	},
+	{
+		"label": "Sites",
+		"projects": [
+			{
+				"title": "The DI Museum",
+				"image": "/projects/di.png",
+				"description": "I am not old but I have done many things. Most of which I forgot. That had to stop. I leanred Node.js and Mongo and a lot more and started working on a solution.<br /><br /> CodeWiki is my place to store things and I welcome everyone to contribiute.",
+				"link": {
+					"label": "Visit&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://di.stillh.art/"
+				}
+			},
+			{
+				"title": "Code Wiki",
+				"image": "/projects/wiki.png",
+				"description": "I am not old but I have done many things. Most of which I forgot. That had to stop. I leanred Node.js and Mongo and a lot more and started working on a solution.<br /><br /> CodeWiki is my place to store things and I welcome everyone to contribiute.",
+				"link": {
+					"label": "Visit&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://wiki.stillh.art/"
+				}
+			},
+			{
+				"title": "Adminer Theme",
+				"image": "/projects/adminer.png",
+				"description": "Ahh Adminer. You are the best SQL manager out there. One file, so simple. Why on earth must you look like your from 1970.<br /><br /> I took SCSS and the Material Design Guide and coded ahead. It's on GitHub now and people and myslef are glade for the new design.",
+				"link": {
+					"label": "GitHub&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://github.com/arcs-/Adminer-Material-Theme"
+				}
+			}
+			,
+			{
+				"title": "MatTab",
+				"image": "/projects/mattab.png",
+				"description": "Chrome has this nice new tab page but I can do one better. I've never done a broweser extension but this seemed like a good start.<br /><br /> Basiclly better Windows 8 tiles in Chrome.",
+				"link": {
+					"label": "Add&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj"
+				}
+			}
+		]
+	}
+	,
+	{
+		"label": "Else",
+		"projects": [
+			{
+				"title": "Tree Generator",
+				"image": "/projects/tree.png",
+				"description": "In math we looked at L-Systems... and I was really bored. It was all way to simple and didn't even look intressting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.",
+				"link": {
+					"label": "Try It&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://codepen.io/arcs/full/KeqbLd/"
+				}
+			},
+			{
+				"title": "Minesweeper Solver",
+				"image": "/projects/mine.gif",
+				"description": "Minesweeper is one of these games that is actually fun to play but somehow isn't. <br /><br /> It just intressted me if one could automate it... :)",
+				"link": {
+					"label": "GitHub&nbsp;<i class='ion-android-open'></i>",
+					"target": "https://github.com/arcs-/Minesweeper-Solver/"
+				}
+			}
+		]
+	}
+]
