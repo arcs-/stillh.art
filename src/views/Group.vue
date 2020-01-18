@@ -10,8 +10,8 @@
 				</div>
 			</div>
 
-			<div class="projects">
-				<div class="project row mt-4" v-for="project of data.projects" :key="project.title" v-view>
+			<div class="projects mt-2">
+				<div class="project row mb-4" v-for="project of data.projects" :key="project.title" v-view>
 					<div class="col-md-6">
 						<div class="aspect a32 image">
 							<img v-lazy="project.image" />
@@ -69,9 +69,9 @@ export default {
 @import "@/assets/scss/_variables.scss";
 
 .group {
-	padding-top: 15vh;
+	padding-top: 10vh;
 	padding-bottom: 15vh;
-	width: 100vw;
+	width: 100%;
 	overflow: hidden;
 }
 

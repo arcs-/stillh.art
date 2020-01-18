@@ -24,7 +24,7 @@ const CONFIG = {
 		wheelRadius: 2500,
 		wheelOffset: 2,
 		bigBallRadius: 50,
-		ballRadius: 10
+		ballRadius: 20
 	}
 }
 
