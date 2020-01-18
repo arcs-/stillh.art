@@ -59,16 +59,16 @@ Matter.World.clear(engine.world)
 function onResize() {
 	if (canvas) {
 
-		canvas.width = document.body.clientWidth
-		canvas.height = document.body.clientHeight
+		canvas.width = document.body.offsetWidth 
+		canvas.height = document.body.offsetHeight
 
 		if (canvas.width < canvas.height) config = CONFIG.MOBILE
 
 		// wheel
 
 		var bodies = Matter.Composite.allBodies(engine.world)
-		for (var i = 0; i < bodies.length; i += 1) {
-			if (bodies[i].label == "WHEEL") Matter.World.remove(bodies[i])
+		for (var i = bodies.length - 1; i >= 0; i -= 1) {
+			if (bodies[i].label == "WHEEL") Matter.World.remove(engine.world, bodies[i])
 		}
 
 		var parts = []

@@ -3,12 +3,14 @@ import VueRouter from 'vue-router'
 
 import Home from '@/views/Home.vue'
 import Group from '@/views/Group.vue'
+import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/:group', component: Group }
+  { path: '/:group', component: Group },
+  { path: '*', name: '404', component: NotFound }
 ]
 
 const router = new VueRouter({

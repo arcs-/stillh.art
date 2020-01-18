@@ -104,7 +104,7 @@
 				<div class="shield" v-view>
 					<h3 class="marginBottomSmall">Worlds</h3>
 					<p>
-						VS-Code
+						VSCode
 						<small>
 							<i class="ion-heart"></i>
 						</small> / nano / Intellij

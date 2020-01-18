@@ -45,6 +45,9 @@ import Stats from "@/components/Stats.vue";
 export default {
 	name: "home",
 	components: { Head, Stats },
+	mounted() {
+		document.title = "Patrick Stillhart | Developer";
+	},
 	computed: {
 		age() {
 			return ((Date.now() - new Date("1997/5/7")) / 31557600000) | 0;

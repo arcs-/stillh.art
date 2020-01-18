@@ -45,11 +45,23 @@ export default {
 			data: {}
 		};
 	},
-	mounted() {
-		this.data = Projects.find(
-			g => g.label.toUpperCase() == this.$route.params.group.toUpperCase()
+	beforeRouteEnter(to, from, next) {
+		if (!to.params.group) return next();
+
+		let data = Projects.find(
+			g => g.label.toUpperCase() == to.params.group.toUpperCase()
 		);
-	}
+
+		if (data) {
+			next(instance => {
+				instance.data = data;
+				document.title = data.label + " | Patrick Stillhart";
+			});
+		} else {
+			next({ name: "404", params: [to.path], replace: true });
+		}
+	},
+	mounted() {}
 };
 </script>
 
