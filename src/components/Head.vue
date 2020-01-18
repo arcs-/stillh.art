@@ -41,7 +41,7 @@ export default {
 			},
 			{
 				icon: "\uf4dd",
-				link: "https:/codepen.io/arcs/"
+				link: "https://codepen.io/arcs/"
 			},
 			{
 				icon: "\uf243",

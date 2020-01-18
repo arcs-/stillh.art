@@ -1,8 +1,8 @@
 <template>
-	<div class="home mb-5">
+	<div class="home">
 		<Head></Head>
 		<Stats class="mb-2 mb-lg-5"></Stats>
-		<div id="info" class="container">
+		<div id="info" class="container mb-3 mb-lg-4">
 			<div class="row">
 				<div class="col-md-8">
 					<h2 v-view>Who am I</h2>

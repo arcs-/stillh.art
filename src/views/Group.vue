@@ -10,7 +10,7 @@
 				</div>
 			</div>
 
-			<div class="projects mt-2">
+			<div class="projects mt-4">
 				<div class="project row mb-4" v-for="project of data.projects" :key="project.title" v-view>
 					<div class="col-md-6">
 						<div class="aspect a32 image">
