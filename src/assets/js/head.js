@@ -59,10 +59,11 @@ Matter.World.clear(engine.world)
 function onResize() {
 	if (canvas) {
 
-		canvas.width = document.body.offsetWidth 
+		canvas.width = document.body.offsetWidth
 		canvas.height = document.body.offsetHeight
 
 		if (canvas.width < canvas.height) config = CONFIG.MOBILE
+		else config = CONFIG.DESKTOP
 
 		// wheel
 
@@ -92,7 +93,8 @@ function onResize() {
 				20,
 				150 / 933 * m, {
 				angle: angle,
-				isStatic: true, label: 'WHEEL'
+				isStatic: true,
+				label: 'WHEEL'
 			}
 			))
 
@@ -212,9 +214,9 @@ function update(delta) {
 
 		else if (bodies[i].label.includes('BALL')) {
 
-			if(bodies[i].position.y > canvas.height * 2) {
-				Matter.Body.setPosition(bodies[i], {x: window.innerWidth / 2, y: -100})
-				Matter.Body.setVelocity(bodies[i], {x: 0, y: 0})
+			if (bodies[i].position.y > canvas.height * 2) {
+				Matter.Body.setPosition(bodies[i], { x: window.innerWidth / 2, y: -100 })
+				Matter.Body.setVelocity(bodies[i], { x: 0, y: 0 })
 			}
 
 			var hover = Matter.Query.point([bodies[i]], mouseHandler.position).length > 0
@@ -286,6 +288,7 @@ export default {
 		// pages
 
 		if (document.body.clientWidth < document.body.clientHeight) config = CONFIG.MOBILE
+		else config = CONFIG.DESKTOP
 
 
 		for (let page of pages.reverse()) {

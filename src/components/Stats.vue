@@ -117,21 +117,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!--
-
-		<div class="pinpoints-container">
-			
-
-			<div class="pinpoints">
-				
-
-				<div class="shield" v-view>
-					
-				</div>
-			</div>
-		</div>
-		-->
 	</div>
 </template>
 
@@ -146,7 +131,7 @@ export default {
 
 .stats {
 	overflow: hidden;
-	width: 100vw;
+	width: 100%;
 }
 
 /* pinpoints
@@ -154,7 +139,6 @@ export default {
 
 .shield {
 	width: 250px;
-
 	margin-top: 80px;
 	opacity: 0;
 	transform: translateY(60px);
@@ -205,6 +189,11 @@ export default {
 				margin: 0;
 			}
 		}
+	}
+
+	small {
+		color: $half;
+		padding-left: 10px;
 	}
 }
 

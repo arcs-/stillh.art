@@ -1,7 +1,9 @@
 <template>
 	<div class="head">
 		<div id="cog"></div>
+
 		<div id="grower" ref="grower"></div>
+
 		<div class="container">
 			<div class="row">
 				<div class="col intro" v-view>
@@ -27,8 +29,12 @@ export default {
 
 		Head.init(this.$root, [
 			...Projects.reduce((acc, cur) => {
-				acc.push({ label: cur.label, link: "/" + cur.label.toLowerCase(), big: true });
-				return acc
+				acc.push({
+					label: cur.label,
+					link: "/" + cur.label.toLowerCase(),
+					big: true
+				});
+				return acc;
 			}, []),
 
 			{
@@ -63,7 +69,7 @@ export default {
 			if (object.userData.link.startsWith("http")) {
 				this.$nextTick(() => this.$refs.grower.classList.add("mega-expand"));
 				setTimeout(() => {
-					window.open(object.userData.link);
+					window.open(object.userData.link, '_blank');
 					document.body.classList.remove("hover");
 					this.$refs.grower.classList.remove("mega-expand");
 				}, 300);
@@ -85,7 +91,9 @@ export default {
 @import "@/assets/scss/_mixins.scss";
 
 .head {
+	position: relative;
 	min-height: 100vh;
+	overflow: hidden;
 }
 
 #cog {
@@ -118,7 +126,7 @@ export default {
 
 	opacity: 0;
 	transform: translateY(10px);
-	transition: all .7s ease-in-out;
+	transition: all 0.7s ease-in-out;
 
 	&.view-in--gt-half {
 		opacity: 1;
