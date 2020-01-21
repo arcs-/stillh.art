@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "vue-cli-service serve --port 5500 --watch",
     "build": "vue-cli-service build"
   },
   "dependencies": {

@@ -2,6 +2,10 @@ img {
   width: 100%;
 }
 
+img[lazy=loading] {
+  background-color: rgba($primary, 0.3);
+}
+
 img[lazy=error] {
   background-color: $primary;
 }

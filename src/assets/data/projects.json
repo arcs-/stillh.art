@@ -46,7 +46,7 @@
 			{
 				"title": "The DI Museum",
 				"image": "/images/di.png",
-				"description": "I am not old but I have done many things. Most of which I forgot. That had to stop. I leanred Node.js and Mongo and a lot more and started working on a solution.<br /><br /> CodeWiki is my place to store things and I welcome everyone to contribiute.",
+				"description": "Our class does not have any place to present our work. So I took in upon myself to create it, the project includes a custom CMS and the 3D landing page. I used it as a chance to experiment with a few new things. ",
 				"link": {
 					"label": "Visit&nbsp;<i class='ion-android-open'></i>",
 					"target": "https://di.stillh.art/"
@@ -64,7 +64,7 @@
 			{
 				"title": "Adminer Theme",
 				"image": "/images/adminer.png",
-				"description": "Ahh Adminer. You are the best SQL manager out there. One file, so simple. Why on earth must you look like your from 1970.<br /><br /> I took SCSS and the Material Design Guide and coded ahead. It's on GitHub now and people and myslef are glade for the new design.",
+				"description": "Ahh Adminer. You are the best SQL manager out there. One file, so simple. Why on earth must you look like you're from 1970.<br /><br /> I took SCSS and the Material Design Guide and coded ahead. It's on GitHub now.",
 				"link": {
 					"label": "GitHub&nbsp;<i class='ion-android-open'></i>",
 					"target": "https://github.com/arcs-/Adminer-Material-Theme"

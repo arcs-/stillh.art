@@ -122,7 +122,6 @@ function onResize() {
 	Matter.World.add(engine.world, mouseConstraint)
 }
 
-
 function onMousedown(e) {
 	mouse = e
 }
@@ -135,6 +134,32 @@ function onMouseup(e) {
 			bridge.$emit('interact', sight[0])
 		}
 	}
+	mouse = null
+}
+
+// gyro
+
+function updateGravity(event) {
+
+	if(!event.alpha) return
+
+	var orientation = typeof window.orientation !== 'undefined' ? window.orientation : 0
+	var gravity = engine.world.gravity
+
+	if (orientation === 0) {
+		gravity.x = Matter.Common.clamp(event.gamma, -90, 90) / 25
+		gravity.y = Matter.Common.clamp(event.beta, -90, 90) / 25
+	} else if (orientation === 180) {
+		gravity.x = Matter.Common.clamp(event.gamma, -90, 90) / 25
+		gravity.y = Matter.Common.clamp(-event.beta, -90, 90) / 25
+	} else if (orientation === 90) {
+		gravity.x = Matter.Common.clamp(event.beta, -90, 90) / 25
+		gravity.y = Matter.Common.clamp(-event.gamma, -90, 90) / 25
+	} else if (orientation === -90) {
+		gravity.x = Matter.Common.clamp(-event.beta, -90, 90) / 25
+		gravity.y = Matter.Common.clamp(event.gamma, -90, 90) / 25
+	}
+
 }
 
 // ------------------------------------------------------------
@@ -152,6 +177,7 @@ function listeners(on) {
 	window[usage]("touchend", onMouseup)
 
 	window[usage]("resize", onResize)
+	window[usage]("deviceorientation", updateGravity)
 
 }
 
@@ -223,23 +249,27 @@ function update(delta) {
 
 			ctx.beginPath()
 			ctx.arc(bodies[i].position.x, bodies[i].position.y, bodies[i].circleRadius, 0, TAU)
-			ctx.fillStyle = PRIMARY
+			
 			if (hover) {
 				ctx.fillStyle = BLACK
 				addHover = true
+			} else {
+				ctx.fillStyle = PRIMARY
 			}
+
 			ctx.fill()
 
 			ctx.save()
 			ctx.translate(bodies[i].position.x, bodies[i].position.y)
 			ctx.rotate(bodies[i].angle)
 			ctx.textAlign = "center"
-			ctx.fillStyle = BLACK
-
+			
 			if (bodies[i].userData.icon) ctx.font = font + 'px Ionicons'
 			else ctx.font = font + 'px Inter'
 
-			if (hover) ctx.fillStyle = 'rgb(231, 201, 33)'
+			if (hover) ctx.fillStyle = PRIMARY
+			else ctx.fillStyle = BLACK
+
 			ctx.fillText(bodies[i].userData.icon ? bodies[i].userData.icon : bodies[i].userData.label, 0, lineHeight / 2)
 			ctx.restore()
 
