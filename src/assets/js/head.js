@@ -119,15 +119,31 @@ function onResize() {
 
 function onMousedown(e) {
 	mouse.down = true
-	mouse.dx = pos(e, 'pageX')
-	mouse.dy = pos(e, 'pageY')
+	mouse.x = mouse.dx = pos(e, 'pageX')
+	mouse.y = mouse.dy = pos(e, 'pageY')
+
+	if (mouseConstraint.bodyB) return
+
+	var bodies = Matter.Composite.allBodies(engine.world)
+	for (var i = 0; i < bodies.length; i++) {
+		var element = Matter.Query.point([bodies[i]], mouse).find(el => el.label.includes('BALL'))
+		if (element) {
+			mouseConstraint.pointA = mouse
+			mouseConstraint.bodyB = element
+			mouseConstraint.pointB = { x: mouse.x - element.position.x, y: mouse.y - element.position.y }
+			mouseConstraint.angleB = element.angle
+
+			break
+		}
+	}
+
 }
 
 function onMouseMove(e) {
 	mouse.x = pos(e, 'pageX')
 	mouse.y = pos(e, 'pageY')
 
-	if (mouse.down && mouseConstraint.bodyB) {
+	if (mouseConstraint.bodyB) {
 		e.preventDefault()
 	}
 }
@@ -141,6 +157,10 @@ function onMouseup(e) {
 			bridge.$emit('interact', sight[0])
 		}
 		e.preventDefault()
+	}
+	if (mouseConstraint.bodyB) {
+		mouseConstraint.bodyB = null
+		mouseConstraint.pointB = null
 	}
 	mouse.down = false
 }
@@ -164,34 +184,6 @@ function onGyro(event) {
 	} else if (orientation === -90) {
 		gravity.x = Matter.Common.clamp(-event.beta, -90, 90) / 25
 		gravity.y = Matter.Common.clamp(event.gamma, -90, 90) / 25
-	}
-
-}
-
-function onPhysicsUpdate() {
-
-	if (mouse.down) {
-
-		if (mouseConstraint.bodyB) return
-
-		var bodies = Matter.Composite.allBodies(engine.world)
-		for (var i = 0; i < bodies.length; i++) {
-			var element = Matter.Query.point([bodies[i]], mouse).find(el => el.label.includes('BALL'))
-			if (element) {
-				mouseConstraint.pointA = mouse;
-				mouseConstraint.bodyB = element;
-				mouseConstraint.pointB = { x: mouse.x - element.position.x, y: mouse.y - element.position.y };
-				mouseConstraint.angleB = element.angle;
-
-				break;
-			}
-		}
-
-	} else {
-
-		mouseConstraint.bodyB = null;
-		mouseConstraint.pointB = null;
-
 	}
 
 }
@@ -346,7 +338,6 @@ export default {
 		// engine 
 
 		Matter.Engine.run(engine)
-		Matter.Events.on(engine, 'beforeUpdate', onPhysicsUpdate)
 
 		// pages
 
