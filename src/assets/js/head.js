@@ -39,7 +39,7 @@ const pos = (e, what) => e.touches ? e.changedTouches[0][what] : e[what]
 // working
 // ------------------------------------------------------------
 
-var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: 0, y: 0 }, config = CONFIG.DESKTOP
+var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: -50, y: -50 }, config = CONFIG.DESKTOP
 var then = timestamp()
 
 var wheel = null, balls = []
@@ -163,6 +163,8 @@ function onMouseup(e) {
 		mouseConstraint.pointB = null
 	}
 	mouse.down = false
+	mouse.x = -50
+	mouse.y = -50
 }
 
 function onGyro(event) {

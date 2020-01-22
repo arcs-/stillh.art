@@ -7,7 +7,7 @@
 				<div class="col-md-8">
 					<h2 v-view>Who am I</h2>
 
-					<div id="story" class="mb-4">
+					<div id="story" class="mb-3">
 						<p v-view>
 							<span title="General Kenobi">Hello there!</span>
 							I am Patrick, the dev you were looking for. Creator of many things, including this page.
@@ -23,15 +23,16 @@
 						>Not to sure what else to say... but I have to fill this third section somehow. So, ehm, how did your day go? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor, dui vitae pretium auctor.</p>
 					</div>
 
-					<p class="center mb-4" v-view>
-						<a href="/cv_online.pdf" class="button peek appear">Curriculum Vitae</a>
+					<p class="center mt-0 mb-4" v-view>
+						<a href="/cv_online.pdf" class="button mt-0">Curriculum Vitae</a>
 					</p>
 
-					<p class="center" v-view>
+					<p class="center mb-2" v-view>
 						cheers and
 						<i class="ion-heart"></i> by yours truly,
 						<go to="/" class="link">Patrick</go>
 					</p>
+
 				</div>
 			</div>
 		</div>
