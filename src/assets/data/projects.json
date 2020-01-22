@@ -18,16 +18,26 @@
 				"link": {
 					"label": "Play Store&nbsp;<i class='ion-play'></i>",
 					"target": "https://play.google.com/store/apps/details?id=art.stillh.gluhbar"
+				},
+				"team": {
+					"Andrin (Design)": "",
+					"Tin (Design)": "https://www.vyelo.net/",
+					"Geri (Design)": "http://pixelfox.rocks/"
 				}
 			},
 			{
 				"title": "HUEBOO VR",
 				"image": "/images/hueboo.png",
-				"description": "Two friends and I took on the challange to create our first VR Game.<br /><br /> I worked on both, the 3D models as well as the code.<br /><br /> You're asked to mixs drinks for the spooky ghosts. Can you do it? ;D",
+				"description": "HUEBOO is a VR-Game in which you are the bartender, tasked with serving drinks to your thirsty customers. Its a game about music, light and agility.",
 				"link": {
 					"label": "Trailer&nbsp;<i class='ion-social-youtube'></i>",
 					"target": "https://www.youtube.com/watch?v=b23qYNQ274g"
+				},
+				"team": {
+					"Seline (Design)": "https://www.georgeluni.ch/",
+					"Yannick (Code)": ""
 				}
+				
 			},
 			{
 				"title": "Transmission",
@@ -36,6 +46,10 @@
 				"link": {
 					"label": "Play&nbsp;<i class='ion-android-open'></i>",
 					"target": "https://stillh.art/grave/transmission/"
+				},
+				"team": {
+					"Lukas (Design)": "https://twitter.com/Moe5i",
+					"Simon (Design)": ""
 				}
 			}
 		]
@@ -50,6 +64,10 @@
 				"link": {
 					"label": "Visit&nbsp;<i class='ion-android-open'></i>",
 					"target": "https://di.stillh.art/"
+				},
+				"team": {
+					"Simon (Design)": "",
+					"Stefanie (Design)": ""
 				}
 			},
 			{

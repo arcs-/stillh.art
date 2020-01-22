@@ -39,7 +39,7 @@ const pos = (e, what) => e.touches ? e.changedTouches[0][what] : e[what]
 // working
 // ------------------------------------------------------------
 
-var init = false, running = false, canvas, ctx, bridge, mouse = null, config = CONFIG.DESKTOP
+var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: 0, y: 0 }, config = CONFIG.DESKTOP
 var then = timestamp()
 
 var wheel = null, balls = []
@@ -48,9 +48,20 @@ var wheel = null, balls = []
 // engine
 // ------------------------------------------------------------
 
-// create an engine
 var engine = Matter.Engine.create()
 Matter.World.clear(engine.world)
+
+var mouseConstraint = Matter.Constraint.create({
+	label: 'Mouse Constraint',
+	pointA: mouse,
+	pointB: { x: 0, y: 0 },
+	length: 0.01,
+	stiffness: 0.3,
+	render: {
+		visible: false
+	}
+})
+Matter.World.add(engine.world, mouseConstraint)
 
 // ------------------------------------------------------------
 // handlers
@@ -92,10 +103,10 @@ function onResize() {
 				cy,
 				20,
 				150 / 933 * m, {
-				angle: angle,
-				isStatic: true,
-				label: 'WHEEL'
-			}
+					angle: angle,
+					isStatic: true,
+					label: 'WHEEL'
+				}
 			))
 
 		}
@@ -106,42 +117,37 @@ function onResize() {
 	}
 }
 
-// mouse
-{
-	var mouseHandler = Matter.Mouse.create(document.body)
-	var mouseConstraint = Matter.MouseConstraint.create(engine, {
-		mouse: mouseHandler,
-		constraint: {
-			stiffness: 0.3,
-			render: {
-				visible: false
-			}
-		}
-	})
-
-	Matter.World.add(engine.world, mouseConstraint)
+function onMousedown(e) {
+	mouse.down = true
+	mouse.dx = pos(e, 'pageX')
+	mouse.dy = pos(e, 'pageY')
 }
 
-function onMousedown(e) {
-	mouse = e
+function onMouseMove(e) {
+	mouse.x = pos(e, 'pageX')
+	mouse.y = pos(e, 'pageY')
+
+	if (mouse.down && mouseConstraint.bodyB) {
+		e.preventDefault()
+	}
 }
 
 function onMouseup(e) {
-	if (Math.abs(pos(mouse, 'screenX') - pos(e, 'screenX')) < 10 &&
-		Math.abs(pos(mouse, 'screenY') - pos(e, 'screenY')) < 10) {
-		let sight = Matter.Query.point(balls, mouseHandler.position)
+	if (mouse.down &&
+		Math.abs(mouse.dx - pos(e, 'pageX')) < 10 &&
+		Math.abs(mouse.dy - pos(e, 'pageY')) < 10) {
+		let sight = Matter.Query.point(balls, mouse)
 		if (sight.length > 0) {
 			bridge.$emit('interact', sight[0])
 		}
+		e.preventDefault()
 	}
-	mouse = null
+	mouse.down = false
 }
 
-// gyro
+function onGyro(event) {
 
-function updateGravity(event) {
-
-	if(!event.alpha) return
+	if (!event.alpha) return
 
 	var orientation = typeof window.orientation !== 'undefined' ? window.orientation : 0
 	var gravity = engine.world.gravity
@@ -162,6 +168,34 @@ function updateGravity(event) {
 
 }
 
+function onPhysicsUpdate() {
+
+	if (mouse.down) {
+
+		if (mouseConstraint.bodyB) return
+
+		var bodies = Matter.Composite.allBodies(engine.world)
+		for (var i = 0; i < bodies.length; i++) {
+			var element = Matter.Query.point([bodies[i]], mouse).find(el => el.label.includes('BALL'))
+			if (element) {
+				mouseConstraint.pointA = mouse;
+				mouseConstraint.bodyB = element;
+				mouseConstraint.pointB = { x: mouse.x - element.position.x, y: mouse.y - element.position.y };
+				mouseConstraint.angleB = element.angle;
+
+				break;
+			}
+		}
+
+	} else {
+
+		mouseConstraint.bodyB = null;
+		mouseConstraint.pointB = null;
+
+	}
+
+}
+
 // ------------------------------------------------------------
 // functions
 // ------------------------------------------------------------
@@ -172,19 +206,20 @@ function listeners(on) {
 	var usage = on ? 'addEventListener' : 'removeEventListener'
 
 	canvas[usage]("mousedown", onMousedown)
+	window[usage]("mousemove", onMouseMove)
 	window[usage]("mouseup", onMouseup)
 	canvas[usage]("touchstart", onMousedown)
+	window[usage]("touchmove", onMouseMove, { passive: false })
 	window[usage]("touchend", onMouseup)
 
 	window[usage]("resize", onResize)
-	window[usage]("deviceorientation", updateGravity)
+	window[usage]("deviceorientation", onGyro)
 
 }
 
 function loop() {
 
 	requestAnimationFrame(loop)
-
 
 	let now = timestamp()
 	let delta = now - then
@@ -199,7 +234,6 @@ function loop() {
 function update(delta) {
 
 	if (wheel) Matter.Body.rotate(wheel, .08 * delta)
-
 
 	var bodies = Matter.Composite.allBodies(engine.world)
 	var addHover = false
@@ -245,11 +279,11 @@ function update(delta) {
 				Matter.Body.setVelocity(bodies[i], { x: 0, y: 0 })
 			}
 
-			var hover = Matter.Query.point([bodies[i]], mouseHandler.position).length > 0
+			var hover = mouseConstraint.bodyB == bodies[i] || Matter.Query.point([bodies[i]], mouse).length > 0
 
 			ctx.beginPath()
 			ctx.arc(bodies[i].position.x, bodies[i].position.y, bodies[i].circleRadius, 0, TAU)
-			
+
 			if (hover) {
 				ctx.fillStyle = BLACK
 				addHover = true
@@ -263,7 +297,7 @@ function update(delta) {
 			ctx.translate(bodies[i].position.x, bodies[i].position.y)
 			ctx.rotate(bodies[i].angle)
 			ctx.textAlign = "center"
-			
+
 			if (bodies[i].userData.icon) ctx.font = font + 'px Ionicons'
 			else ctx.font = font + 'px Inter'
 
@@ -284,8 +318,6 @@ function update(delta) {
 		} else document.body.classList.remove('hover')
 
 	}
-
-
 
 }
 
@@ -314,22 +346,24 @@ export default {
 		// engine 
 
 		Matter.Engine.run(engine)
+		Matter.Events.on(engine, 'beforeUpdate', onPhysicsUpdate)
 
 		// pages
 
 		if (document.body.clientWidth < document.body.clientHeight) config = CONFIG.MOBILE
 		else config = CONFIG.DESKTOP
 
-
 		for (let page of pages.reverse()) {
 
 			var ball = Bodies.circle(
 				page.big ? 400 : 1300,
 				200,
-				page.big ? config.bigBallRadius : config.ballRadius, {
-				label: 'BALL',
-				density: .5
-			}
+				page.big ? config.bigBallRadius : config.ballRadius,
+				{
+					label: 'BALL',
+					density: page.big ? .9 : .3,
+					frictionAir: page.big ? .03 : .01
+				}
 			)
 			ball.userData = page
 
