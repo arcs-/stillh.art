@@ -5,7 +5,7 @@
 		</video>
 
 		<section class="center">
-			<video playsinline autoplay muted loop>
+			<video ref="video" playsinline autoplay muted loop>
 				<source src="/nothing.mp4" type="video/mp4" />
 			</video>
 
@@ -21,8 +21,17 @@
 <script>
 export default {
 	name: "NotFound",
+	methods: {
+		toggleMute() {
+			this.$refs.video.muted = !this.$refs.video.muted;
+		}
+	},
 	mounted() {
 		document.title = "Nothing to see here";
+		window.addEventListener('click', this.toggleMute)
+	},
+	destroyed() {
+		window.removeEventListener('click', this.toggleMute)
 	}
 };
 </script>
@@ -45,7 +54,7 @@ export default {
 	min-height: 100vh;
 	top: 0;
 	left: 0;
-	opacity: 0.05;
+	opacity: 0.07;
 }
 section {
 	position: relative;
@@ -56,6 +65,7 @@ section {
 h1 {
 	font-size: 170px;
 	margin-bottom: 0;
+	line-height: 1em;
 }
 h2 {
 	opacity: 1;

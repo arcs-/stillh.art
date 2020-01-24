@@ -11,7 +11,7 @@
 						<sub>Patrick</sub>
 						<br />Stillhart
 					</h1>
-					<p class="half">some drunk developer?</p>
+					<p class="half">I'm just here for the code</p>
 				</div>
 			</div>
 		</div>
