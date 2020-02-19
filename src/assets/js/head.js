@@ -1,12 +1,12 @@
 import Matter from 'matter-js'
 
 // ------------------------------------------------------------
-// constants
+// globals
 // ------------------------------------------------------------
 
-const PRIMARY = 'rgb(231, 201, 33)'
-const BLACK = '#0f0f13'
-const GRAY = '#999'
+var PRIMARY = 'rgb(231, 201, 33)'
+var BLACK = '#0f0f13'
+var GRAY = '#999'
 
 const TAU = Math.PI * 2
 const Bodies = Matter.Bodies
@@ -103,10 +103,10 @@ function onResize() {
 				cy,
 				20,
 				150 / 933 * m, {
-					angle: angle,
-					isStatic: true,
-					label: 'WHEEL'
-				}
+				angle: angle,
+				isStatic: true,
+				label: 'WHEEL'
+			}
 			))
 
 		}
@@ -190,6 +190,16 @@ function onGyro(event) {
 
 }
 
+function onDarkmode(val) {
+	if (val) {
+		PRIMARY = 'rgb(231, 201, 33)'
+		BLACK = '#000'
+	} else {
+		PRIMARY = 'rgb(231, 201, 33)'
+		BLACK = '#0f0f13'
+	}
+}
+
 // ------------------------------------------------------------
 // functions
 // ------------------------------------------------------------
@@ -208,6 +218,9 @@ function listeners(on) {
 
 	window[usage]("resize", onResize)
 	window[usage]("deviceorientation", onGyro)
+
+	if(on) bridge.$on('darkmode', onDarkmode)
+	else bridge.$off('darkmode', onDarkmode)
 
 }
 
@@ -234,8 +247,7 @@ function update(delta) {
 
 	// reset
 
-	ctx.fillStyle = '#fff'
-	ctx.fillRect(0, 0, canvas.width, canvas.height)
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
 
 	// draw
 
@@ -329,6 +341,8 @@ export default {
 
 		running = true
 		listeners(true)
+
+		onDarkmode(bridge.darkmode)
 
 		if (init) {
 			onResize()

@@ -182,7 +182,7 @@ export default {
 			width: 340px;
 			max-width: calc(100% - 45px);
 			padding: 15px;
-			color: #222;
+			color: currentColor;
 			margin-left: 45px;
 
 			h4 {
@@ -203,7 +203,7 @@ export default {
 		transition: all 0.5s ease-in-out;
 	}
 	&.view-in--gt-half::before {
-		background: $text;
+		background: currentColor;
 		left: -2px;
 	}
 	div {

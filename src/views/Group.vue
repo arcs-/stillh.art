@@ -98,7 +98,6 @@ h1 {
 	float: right;
 	z-index: 10;
 	font-size: 3rem;
-	color: $half;
 	transition: color 0.3s;
 
 	&::before {

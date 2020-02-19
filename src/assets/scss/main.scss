@@ -12,6 +12,7 @@
 body {
   margin: 0;
   min-height: 100vh;
+  transition: background .5s;
 
   &.hover {
     cursor: pointer;
@@ -39,3 +40,5 @@ body {
   color: $primary;
   background: rgba(0, 0, 0, 0.99);
 }
+
+@import "dark";

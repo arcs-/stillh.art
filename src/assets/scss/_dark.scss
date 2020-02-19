@@ -1,0 +1,30 @@
+$dark: $text;
+$text: rgb(241, 241, 241);
+
+
+body.dark {
+    background: $dark;
+	color: $text;
+
+    &::-webkit-scrollbar {
+        background: $dark;
+	}
+	
+	::selection {
+		color: $text;
+		background: $primary;
+	  }
+
+    a {
+		color: $text;
+		transition: all .3s;
+		&:hover {
+			color: $dark;
+		}
+	}
+	
+	.timeline {
+		color: $text;
+	}
+
+}

@@ -2,6 +2,12 @@
 	<div class="head">
 		<div id="cog"></div>
 
+		<div class="mode" @click="$root.$emit('darkmode', $root.darkmode = !$root.darkmode)">
+			<span v-if="$root.darkmode"><i class="ion-ios-sunny"></i></span>
+			<span v-else><i class="ion-ios-moon"></i></span>
+		</div>
+		
+
 		<div id="grower" ref="grower"></div>
 
 		<div class="container">
@@ -53,7 +59,8 @@ export default {
 				icon: "\uf243",
 				link: "https://twitter.com/tiredPatrick"
 			}
-		]);
+		]);			
+
 	},
 	destroyed() {
 		this.$root.$off("interact", this.onInteract);
@@ -100,6 +107,12 @@ export default {
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+.mode {
+	position: absolute;
+	top: 30px;
+	right: 30px;
 }
 
 #grower {

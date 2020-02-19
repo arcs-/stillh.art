@@ -14,7 +14,22 @@ Vue.use(VueLazyload)
 import Go from '@/components/utils/Go'
 Vue.component('go', Go)
 
+function isItDark() {
+
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return true
+
+	const hours = new Date().getHours()
+	if( hours < 6 && hours > 20) return true
+
+	return true
+}
+
 new Vue({
-  router,
-  render: function (h) { return h(App) }
+	data() {
+		return {
+			darkmode: isItDark()
+		}
+	},
+	router,
+	render: function (h) { return h(App) }
 }).$mount('#app')
