@@ -19,9 +19,9 @@ function isItDark() {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return true
 
 	const hours = new Date().getHours()
-	if( hours < 6 && hours > 20) return true
+	if( hours <= 6 || hours >= 18) return true
 
-	return true
+	return false
 }
 
 new Vue({

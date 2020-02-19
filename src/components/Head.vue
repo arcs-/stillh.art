@@ -1,18 +1,18 @@
 <template>
 	<div class="head">
-		<div id="cog"></div>
-
-		<div class="mode" @click="$root.$emit('darkmode', $root.darkmode = !$root.darkmode)">
-			<span v-if="$root.darkmode"><i class="ion-ios-sunny"></i></span>
-			<span v-else><i class="ion-ios-moon"></i></span>
-		</div>
-		
+		<div id="cog"></div>		
 
 		<div id="grower" ref="grower"></div>
 
 		<div class="container">
 			<div class="row">
 				<div class="col intro" v-view>
+
+					<div class="mode" @click="$root.$emit('darkmode', $root.darkmode = !$root.darkmode)" title="choose your side">
+						<span v-if="$root.darkmode"><i class="ion-ios-sunny"></i></span>
+						<span v-else><i class="ion-ios-moon"></i></span>
+					</div>
+
 					<h1>
 						<sub>Patrick</sub>
 						<br />Stillhart
@@ -100,7 +100,6 @@ export default {
 .head {
 	position: relative;
 	min-height: 100vh;
-	overflow: hidden;
 }
 
 #cog {
@@ -111,8 +110,15 @@ export default {
 
 .mode {
 	position: absolute;
-	top: 30px;
-	right: 30px;
+	top: 0;
+	right: 15px;
+	font-size: 3.6rem;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		color: $primary;
+	}
 }
 
 #grower {
