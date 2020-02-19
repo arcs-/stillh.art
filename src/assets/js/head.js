@@ -174,18 +174,20 @@ function onGyro(event) {
 	var orientation = typeof window.orientation !== 'undefined' ? window.orientation : 0
 	var gravity = engine.world.gravity
 
+	const MULTIPLAYER = 0.06
+
 	if (orientation === 0) {
-		gravity.x = Matter.Common.clamp(event.gamma, -90, 90) / 25
-		gravity.y = Matter.Common.clamp(event.beta, -90, 90) / 25
+		gravity.x = Matter.Common.clamp( event.beta > 90 ? -event.gamma : event.gamma, -90, 90) * MULTIPLAYER
+		gravity.y = Matter.Common.clamp(event.beta, -90, 90) * MULTIPLAYER
 	} else if (orientation === 180) {
-		gravity.x = Matter.Common.clamp(event.gamma, -90, 90) / 25
-		gravity.y = Matter.Common.clamp(-event.beta, -90, 90) / 25
+		gravity.x = Matter.Common.clamp(event.gamma, -90, 90) * MULTIPLAYER
+		gravity.y = Matter.Common.clamp(-event.beta, -90, 90) * MULTIPLAYER
 	} else if (orientation === 90) {
-		gravity.x = Matter.Common.clamp(event.beta, -90, 90) / 25
-		gravity.y = Matter.Common.clamp(-event.gamma, -90, 90) / 25
+		gravity.x = Matter.Common.clamp(event.beta, -90, 90) * MULTIPLAYER
+		gravity.y = Matter.Common.clamp(-event.gamma, -90, 90) * MULTIPLAYER
 	} else if (orientation === -90) {
-		gravity.x = Matter.Common.clamp(-event.beta, -90, 90) / 25
-		gravity.y = Matter.Common.clamp(event.gamma, -90, 90) / 25
+		gravity.x = Matter.Common.clamp(-event.beta, -90, 90) * MULTIPLAYER
+		gravity.y = Matter.Common.clamp(event.gamma, -90, 90) * MULTIPLAYER
 	}
 
 }
