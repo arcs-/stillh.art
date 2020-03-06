@@ -104,6 +104,7 @@ function onResize() {
 				20,
 				150 / 933 * m, {
 				angle: angle,
+				// friction: 0,
 				isStatic: true,
 				label: 'WHEEL'
 			}
@@ -177,7 +178,7 @@ function onGyro(event) {
 	const MULTIPLAYER = 0.06
 
 	if (orientation === 0) {
-		gravity.x = Matter.Common.clamp( event.beta > 90 ? -event.gamma : event.gamma, -90, 90) * MULTIPLAYER
+		gravity.x = Matter.Common.clamp(event.beta > 90 ? -event.gamma : event.gamma, -90, 90) * MULTIPLAYER
 		gravity.y = Matter.Common.clamp(event.beta, -90, 90) * MULTIPLAYER
 	} else if (orientation === 180) {
 		gravity.x = Matter.Common.clamp(event.gamma, -90, 90) * MULTIPLAYER
@@ -374,6 +375,7 @@ export default {
 					frictionAir: page.big ? .03 : .01
 				}
 			)
+			// ball.friction = 0.1;
 			ball.userData = page
 
 			balls.push(ball)

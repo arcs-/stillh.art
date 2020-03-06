@@ -5,21 +5,46 @@
 		<div id="grower" ref="grower"></div>
 
 		<div class="container">
-			<div class="row">
-				<div class="col intro" v-view>
+			<div class="row position-relative">
 
+				<div class="col intro" v-view>
+<!--
 					<div class="mode" @click="$root.$emit('darkmode', $root.darkmode = !$root.darkmode)" title="choose your side">
 						<span v-if="$root.darkmode"><i class="ion-ios-sunny"></i></span>
 						<span v-else><i class="ion-ios-moon"></i></span>
 					</div>
-
+-->
 					<h1>
 						<sub>Patrick</sub>
 						<br />Stillhart
 					</h1>
 					<p class="half">I'm just here for the code</p>
 				</div>
+			
+
+				<input class="darkmode-checkbox" id="darkMode" type="checkbox" v-model="$root.darkmode" @change="$root.$emit('darkmode')">
+				<label for="darkMode">
+				<svg class="darkmode-icon" viewBox="0 0 64 64">
+					<clipPath id="sun">
+					<circle cx="33" cy="32" r="12"/>
+					</clipPath>
+					<circle class="sun" cx="32" cy="32" r="12" />
+					<circle class="moon-shadow" cx="60" cy="32" r="12" clip-path="url(#sun)" />
+					<g class="rays">
+					<path d="M 32,4 l0,10" />
+					<path d="M 32,4 l0,10" transform="rotate(45)" transform-origin="50% 50%" />
+					<path d="M 32,4 l0,10" transform="rotate(135)" transform-origin="50% 50%"/>
+					<path d="M 32,4 l0,10" transform="rotate(180)" transform-origin="50% 50%"/>
+					<path d="M 32,4 l0,10" transform="rotate(90)" transform-origin="50% 50%"/>
+					<path d="M 32,4 l0,10" transform="rotate(225)" transform-origin="50% 50%"/>
+					<path d="M 32,4 l0,10" transform="rotate(270)" transform-origin="50% 50%"/>
+					<path d="M 32,4 l0,10" transform="rotate(315)" transform-origin="50% 50%"/>
+					</g>
+				</svg>
+				</label>
+
 			</div>
+
 		</div>
 	</div>
 </template>
@@ -59,7 +84,19 @@ export default {
 				icon: "\uf243",
 				link: "https://twitter.com/tiredPatrick"
 			}
-		]);			
+		]);	
+
+
+		/*
+		const rays = $$('.rays path');
+		rays.map((ray, i) => {
+			const p0 = translate(rotate({x: 0, y: -28}, i * 45 * (Math.PI / 180) ), 32, 32);
+			const p1 = translate(rotate({x: 0, y: -16}, i * 45 * (Math.PI / 180) ), 32, 32);
+			ray.removeAttribute('transform-origin');
+			ray.removeAttribute('transform');
+			ray.setAttribute('d', `M${p0.x} ${p0.y} L${p1.x} ${p1.y}`);
+		});		
+		*/
 
 	},
 	destroyed() {
@@ -108,17 +145,56 @@ export default {
 	left: 0;
 }
 
-.mode {
+.darkmode-icon {
 	position: absolute;
-	top: 0;
+	top: 15vh;
 	right: 15px;
-	font-size: 3.6rem;
-	cursor: pointer;
-	transition: all 0.3s ease-in-out;
+	width: 60px;
+	 cursor: pointer;
+  
+  .moon-shadow {
+    transition: cx 400ms ease;
+  }
+  
+  .rays {
+    transition: stroke-dashoffset 400ms ease;   
+    stroke-dashoffset: 24;
+    stroke-dasharray: 12;
+  }
+  
+  .sun {
+      fill: $primary;
+  }
+  
+  .moon-shadow {
+    fill: $text;
+  }
+  
+  .rays, .sun-stroke {
+    stroke: $primary;
+	stroke-width: 2px;
+    fill: none;
+  }
+}
 
-	&:hover {
-		color: $primary;
-	}
+/** dark mode */
+
+.darkmode-checkbox:checked ~ label {
+  
+  .darkmode-icon {
+    .moon-shadow {
+      cx: 39;
+    }
+    
+    .rays {
+      stroke-dashoffset: 12;
+      stroke-dasharray: 12;
+    }
+  }  
+}
+
+.darkmode-checkbox {
+  display: none;
 }
 
 #grower {
