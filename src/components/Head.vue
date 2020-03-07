@@ -5,47 +5,42 @@
 		<div id="grower" ref="grower"></div>
 
 		<div class="container">
-			<div class="row position-relative">
+			<div class="row">
 
-				<div class="col intro" v-view>
-<!--
-					<div class="mode" @click="$root.$emit('darkmode', $root.darkmode = !$root.darkmode)" title="choose your side">
-						<span v-if="$root.darkmode"><i class="ion-ios-sunny"></i></span>
-						<span v-else><i class="ion-ios-moon"></i></span>
+				<div class="col col-lg-11 intro">
+
+					<input class="darkmode-checkbox" id="darkMode" type="checkbox" v-model="$root.darkmode" @change="$root.$emit('darkmode', $root.darkmode)">
+					<label for="darkMode">
+						<svg class="darkmode-icon" viewBox="0 0 64 64">
+							<clipPath id="sun"><circle cx="33" cy="32" r="12"/></clipPath>
+							<circle class="sun" cx="32" cy="32" r="12" />
+							<circle class="moon-shadow" cx="60" cy="32" r="12" clip-path="url(#sun)" />
+							<g class="rays">
+								<path d="M 32,4 l0,10" />
+								<path d="M 32,4 l0,10" transform="rotate(45)" transform-origin="50% 50%" />
+								<path d="M 32,4 l0,10" transform="rotate(135)" transform-origin="50% 50%"/>
+								<path d="M 32,4 l0,10" transform="rotate(180)" transform-origin="50% 50%"/>
+								<path d="M 32,4 l0,10" transform="rotate(90)" transform-origin="50% 50%"/>
+								<path d="M 32,4 l0,10" transform="rotate(225)" transform-origin="50% 50%"/>
+								<path d="M 32,4 l0,10" transform="rotate(270)" transform-origin="50% 50%"/>
+								<path d="M 32,4 l0,10" transform="rotate(315)" transform-origin="50% 50%"/>
+							</g>
+						</svg>
+					</label>
+
+					<div class="heading" v-view>
+						<h1>
+							<sub>Patrick</sub>
+							<br />Stillhart
+						</h1>
+						<p class="half">I'm just here for the code</p>
 					</div>
--->
-					<h1>
-						<sub>Patrick</sub>
-						<br />Stillhart
-					</h1>
-					<p class="half">I'm just here for the code</p>
-				</div>
-			
 
-				<input class="darkmode-checkbox" id="darkMode" type="checkbox" v-model="$root.darkmode" @change="$root.$emit('darkmode')">
-				<label for="darkMode">
-				<svg class="darkmode-icon" viewBox="0 0 64 64">
-					<clipPath id="sun">
-					<circle cx="33" cy="32" r="12"/>
-					</clipPath>
-					<circle class="sun" cx="32" cy="32" r="12" />
-					<circle class="moon-shadow" cx="60" cy="32" r="12" clip-path="url(#sun)" />
-					<g class="rays">
-					<path d="M 32,4 l0,10" />
-					<path d="M 32,4 l0,10" transform="rotate(45)" transform-origin="50% 50%" />
-					<path d="M 32,4 l0,10" transform="rotate(135)" transform-origin="50% 50%"/>
-					<path d="M 32,4 l0,10" transform="rotate(180)" transform-origin="50% 50%"/>
-					<path d="M 32,4 l0,10" transform="rotate(90)" transform-origin="50% 50%"/>
-					<path d="M 32,4 l0,10" transform="rotate(225)" transform-origin="50% 50%"/>
-					<path d="M 32,4 l0,10" transform="rotate(270)" transform-origin="50% 50%"/>
-					<path d="M 32,4 l0,10" transform="rotate(315)" transform-origin="50% 50%"/>
-					</g>
-				</svg>
-				</label>
+				</div>
 
 			</div>
-
 		</div>
+
 	</div>
 </template>
 
@@ -147,13 +142,15 @@ export default {
 
 .darkmode-icon {
 	position: absolute;
-	top: 15vh;
-	right: 15px;
+	top: 0;
+	right: 0;
+	z-index: 1;
 	width: 60px;
-	 cursor: pointer;
+	cursor: pointer;
+	user-select: none;
   
   .moon-shadow {
-    transition: cx 400ms ease;
+    transition: cx .6s ease-in-out;
   }
   
   .rays {
@@ -168,6 +165,10 @@ export default {
   
   .moon-shadow {
     fill: $text;
+  }
+
+	&:hover .moon-shadow {
+    cx: 52;
   }
   
   .rays, .sun-stroke {
@@ -218,7 +219,9 @@ export default {
 .intro {
 	position: relative;
 	top: 15vh;
+}
 
+.heading {
 	opacity: 0;
 	transform: translateY(10px);
 	transition: all 0.7s ease-in-out;
@@ -234,7 +237,7 @@ h1 {
 
 	font-size: 5rem;
 	font-weight: 800;
-	line-height: 0.8;
+	line-height: 0.85;
 
 	sub {
 		font-weight: 700;

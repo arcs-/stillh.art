@@ -97,8 +97,8 @@
 						</small> / three.js
 					</p>
 					<p>Docker / UnrealEngine / Unity</p>
-					<p>Debain / Android / iOS</p>
-					<p>MongoDB / ElasticSearch</p>
+					<p>Git / webpack / Yarn</p>
+					<p>MongoDB / MySQL / ElasticSearch</p>
 				</div>
 
 				<div class="shield" v-view>
@@ -109,11 +109,12 @@
 							<i class="ion-heart"></i>
 						</small> / nano / Intellij
 					</p>
-					<p>Git / webpack / Yarn</p>
-					<br />
-					<p>Gimp 2 / Illustrator / Lightroom</p>
-					<p>Cinema 4D</p>
-					<br />
+					<p>Windows / Linux / Android</p>
+					
+					
+					<p class="mt-2">Gimp / Illustrator / Cinema 4D</p>
+					<p></p>
+				
 				</div>
 			</div>
 		</div>
@@ -138,7 +139,7 @@ export default {
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .shield {
-	width: 250px;
+	width: 270px;
 	margin-top: 80px;
 	opacity: 0;
 	transform: translateY(60px);

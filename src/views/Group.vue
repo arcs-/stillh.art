@@ -22,7 +22,7 @@
 						<p v-html="project.description"></p>
 
 						<p v-if="project.team" class="mt-2">
-							<span class="mr-1">Togheter with: </span><go v-for="(value, key) of project.team" :to="value" class="team" :class="{link: value}">{{ key }}</go>
+							<span class="mr-1">Together with: </span><go v-for="(value, key) of project.team" :to="value" class="team" :class="{link: value}">{{ key }}</go>
 						</p>
 
 						<go :to="project.link.target" class="button" v-html="project.link.label"></go>

@@ -1,26 +1,27 @@
 $dark: $text;
 $text: rgb(241, 241, 241);
 
-
 body.dark {
-    background: $dark;
+  background-color: $dark;
 	color: $text;
-
-    &::-webkit-scrollbar {
-        background: $dark;
-	}
 	
 	::selection {
 		color: $text;
 		background: $primary;
-	  }
+	}
 
-    a {
+  a {
 		color: $text;
 		transition: all .3s;
+
 		&:hover {
 			color: $dark;
 		}
+
+		&.button:hover {
+			transition-delay: .3s
+		}
+
 	}
 	
 	.timeline {

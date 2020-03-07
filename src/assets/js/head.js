@@ -196,7 +196,7 @@ function onGyro(event) {
 function onDarkmode(val) {
 	if (val) {
 		PRIMARY = 'rgb(231, 201, 33)'
-		BLACK = '#000'
+		BLACK = '#222'
 	} else {
 		PRIMARY = 'rgb(231, 201, 33)'
 		BLACK = '#0f0f13'
