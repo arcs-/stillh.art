@@ -17,6 +17,8 @@ export default {
 	mounted() {
 		this.$root.$on('darkmode', this.onDarkmode)
 		this.onDarkmode()
+
+		setTimeout(_ => document.body.classList.remove('loading'), 5)
 	},
 	methods: {
 		onDarkmode() {

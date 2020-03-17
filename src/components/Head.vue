@@ -10,7 +10,7 @@
 				<div class="col col-lg-11 intro">
 
 					<input class="darkmode-checkbox" id="darkMode" type="checkbox" v-model="$root.darkmode" @change="$root.$emit('darkmode', $root.darkmode)">
-					<label for="darkMode">
+					<label for="darkMode" title="switch theme">
 						<svg class="darkmode-icon" viewBox="0 0 64 64">
 							<clipPath id="sun"><circle cx="33" cy="32" r="12"/></clipPath>
 							<circle class="sun" cx="32" cy="32" r="12" />
@@ -143,7 +143,7 @@ export default {
 .darkmode-icon {
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 11px;
 	z-index: 1;
 	width: 60px;
 	cursor: pointer;

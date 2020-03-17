@@ -170,7 +170,7 @@ function onMouseup(e) {
 
 function onGyro(event) {
 
-	if (!event.alpha) return
+	if (event.alpha == undefined) return
 
 	var orientation = typeof window.orientation !== 'undefined' ? window.orientation : 0
 	var gravity = engine.world.gravity
@@ -191,6 +191,17 @@ function onGyro(event) {
 		gravity.y = Matter.Common.clamp(event.gamma, -90, 90) * MULTIPLAYER
 	}
 
+}
+
+function onMotion(event) {
+  for(let ball of balls) {
+
+	Matter.Body.applyForce(ball, ball.position, {
+		x: -event.acceleration.x, 
+		y: -event.acceleration.y
+	});
+
+  }
 }
 
 function onDarkmode(val) {
@@ -221,6 +232,7 @@ function listeners(on) {
 
 	window[usage]("resize", onResize)
 	window[usage]("deviceorientation", onGyro)
+	window[usage]("devicemotion", onMotion)
 
 	if(on) bridge.$on('darkmode', onDarkmode)
 	else bridge.$off('darkmode', onDarkmode)
@@ -371,11 +383,11 @@ export default {
 				page.big ? config.bigBallRadius : config.ballRadius,
 				{
 					label: 'BALL',
-					density: page.big ? .9 : .3,
-					frictionAir: page.big ? .03 : .01
+					density: page.big ? .1 : .9,
+					frictionAir: page.big ? .005 : .02
 				}
 			)
-			// ball.friction = 0.1;
+
 			ball.userData = page
 
 			balls.push(ball)
