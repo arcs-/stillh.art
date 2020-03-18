@@ -1,7 +1,6 @@
 // ------------------------------------------------------------
 // canvas
 // ------------------------------------------------------------
-
 canvas {
     display: block;
 }
@@ -9,19 +8,16 @@ canvas {
 // ------------------------------------------------------------
 // link
 // ------------------------------------------------------------
-
 a {
     color: $text;
     text-decoration: none;
-
     &.link {
         color: $text;
         text-decoration: none;
         transition: background 0.15s ease-in-out;
-        padding-bottom: 0.1rem;
+        padding-bottom: 0.01rem;
         background: linear-gradient(to top, $primary, $primary) no-repeat 0 1.1rem;
         white-space: nowrap;
-
         &:hover {
             background-position-y: 0;
         }
@@ -31,7 +27,6 @@ a {
 // ------------------------------------------------------------
 // button
 // ------------------------------------------------------------
-
 .button {
     position: relative;
     display: inline-block;
@@ -42,7 +37,6 @@ a {
     color: $text;
     text-align: center;
     border-radius: 2px;
-
     &:before,
     &:after {
         content: '';
@@ -54,23 +48,18 @@ a {
         border-radius: 50%;
         z-index: -1;
     }
-
     &:before {
         left: -20px;
         transform: translate(-50%, -50%);
     }
-
     &:after {
         right: -20px;
         transform: translate(50%, -50%);
     }
-
     &:hover {
-
         &:before {
             animation: criss-cross-left 0.8s both;
         }
-
         &:after {
             animation: criss-cross-right 0.8s both;
         }
@@ -81,13 +70,11 @@ a {
     0% {
         right: -20px;
     }
-
     50% {
         right: 50%;
         width: 20px;
         height: 20px;
     }
-
     100% {
         right: 50%;
         width: 375px;
@@ -99,17 +86,14 @@ a {
     0% {
         left: -20px;
     }
-
     50% {
         left: 50%;
         width: 20px;
         height: 20px;
     }
-
     100% {
         left: 50%;
         width: 375px;
         height: 375px;
     }
-
 }

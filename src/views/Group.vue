@@ -12,12 +12,12 @@
 
 			<div class="projects mt-4">
 				<div class="project row mb-4" v-for="project of data.projects" :key="project.title" v-view>
-					<div class="col-md-6">
-						<div class="aspect a32 image">
+					<div class="col-md-8 pr-2">
+						<div class="image">
 							<img v-lazy="project.image" />
 						</div>
 					</div>
-					<div class="col-md-6 right info">
+					<div class="col-md-4 right info">
 						<h2>{{ project.title }}</h2>
 						<p v-html="project.description"></p>
 
@@ -135,6 +135,11 @@ h1 {
 		opacity: 0;
 		transform: translateX(-100px);
 		transition: all 0.3s;
+		margin-top: 8px;
+			
+		img {
+			box-shadow: 0 0 10px #a2a2a2;
+		}
 	}
 
 	&.view-in .image {
