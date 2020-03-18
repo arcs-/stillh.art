@@ -11,7 +11,7 @@ body.dark {
 	
 	::selection {
 		color: $text;
-		background: $primary;
+		background: rgba($primary, .99);
 	}
 
   	a {

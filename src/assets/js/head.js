@@ -76,6 +76,8 @@ function onResize() {
 		if (canvas.width < canvas.height) config = CONFIG.MOBILE
 		else config = CONFIG.DESKTOP
 
+		canvas.height += 400
+		
 		// wheel
 
 		var bodies = Matter.Composite.allBodies(engine.world)
@@ -383,8 +385,8 @@ export default {
 				page.big ? config.bigBallRadius : config.ballRadius,
 				{
 					label: 'BALL',
-					density: page.big ? .1 : .9,
-					frictionAir: page.big ? .005 : .02
+					density: page.big ? .1 : .6,
+					frictionAir: page.big ? .02 : .01
 				}
 			)
 
