@@ -3,11 +3,11 @@ img {
 }
 
 img[lazy=loading] {
-    // background-color: rgba($primary, 0.3);
+    box-shadow: none!important;
 }
 
 img[lazy=error] {
-    background-color: red;
+    background: red;
     box-shadow: none!important;
 }
 

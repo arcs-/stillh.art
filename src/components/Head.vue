@@ -33,7 +33,7 @@
 							<sub>Patrick</sub>
 							<br />Stillhart
 						</h1>
-						<p class="half">I'm just here for the code</p>
+					
 					</div>
 
 				</div>
@@ -218,7 +218,7 @@ export default {
 
 .intro {
 	position: relative;
-	top: 15vh;
+	top: 13vh;
 }
 
 .heading {
@@ -235,17 +235,17 @@ export default {
 h1 {
 	margin: 0;
 
-	font-size: 5rem;
+	font-size: 7rem;
 	font-weight: 800;
 	line-height: 0.85;
 
 	sub {
 		font-weight: 700;
-		font-size: 0.7em;
+		font-size: 0.68em;
 	}
 
 	@include media-breakpoint-down(md) {
-		font-size: 4rem;
+		font-size: 4.8rem;
 	}
 }
 </style>

@@ -1,18 +1,19 @@
-@import url('https://rsms.me/inter/inter.css');
+//@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
 
 html {
-    font-family: 'Inter', sans-serif;
-    font-feature-settings: 'ss02'1;
+    font-family: 'IBM Plex Sans', sans-serif;
+    //font-feature-settings: 'ss02'1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+/*
 @supports (font-variation-settings: normal) {
     html {
         font-family: 'Inter var', sans-serif;
     }
 }
-
+*/
 h1 {
     font-size: 4rem;
 

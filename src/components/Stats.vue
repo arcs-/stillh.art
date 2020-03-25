@@ -2,7 +2,7 @@
 	<div class="container stats mt-2 mt-lg-3">
 		<div class="row">
 			<div class="col">
-				<h2 id="overview" v-view>Overview</h2>
+				<h2 id="overview" v-view>Quick</h2>
 			</div>
 		</div>
 

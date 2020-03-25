@@ -196,6 +196,10 @@ function onGyro(event) {
 }
 
 function onMotion(event) {
+
+  // prevent inputs on inactive tab
+  if(document.hidden) return
+
   for(let ball of balls) {
 
 	Matter.Body.applyForce(ball, ball.position, {
@@ -270,7 +274,7 @@ function update(delta) {
 
 	ctx.lineWidth = 1
 
-	var font = 20
+	var font = 22
 	var lineHeight = 15
 
 	for (var i = 0; i < bodies.length; i += 1) {
@@ -322,7 +326,7 @@ function update(delta) {
 			ctx.textAlign = "center"
 
 			if (bodies[i].userData.icon) ctx.font = font + 'px Ionicons'
-			else ctx.font = font + 'px Inter'
+			else ctx.font = font + 'px IBM Plex Sans'
 
 			if (hover) ctx.fillStyle = PRIMARY
 			else ctx.fillStyle = BLACK

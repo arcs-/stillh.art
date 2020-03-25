@@ -10,9 +10,9 @@
 				</div>
 			</div>
 
-			<div class="projects mt-4">
-				<div class="project row mb-4" v-for="project of data.projects" :key="project.title" v-view>
-					<div class="col-md-8 pr-2">
+			<div class="projects mt-3">
+				<div class="project row mb-2 mb-md-4" v-for="project of data.projects" :key="project.title" v-view>
+					<div class="col-md-8 pr-md-2 pb-2 pb-md-0">
 						<div class="image">
 							<img v-lazy="project.image" />
 						</div>
@@ -22,7 +22,10 @@
 						<p v-html="project.description"></p>
 
 						<p v-if="project.team" class="mt-2">
-							<span class="mr-1">Together with: </span><go v-for="(value, key) of project.team" :to="value" class="team" :class="{link: value}">{{ key }}</go>
+							<span class="float-left mr-1">Together with: </span>
+							<span class="d-inline-block">
+								<go v-for="(value, key) of project.team" :to="value" class="team" :class="{link: value}">{{ key }}</go>
+							</span>
 						</p>
 
 						<go :to="project.link.target" class="button" v-html="project.link.label"></go>
@@ -135,7 +138,6 @@ h1 {
 		opacity: 0;
 		transform: translateX(-100px);
 		transition: all 0.3s;
-		margin-top: 8px;
 			
 		img {
 			box-shadow: 0 0 10px #a2a2a2;
@@ -162,7 +164,7 @@ h1 {
 
 .team {
 	white-space: nowrap;
-	display: inline-block;
+	display: table;
 	margin-right: 10px;
 }
 </style>
