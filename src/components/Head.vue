@@ -28,10 +28,10 @@
 						</svg>
 					</label>
 
-					<div class="heading" v-view>
+					<div>
 						<h1>
-							<sub>Patrick</sub>
-							<br />Stillhart
+							<sub v-view>Patrick</sub>
+							<span v-view>Stillhart</span>
 						</h1>
 					
 					</div>
@@ -150,7 +150,7 @@ export default {
 	user-select: none;
   
   .moon-shadow {
-    transition: cx .6s ease-in-out;
+    transition: cx .6s ease-out;
   }
   
   .rays {
@@ -221,16 +221,6 @@ export default {
 	top: 13vh;
 }
 
-.heading {
-	opacity: 0;
-	transform: translateY(10px);
-	transition: all 0.7s ease-in-out;
-
-	&.view-in--gt-half {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
 
 h1 {
 	margin: 0;
@@ -239,13 +229,40 @@ h1 {
 	font-weight: 800;
 	line-height: 0.85;
 
-	sub {
-		font-weight: 700;
-		font-size: 0.68em;
-	}
+	-webkit-text-stroke: 1px transparent;
+  -webkit-text-fill-color: currentColor;
 
 	@include media-breakpoint-down(md) {
 		font-size: 4.8rem;
 	}
+
+	sub {
+		display: block;
+		font-size: 1.13em;
+
+		-webkit-text-stroke: 1px currentColor;
+    -webkit-text-fill-color: transparent;
+
+		opacity: 0;
+	  transform: translateY(-40px);
+  	transition: all .5s ease-in-out;
+
+		&.view-in--gt-half {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		
+	}
+
+	span {
+		display: block;
+		opacity: 0;
+  	transition: opacity 1s ease-out, color .5s ease-in-out;
+
+		&.view-in--gt-half {
+			opacity: 1;
+		}
+	}
+
 }
 </style>

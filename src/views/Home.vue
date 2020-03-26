@@ -5,7 +5,7 @@
 		<div id="info" class="container mb-3 mb-lg-4">
 			<div class="row">
 				<div class="col-md-8">
-					<h2 v-view>Who am I</h2>
+					<h2 v-view>Message</h2>
 
 					<div id="story" class="mb-3">
 						<p v-view>
@@ -63,7 +63,7 @@ export default {
 p {
 	opacity: 0;
 	transform: translateY(60px);
-	transition: 0.4s ease-in-out;
+	transition: 0.4s ease-out;
 
 	&.view-in {
 		opacity: 1;

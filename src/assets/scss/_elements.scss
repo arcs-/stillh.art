@@ -14,11 +14,12 @@ a {
     &.link {
         color: $text;
         text-decoration: none;
-        transition: background 0.15s ease-in-out;
+        transition: background 0.15s ease-in;
         padding-bottom: 0.02rem;
         background: linear-gradient(to top, $primary, $primary) no-repeat 0 1.2rem;
         white-space: nowrap;
         &:hover {
+            transition-timing-function: ease-out;
             background-position-y: 0;
         }
     }
@@ -31,12 +32,12 @@ a {
     position: relative;
     display: inline-block;
     overflow: hidden;
-    border: 4px solid $primary;
+    border: 2px solid $primary;
     padding: 10px 30px;
     margin-top: 30px;
     color: $text;
     text-align: center;
-    border-radius: 2px;
+    //border-radius: 2px;
     &:before,
     &:after {
         content: '';

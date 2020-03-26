@@ -196,10 +196,6 @@ function onGyro(event) {
 }
 
 function onMotion(event) {
-
-  // prevent inputs on inactive tab
-  if(document.hidden) return
-
   for(let ball of balls) {
 
 	Matter.Body.applyForce(ball, ball.position, {
@@ -384,8 +380,8 @@ export default {
 		for (let page of pages.reverse()) {
 
 			var ball = Bodies.circle(
-				page.big ? 400 : 1300,
-				200,
+				page.big ? 400 : 1200,
+				400,
 				page.big ? config.bigBallRadius : config.ballRadius,
 				{
 					label: 'BALL',

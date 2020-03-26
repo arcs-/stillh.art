@@ -2,7 +2,7 @@
 	<div class="container stats mt-2 mt-lg-3">
 		<div class="row">
 			<div class="col">
-				<h2 id="overview" v-view>Quick</h2>
+				<h2 id="overview" v-view>Summary</h2>
 			</div>
 		</div>
 
@@ -147,7 +147,7 @@ export default {
 	&.view-in--gt-half {
 		opacity: 1;
 		transform: translateY(0);
-		transition: 0.4s ease-in-out;
+		transition: 0.4s ease-out;
 	}
 
 	small {
@@ -201,7 +201,7 @@ export default {
 /* EFFECTS */
 .timeline li {
 	&::before {
-		transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-out;
 	}
 	&.view-in--gt-half::before {
 		background: currentColor;
@@ -210,7 +210,7 @@ export default {
 	div {
 		visibility: hidden;
 		opacity: 0;
-		transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-out;
 		transform: translate3d(200px, 0, 0);
 	}
 	&.view-in--gt-half div {

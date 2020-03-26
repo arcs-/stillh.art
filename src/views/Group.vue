@@ -4,15 +4,15 @@
 			<div class="row">
 				<div class="col">
 					<go to="/" id="close">
-						<i class="ion-close"></i>
+						×
 					</go>
-					<h1 v-view>My {{data.label}}</h1>
+					<h1 v-view># {{data.label}}</h1>
 				</div>
 			</div>
 
-			<div class="projects mt-3">
-				<div class="project row mb-2 mb-md-4" v-for="project of data.projects" :key="project.title" v-view>
-					<div class="col-md-8 pr-md-2 pb-2 pb-md-0">
+			<div class="projects mt-2 pt-1">
+				<div class="project row mb-3 mb-md-4" v-for="project of data.projects" :key="project.title" v-view>
+					<div class="col-md-8 pr-md-2 pb-1 pb-md-0">
 						<div class="image">
 							<img v-lazy="project.image" />
 						</div>
@@ -75,9 +75,9 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/scss/_variables.scss";
-
+@import "@/assets/scss/_mixins.scss";
 .group {
-	padding-top: 10vh;
+	padding-top: 5.5vh;
 	padding-bottom: 15vh;
 	width: 100%;
 	overflow: hidden;
@@ -87,7 +87,7 @@ h1 {
 	display: inline-block;
 	opacity: 0;
 	transform: translateY(30px);
-	transition: 0.4s ease-in-out;
+	transition: 0.4s ease-out;
 	margin: 0;
 
 	&.view-in {
@@ -100,14 +100,22 @@ h1 {
 	position: relative;
 	float: right;
 	z-index: 10;
-	font-size: 3rem;
+	font-size: 5rem;
+	line-height: 80px;
 	transition: color 0.3s;
+
+	// ignore kerning
+	margin-right: -7px;
+
+	@include media-breakpoint-down(md) {
+		line-height: .55em;
+	}    
 
 	&::before {
 		content: "";
 		position: absolute;
 		z-index: -1;
-		top: 50%;
+		top: 45px;
 		left: 50%;
 		width: 0;
 		height: 0;
@@ -121,10 +129,30 @@ h1 {
 		color: $text;
 
 		&::before {
+			animation: wobble 3s ease infinite alternate;
 			width: 80px;
 			height: 80px;
 		}
+
 	}
+}
+
+@keyframes wobble {
+  10%, 100% {
+    transform: translate(-50%, -50%) translate3d(-1px, 1px, 0); 
+  }
+  
+  20%, 80% {
+    transform: translate(-50%, -50%) translate3d(2px, -1px, 0);
+  }
+
+  30%, 70% {
+    transform: translate(-50%, -50%) translate3d(-2px, -1px, 0);
+  }
+
+  40%, 60% {
+    transform: translate(-50%, -50%) translate3d(3px, 2px, 0);
+  }
 }
 
 .project {
@@ -144,7 +172,7 @@ h1 {
 		}
 	}
 
-	&.view-in .image {
+	&.view-in--gt-half .image {
 		opacity: 1;
 		transform: translateX(0);
 	}
@@ -155,8 +183,8 @@ h1 {
 		transition: all 0.3s;
 	}
 
-	&.view-in .info,
-	&.view-in h2 {
+	&.view-in--gt-half .info,
+	&.view-in--gt-half h2 {
 		opacity: 1;
 		transform: translateX(0);
 	}
