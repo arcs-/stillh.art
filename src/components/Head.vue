@@ -10,7 +10,7 @@
 				<div class="col col-lg-11 intro">
 
 					<input class="darkmode-checkbox" id="darkMode" type="checkbox" v-model="$root.darkmode" @change="$root.$emit('darkmode', $root.darkmode)">
-					<label for="darkMode" title="switch theme">
+					<label for="darkMode" :title="$root.darkmode ? 'Is there no sun in this cursed country?!' : 'Join the dark side'">
 						<svg class="darkmode-icon" viewBox="0 0 64 64">
 							<clipPath id="sun"><circle cx="33" cy="32" r="12"/></clipPath>
 							<circle class="sun" cx="32" cy="32" r="12" />
@@ -206,12 +206,12 @@ export default {
 	transform: translate(-50%, -50%) scale(0.01);
 
 	&.expand {
-		transition: transform 1s;
+		transition: transform .5s ease-in;
 		transform: translate(-50%, -50%) scale(20);
 	}
 
 	&.mega-expand {
-		transition: transform 1s;
+		transition: transform .5s ease-in;
 		transform: translate(-50%, -50%) scale(80);
 	}
 }
@@ -229,7 +229,7 @@ h1 {
 	font-weight: 800;
 	line-height: 0.85;
 
-	-webkit-text-stroke: 1px transparent;
+	-webkit-text-stroke: 2px transparent;
   -webkit-text-fill-color: currentColor;
 
 	@include media-breakpoint-down(md) {
@@ -240,7 +240,7 @@ h1 {
 		display: block;
 		font-size: 1.13em;
 
-		-webkit-text-stroke: 1px currentColor;
+		-webkit-text-stroke: 2px currentColor;
     -webkit-text-fill-color: transparent;
 
 		opacity: 0;

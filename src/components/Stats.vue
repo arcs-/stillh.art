@@ -32,8 +32,7 @@
 							<go
 								to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/bachelor/digital-ideation/"
 								class="link"
-								target="_blank"
-							>
+								target="_blank">
 								Hochschule Luzern
 								<i class="ion-android-open"></i>
 							</go>

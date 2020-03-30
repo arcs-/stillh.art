@@ -1,6 +1,7 @@
 // ------------------------------------------------------------
 // canvas
 // ------------------------------------------------------------
+
 canvas {
     display: block;
 }
@@ -8,6 +9,7 @@ canvas {
 // ------------------------------------------------------------
 // link
 // ------------------------------------------------------------
+
 a {
     color: $text;
     text-decoration: none;
@@ -15,7 +17,7 @@ a {
         color: $text;
         text-decoration: none;
         transition: background 0.15s ease-in;
-        padding-bottom: 0.02rem;
+        padding-bottom: 0.05rem;
         background: linear-gradient(to top, $primary, $primary) no-repeat 0 1.2rem;
         white-space: nowrap;
         &:hover {
@@ -28,16 +30,17 @@ a {
 // ------------------------------------------------------------
 // button
 // ------------------------------------------------------------
+
 .button {
     position: relative;
     display: inline-block;
     overflow: hidden;
-    border: 2px solid $primary;
+    border: 3px solid $primary;
     padding: 10px 30px;
     margin-top: 30px;
     color: $text;
     text-align: center;
-    //border-radius: 2px;
+
     &:before,
     &:after {
         content: '';

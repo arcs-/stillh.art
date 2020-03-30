@@ -4,9 +4,7 @@ import Matter from 'matter-js'
 // globals
 // ------------------------------------------------------------
 
-var PRIMARY = 'rgb(231, 201, 33)'
-var BLACK = '#0f0f13'
-var GRAY = '#999'
+var PRIMARY, BLACK, GRAY = '#999'
 
 const TAU = Math.PI * 2
 const Bodies = Matter.Bodies
@@ -39,7 +37,7 @@ const pos = (e, what) => e.touches ? e.changedTouches[0][what] : e[what]
 // working
 // ------------------------------------------------------------
 
-var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: -50, y: -50 }, config = CONFIG.DESKTOP
+var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: -50, y: -50 }, screen = { x: window.screenX, y: window.screenY },config = CONFIG.DESKTOP
 var then = timestamp()
 
 var wheel = null, balls = []
@@ -199,9 +197,9 @@ function onMotion(event) {
   for(let ball of balls) {
 
 	Matter.Body.applyForce(ball, ball.position, {
-		x: -event.acceleration.x, 
-		y: -event.acceleration.y
-	});
+		x: (event.acceleration.x * .3), 
+		y: -(event.acceleration.y * .3)
+	})
 
   }
 }
@@ -209,7 +207,7 @@ function onMotion(event) {
 function onDarkmode(val) {
 	if (val) {
 		PRIMARY = 'rgb(231, 201, 33)'
-		BLACK = '#222'
+		BLACK = '#000'
 	} else {
 		PRIMARY = 'rgb(231, 201, 33)'
 		BLACK = '#0f0f13'
@@ -219,7 +217,6 @@ function onDarkmode(val) {
 // ------------------------------------------------------------
 // functions
 // ------------------------------------------------------------
-
 
 function listeners(on) {
 
@@ -259,8 +256,25 @@ function update(delta) {
 
 	if (wheel) Matter.Body.rotate(wheel, .08 * delta)
 
+	// data
+
 	var bodies = Matter.Composite.allBodies(engine.world)
 	var addHover = false
+
+	// velocity screen
+
+	var screenVelocityX = (screen.x - window.screenX) * delta * 1.7
+	var screenVelocityY = (screen.y - window.screenY) * delta * 2
+
+	for(let ball of balls) {
+		Matter.Body.applyForce(ball, ball.position, {
+			x: screenVelocityX, 
+			y: screenVelocityY
+		});
+	}
+
+	screen.x = window.screenX
+	screen.y = window.screenY
 
 	// reset
 
@@ -297,7 +311,7 @@ function update(delta) {
 
 		else if (bodies[i].label.includes('BALL')) {
 
-			if (bodies[i].position.y > canvas.height * 2) {
+			if (bodies[i].position.y > canvas.height + 50) {
 				Matter.Body.setPosition(bodies[i], { x: window.innerWidth / 2, y: -100 })
 				Matter.Body.setVelocity(bodies[i], { x: 0, y: 0 })
 			}
@@ -380,13 +394,13 @@ export default {
 		for (let page of pages.reverse()) {
 
 			var ball = Bodies.circle(
-				page.big ? 400 : 1200,
-				400,
+				page.big ? 400 : 1200, // x
+				400, 				   // y
 				page.big ? config.bigBallRadius : config.ballRadius,
 				{
 					label: 'BALL',
-					density: page.big ? .1 : .6,
-					frictionAir: page.big ? .02 : .01
+					mass: page.big ? 150 : 30,
+					frictionAir: page.big ? .01 : .02
 				}
 			)
 

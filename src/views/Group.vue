@@ -11,7 +11,7 @@
 			</div>
 
 			<div class="projects mt-2 pt-1">
-				<div class="project row mb-3 mb-md-4" v-for="project of data.projects" :key="project.title" v-view>
+				<div class="project row mb-3 mb-md-5" v-for="project of data.projects" :key="project.title" v-view>
 					<div class="col-md-8 pr-md-2 pb-1 pb-md-0">
 						<div class="image">
 							<img v-lazy="project.image" />
@@ -78,7 +78,7 @@ export default {
 @import "@/assets/scss/_mixins.scss";
 .group {
 	padding-top: 5.5vh;
-	padding-bottom: 15vh;
+	padding-bottom: 8vh;
 	width: 100%;
 	overflow: hidden;
 }
@@ -109,6 +109,10 @@ h1 {
 
 	@include media-breakpoint-down(md) {
 		line-height: .55em;
+
+		&:before {
+			top: 31px!important;
+		}
 	}    
 
 	&::before {
@@ -165,7 +169,7 @@ h1 {
 		position: relative;
 		opacity: 0;
 		transform: translateX(-100px);
-		transition: all 0.3s;
+		transition: all 0.5s;
 			
 		img {
 			box-shadow: 0 0 10px #a2a2a2;
@@ -180,7 +184,7 @@ h1 {
 	.info {
 		opacity: 0;
 		transform: translateX(100px);
-		transition: all 0.3s;
+		transition: all 0.5s;
 	}
 
 	&.view-in--gt-half .info,
