@@ -10,17 +10,16 @@
 					<div id="story" class="mb-3">
 						<p v-view>
 							<span title="General Kenobi">Hello there!</span>
-							I am Patrick, the dev you were looking for... or looking at. Creator of many things, including this page.
-							Currently {{age}} years old and living in Switzerland.
+							 I’m Patrick (or arcs) - creator of many things, one of which is this page. I love coding and do a lot of frontend and animation work. 
+							 Although, I am trying to get knowledge in as many areas as I can, so I’d consider myself a full-stack dev with a passion for frontend.
 						</p>
 						<p v-view>
-							All began when I was 11 - something took me about a minute every week. Way to much! So I spent half a year on learning some
-							coding, so that I could do more sensible things with my life... like spending the next 10 years on learning some more coding. I'm sure I saved
-							a lot of time already.
+							I did get into coding when I was 11 because I was too lazy to manage permissions on my Minecraft server. It took me half a year to finally 
+							get my 30 lines of code to work, but goddammit was I proud. From then on, everything I did was do push further into the programming world.
 						</p>
 						<p v-view>
-							Not to sure what else to say... but I have to fill this third section somehow. So, ehm, how did your day go? Lorem ipsum dolor sit amet, 
-							consectetur adipiscing elit. Aenean tempor, dui vitae pretium auctor.
+							Next to coding, I don’t do much, but I found joy in photography, camping, gaming, and cooking. Whenever I work, I kind of need music, 
+							so you rarely see me without headphones. The legend tells that sometimes I might dance to it, but this is a lie.  
 						</p>
 					</div>
 
@@ -36,7 +35,7 @@
 
 				</div>
 
-				<div class="col-8 offset-lg-2 col-lg-3 mt-2 mt-md-4">
+				<div class="col-8 offset-lg-2 col-lg-3 mt-2 mt-md-4 pt-md-1">
 					<img v-lazy="'/images/wut.jpg'" alt="palms t-shirt" v-view/>
 				</div>
 			</div>

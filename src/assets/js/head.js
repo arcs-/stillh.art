@@ -37,7 +37,7 @@ const pos = (e, what) => e.touches ? e.changedTouches[0][what] : e[what]
 // working
 // ------------------------------------------------------------
 
-var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: -50, y: -50 }, screen = { x: window.screenX, y: window.screenY },config = CONFIG.DESKTOP
+var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: -50, y: -50 }, screen = { x: window.screenX, y: window.screenY }, config = CONFIG.DESKTOP
 var then = timestamp()
 
 var wheel = null, balls = []
@@ -75,6 +75,20 @@ function onResize() {
 		else config = CONFIG.DESKTOP
 
 		canvas.height += 400
+
+		// balls
+
+		for(let ball of balls) {
+
+			let targetRadius = ball.userData.big ? config.bigBallRadius : config.ballRadius
+			let factor = targetRadius / ball.circleRadius
+
+			Matter.Body.scale(ball, factor,factor)
+			Matter.Body.setMass(ball, ball.userData.big ? 150 : 30)
+		
+			ball.circleRadius = targetRadius
+
+		}
 		
 		// wheel
 
@@ -194,14 +208,18 @@ function onGyro(event) {
 }
 
 function onMotion(event) {
-  for(let ball of balls) {
 
-	Matter.Body.applyForce(ball, ball.position, {
-		x: (event.acceleration.x * .3), 
-		y: -(event.acceleration.y * .3)
-	})
+	var velocityX = event.acceleration.x * .3
+  	var velocityY = -(event.acceleration.y * .3)
 
-  }
+  	for(let ball of balls) {
+		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius
+		Matter.Body.applyForce(ball, ball.position, {
+			x: velocityX * factor,
+			y: velocityY * factor
+		})
+	}
+
 }
 
 function onDarkmode(val) {
@@ -263,14 +281,16 @@ function update(delta) {
 
 	// velocity screen
 
-	var screenVelocityX = (screen.x - window.screenX) * delta * 1.7
-	var screenVelocityY = (screen.y - window.screenY) * delta * 2
+	// limit fullscreen jumps
+	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 1.7, -10, 10)
+	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 2, -10, 10)
 
 	for(let ball of balls) {
+		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius
 		Matter.Body.applyForce(ball, ball.position, {
-			x: screenVelocityX, 
-			y: screenVelocityY
-		});
+			x: screenVelocityX * factor, 
+			y: screenVelocityY * factor
+		})
 	}
 
 	screen.x = window.screenX
@@ -400,7 +420,7 @@ export default {
 				{
 					label: 'BALL',
 					mass: page.big ? 150 : 30,
-					frictionAir: page.big ? .01 : .02
+					frictionAir: page.big ? .02 : .03
 				}
 			)
 
