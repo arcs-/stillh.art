@@ -37,9 +37,8 @@ const pos = (e, what) => e.touches ? e.changedTouches[0][what] : e[what]
 // working
 // ------------------------------------------------------------
 
-var init = false, running = false, canvas, ctx, bridge, mouseHandler, mouse = { x: -50, y: -50 }, screen = { x: window.screenX, y: window.screenY }, config = CONFIG.DESKTOP
+var init = false, running = false, canvas, ctx, bridge, mouse = { x: -50, y: -50 }, screen = { x: window.screenX, y: window.screenY }, config = CONFIG.DESKTOP
 var then = timestamp()
-
 var wheel = null, balls = []
 
 // ------------------------------------------------------------
@@ -83,7 +82,7 @@ function onResize() {
 			let targetRadius = ball.userData.big ? config.bigBallRadius : config.ballRadius
 			let factor = targetRadius / ball.circleRadius
 
-			Matter.Body.scale(ball, factor,factor)
+			Matter.Body.scale(ball, factor, factor)
 			Matter.Body.setMass(ball, ball.userData.big ? 150 : 30)
 		
 			ball.circleRadius = targetRadius
@@ -281,9 +280,8 @@ function update(delta) {
 
 	// velocity screen
 
-	// limit fullscreen jumps
-	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 1.7, -10, 10)
-	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 2, -10, 10)
+	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 4 / window.devicePixelRatio, -10, 10)
+	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 7 / window.devicePixelRatio, -10, 10)
 
 	for(let ball of balls) {
 		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius
@@ -414,8 +412,8 @@ export default {
 		for (let page of pages.reverse()) {
 
 			var ball = Bodies.circle(
-				page.big ? 400 : 1200, // x
-				400, 				   // y
+				page.big ? 460 : 1200, // x
+				380, 				   // y
 				page.big ? config.bigBallRadius : config.ballRadius,
 				{
 					label: 'BALL',
