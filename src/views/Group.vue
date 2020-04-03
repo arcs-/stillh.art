@@ -10,11 +10,11 @@
 				</div>
 			</div>
 
-			<div class="projects mt-2 pt-1">
+			<div class="projects mt-2 pt-1" v-lazy-container="{ selector: 'img', error: '/images/empty.png', loading: '/images/empty.png' }">
 				<div class="project row mb-3 mb-md-5" v-for="project of data.projects" :key="project.title" v-view>
 					<div class="col-md-8 pr-md-2 pb-1 pb-md-0">
 						<div class="image">
-							<img v-lazy="project.image" />
+							<img :data-src="project.image" />
 						</div>
 					</div>
 					<div class="col-md-4 right info">
@@ -24,7 +24,7 @@
 						<p v-if="project.team" class="mt-2">
 							<span class="float-left mr-1">Together with: </span>
 							<span class="d-inline-block">
-								<go v-for="(value, key) of project.team" :to="value" class="team" :class="{link: value}">{{ key }}</go>
+								<go v-for="(value, key) of project.team" :to="value" class="team" :class="{link: value}" :key="key">{{ key }}</go>
 							</span>
 						</p>
 
