@@ -1,10 +1,11 @@
 import Matter from 'matter-js'
+import { getTransitionSteps } from './colors'
 
 // ------------------------------------------------------------
 // globals
 // ------------------------------------------------------------
 
-var PRIMARY, BLACK, GRAY = '#999'
+var PRIMARY, BLACK, HOVER, BG_HOVER, FG_HOVER, GRAY
 
 const TAU = Math.PI * 2
 const Bodies = Matter.Bodies
@@ -208,6 +209,10 @@ function onGyro(event) {
 
 function onMotion(event) {
 
+	// will default to `accelerationIncludingGravity` but we cant use those values
+	if(event.acceleration.y == event.accelerationIncludingGravity.y ||
+	   event.acceleration.x == event.accelerationIncludingGravity.x) return
+
 	var velocityX = event.acceleration.x * .3
   	var velocityY = -(event.acceleration.y * .3)
 
@@ -222,13 +227,22 @@ function onMotion(event) {
 }
 
 function onDarkmode(val) {
+
 	if (val) {
 		PRIMARY = 'rgb(231, 201, 33)'
-		BLACK = '#000'
+		BLACK = '#000000'
+		GRAY = '#999999'
+		HOVER = '#1e1e29'
 	} else {
 		PRIMARY = 'rgb(231, 201, 33)'
 		BLACK = '#0f0f13'
+		GRAY = '#999999'
+		HOVER = '#0f0f13'
 	}
+
+	BG_HOVER = getTransitionSteps(PRIMARY, HOVER, 20)
+	FG_HOVER = getTransitionSteps(PRIMARY, BLACK, 20)
+
 }
 
 // ------------------------------------------------------------
@@ -334,18 +348,18 @@ function update(delta) {
 				Matter.Body.setVelocity(bodies[i], { x: 0, y: 0 })
 			}
 
-			var hover = mouseConstraint.bodyB == bodies[i] || Matter.Query.point([bodies[i]], mouse).length > 0
+			let hover = mouseConstraint.bodyB == bodies[i] || Matter.Query.point([bodies[i]], mouse).length > 0
+			if (hover) {
+				bodies[i].fade = Math.min(bodies[i].fade + 1, BG_HOVER.length - 1)
+				addHover = true
+			} else {
+				bodies[i].fade = Math.max(bodies[i].fade - 1, 0)
+			}
 
 			ctx.beginPath()
 			ctx.arc(bodies[i].position.x, bodies[i].position.y, bodies[i].circleRadius, 0, TAU)
 
-			if (hover) {
-				ctx.fillStyle = BLACK
-				addHover = true
-			} else {
-				ctx.fillStyle = PRIMARY
-			}
-
+			ctx.fillStyle = BG_HOVER[bodies[i].fade | 0]
 			ctx.fill()
 
 			ctx.save()
@@ -356,9 +370,7 @@ function update(delta) {
 			if (bodies[i].userData.icon) ctx.font = font + 'px Ionicons'
 			else ctx.font = font + 'px IBM Plex Sans'
 
-			if (hover) ctx.fillStyle = PRIMARY
-			else ctx.fillStyle = BLACK
-
+			ctx.fillStyle = FG_HOVER[FG_HOVER.length - (bodies[i].fade | 0) - 1]
 			ctx.fillText(bodies[i].userData.icon ? bodies[i].userData.icon : bodies[i].userData.label, 0, lineHeight / 2)
 			ctx.restore()
 
@@ -423,6 +435,7 @@ export default {
 			)
 
 			ball.userData = page
+			ball.fade = 0
 
 			balls.push(ball)
 			Matter.World.add(engine.world, ball)
