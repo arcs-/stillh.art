@@ -1,5 +1,5 @@
 import Matter from 'matter-js'
-import { getTransitionSteps } from './colors'
+import Color from './Color'
 
 // ------------------------------------------------------------
 // globals
@@ -240,8 +240,8 @@ function onDarkmode(val) {
 		HOVER = '#0f0f13'
 	}
 
-	BG_HOVER = getTransitionSteps(PRIMARY, HOVER, 20)
-	FG_HOVER = getTransitionSteps(PRIMARY, BLACK, 20)
+	BG_HOVER = Color.getTransitionSteps(PRIMARY, HOVER, 20)
+	FG_HOVER = Color.getTransitionSteps(PRIMARY, BLACK, 20)
 
 }
 
@@ -350,10 +350,10 @@ function update(delta) {
 
 			let hover = mouseConstraint.bodyB == bodies[i] || Matter.Query.point([bodies[i]], mouse).length > 0
 			if (hover) {
-				bodies[i].fade = Math.min(bodies[i].fade + 1, BG_HOVER.length - 1)
+				bodies[i].fade = Math.min(bodies[i].fade + 180 * delta, BG_HOVER.length - 1)
 				addHover = true
 			} else {
-				bodies[i].fade = Math.max(bodies[i].fade - 1, 0)
+				bodies[i].fade = Math.max(bodies[i].fade - 180 * delta, 0)
 			}
 
 			ctx.beginPath()
