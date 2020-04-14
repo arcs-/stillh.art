@@ -229,7 +229,7 @@ h1 {
 	font-weight: 800;
 	line-height: 0.85;
 
-	-webkit-text-stroke: 2px transparent;
+	-webkit-text-stroke: 1px transparent;
   -webkit-text-fill-color: currentColor;
 
 	@include media-breakpoint-down(md) {
@@ -238,9 +238,9 @@ h1 {
 
 	sub {
 		display: block;
-		font-size: 1.13em;
+		font-size: 1.28em;
 
-		-webkit-text-stroke: 2px currentColor;
+		-webkit-text-stroke: 1px currentColor;
     -webkit-text-fill-color: transparent;
 
 		opacity: 0;
@@ -250,6 +250,10 @@ h1 {
 		&.view-in--gt-half {
 			opacity: 1;
 			transform: translateY(0);
+		}
+
+		@include media-breakpoint-down(md) {
+				font-size: inherit;
 		}
 		
 	}

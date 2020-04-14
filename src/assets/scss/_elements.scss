@@ -7,27 +7,6 @@ canvas {
 }
 
 // ------------------------------------------------------------
-// link
-// ------------------------------------------------------------
-
-a {
-    color: $text;
-    text-decoration: none;
-    &.link {
-        color: $text;
-        text-decoration: none;
-        transition: background 0.15s ease-in;
-        padding-bottom: 0.05rem;
-        background: linear-gradient(to top, $primary, $primary) no-repeat 0 1.2rem;
-        white-space: nowrap;
-        &:hover {
-            transition-timing-function: ease-out;
-            background-position-y: 0;
-        }
-    }
-}
-
-// ------------------------------------------------------------
 // button
 // ------------------------------------------------------------
 

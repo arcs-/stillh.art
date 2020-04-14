@@ -4,7 +4,7 @@
 		<Stats class="mb-2 mb-lg-4"></Stats>
 		<div id="info" class="container mb-3 mb-lg-2 pb-lg-1">
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-7">
 					<h2 v-view>Message</h2>
 
 					<div id="story" class="mb-3">
@@ -19,7 +19,7 @@
 						</p>
 						<p v-view>
 							Next to coding, I don’t do much, but I found joy in photography, camping, gaming, and cooking. Whenever I work, I kind of need music, 
-							so you rarely see me without headphones. The legend tells that sometimes I might dance to it, but this is a lie.  
+							so you rarely see me without headphones. The legend goes that sometimes I dance to it; this is a lie.  
 						</p>
 					</div>
 
@@ -78,7 +78,7 @@ p {
 img {
 	opacity: 0;
 	transform: translateX(-60px);
-	transition: 1.4s ease-out;
+	transition: .4s ease-out;
 
 	&.view-in--gt-half {
 		opacity: 1;

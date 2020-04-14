@@ -182,6 +182,12 @@ function onMouseup(e) {
 	mouse.y = -50
 }
 
+function onMouseLeave(e) {
+	mouse.down = false
+	mouse.x = -50
+	mouse.y = -50
+}
+
 function onGyro(event) {
 
 	if (event.alpha == undefined) return
@@ -260,6 +266,8 @@ function listeners(on) {
 	window[usage]("touchmove", onMouseMove, { passive: false })
 	window[usage]("touchend", onMouseup)
 
+	window[usage]("mouseout", onMouseLeave)
+
 	window[usage]("resize", onResize)
 	window[usage]("deviceorientation", onGyro)
 	window[usage]("devicemotion", onMotion)
@@ -284,6 +292,11 @@ function loop() {
 }
 
 function update(delta) {
+
+	let engineDelta = delta * 1000
+	// limit (e.g. open on closed screen)
+	if(engineDelta > 33) engineDelta = 33
+	Matter.Engine.update(engine, engineDelta)
 
 	if (wheel) Matter.Body.rotate(wheel, .08 * delta)
 
@@ -316,7 +329,6 @@ function update(delta) {
 
 	ctx.lineWidth = 1
 
-	var font = 22
 	var lineHeight = 15
 
 	for (var i = 0; i < bodies.length; i += 1) {
@@ -367,8 +379,8 @@ function update(delta) {
 			ctx.rotate(bodies[i].angle)
 			ctx.textAlign = "center"
 
-			if (bodies[i].userData.icon) ctx.font = font + 'px Ionicons'
-			else ctx.font = font + 'px IBM Plex Sans'
+			if (bodies[i].userData.icon) ctx.font = '22px Ionicons'
+			else ctx.font = '22px "3270"'
 
 			ctx.fillStyle = FG_HOVER[FG_HOVER.length - (bodies[i].fade | 0) - 1]
 			ctx.fillText(bodies[i].userData.icon ? bodies[i].userData.icon : bodies[i].userData.label, 0, lineHeight / 2)
@@ -411,10 +423,6 @@ export default {
 			return
 		}
 		init = true
-
-		// engine 
-
-		Matter.Engine.run(engine)
 
 		// pages
 

@@ -84,11 +84,11 @@ export default {
 }
 
 h1 {
-	display: inline-block;
 	opacity: 0;
 	transform: translateY(30px);
 	transition: 0.4s ease-out;
 	margin: 0;
+	font-size: 6.5rem;
 
 	&.view-in {
 		opacity: 1;
@@ -143,7 +143,7 @@ h1 {
 
 @keyframes wobble {
   10%, 100% {
-    transform: translate(-50%, -50%) translate3d(-1px, 1px, 0); 
+    transform: translate(-50%, -50%) translate3d(0, 0, 0); 
   }
   
   20%, 80% {

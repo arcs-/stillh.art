@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap');
 /*
 @font-face {
     font-family: 'Protokoll';
@@ -11,10 +11,15 @@
     font-weight: bold;
 }
 */
+@font-face {
+    font-family: '3270';
+    src: url('/assets/font/3270 Narrow 500.ttf') format('truetype');
+  }  
 
 html {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: '3270', sans-serif;
     //font-family: 'Protokoll';
+    font-size: 17px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -22,7 +27,7 @@ html {
 h1 {
     font-size: 5rem;
 
-    -webkit-text-stroke: 1px currentColor;
+    -webkit-text-stroke: .5px currentColor;
     -webkit-text-fill-color: transparent;
 
     @include media-breakpoint-down(md) {
@@ -50,7 +55,25 @@ h2 {
 }
 
 h3 {
-    font-weight: 500;
+    //font-weight: 500;
+}
+
+a {
+    color: $text;
+    text-decoration: none;
+    &.link {
+        display: inline-block;
+        height: 1.2rem;
+        color: $text;
+        text-decoration: none;
+        transition: background 0.15s ease-in;
+        background: linear-gradient(to top, $primary, $primary) no-repeat 0 1.1rem;
+        white-space: nowrap;
+        &:hover {
+            transition-timing-function: ease-out;
+            background-position-y: 0;
+        }
+    }
 }
 
 .half {

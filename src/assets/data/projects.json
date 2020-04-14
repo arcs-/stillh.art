@@ -3,7 +3,7 @@
         "projects": [{
                 "title": "Outrun",
                 "image": "/images/outrun.png",
-                "description": "In a discussion with a prof I got interested if you could code a game that would run smoothly in the browser with no canvas.<br /><br />I tried to replicate the awesome Outrun from 1986. I really enjoy the result.",
+                "description": "In a discussion with a prof I got interested if one could create a game that would run smoothly within the browser only using HTML Elements.<br /><br />I tried to replicate Outrun from 1986 and really enjoy the result.",
                 "link": {
                     "label": "Play&nbsp;<i class='ion-android-open'></i>",
                     "target": "https://codepen.io/arcs/full/aGzNKY"
@@ -12,7 +12,7 @@
             {
                 "title": "Glühbär",
                 "image": "/images/glühbär.png",
-                "description": "Three designers and I had an idea, a simple one. A bear with sleep issues but he can sleep when he drinks enough. Simple, but good.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.",
+                "description": "Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.",
                 "link": {
                     "label": "Play Store&nbsp;<i class='ion-play'></i>",
                     "target": "https://play.google.com/store/apps/details?id=art.stillh.gluhbar"
@@ -40,7 +40,7 @@
             {
                 "title": "Transmission",
                 "image": "/images/transmission.png",
-                "description": "My first time at the Global Game Jam. 48h to code a game. I coded a custom engine and the game play, two friends did the art<br /><br /> In transmission you try to send a single through the solar system.",
+                "description": "My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the game play, two friends did the art<br /><br /> In transmission you try to send a single through the solar system.",
                 "link": {
                     "label": "Play&nbsp;<i class='ion-android-open'></i>",
                     "target": "https://stillh.art/project/transmission/"
