@@ -3,7 +3,7 @@
     <slot></slot>
   </a>
 
-  <a v-else-if="to.startsWith('http')" :href="to" target="_blank" rel="noreferrer">
+  <a v-else-if="to.startsWith('http')" :href="to" rel="noreferrer">
     <slot></slot>
   </a>
 

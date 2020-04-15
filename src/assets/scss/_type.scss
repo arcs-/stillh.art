@@ -1,25 +1,12 @@
-//@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap');
-/*
-@font-face {
-    font-family: 'Protokoll';
-    src: url('assets/font/Light.woff') format('woff');
-}
 
-@font-face {
-    font-family: 'Protokoll';
-    src: url('assets/font/Bold.woff') format('woff');
-    font-weight: bold;
-}
-*/
 @font-face {
     font-family: '3270';
     font-display: block;
     src: url('/assets/font/3270 Narrow 500.ttf') format('truetype');
-  }  
+}  
 
 html {
     font-family: '3270', sans-serif;
-    //font-family: 'Protokoll';
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

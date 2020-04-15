@@ -90,7 +90,7 @@
                 "image": "/images/mattab.png",
                 "description": "Chrome has this nice new tab page but I can do one better. I've never done a browser extension but this seemed like a good start.<br /><br /> Basically better Windows 8 tiles in Chrome.",
                 "link": {
-                    "label": "Chrome",
+                    "label": "Chrome Store",
                     "target": "https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj"
                 }
             }

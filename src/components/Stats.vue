@@ -16,7 +16,7 @@
 								2019 - present
 								<small>CH</small>
 							</h3>Coding Websites and Apps at
-							<go to="https://jkweb.ch/" class="link" target="_blank">
+							<go to="https://jkweb.ch/" class="link">
 								JKweb
 							</go>
 						</div>
@@ -30,8 +30,7 @@
 							</h3>B.Sc. in Informatics in Digital Ideation at
 							<go
 								to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/bachelor/digital-ideation/"
-								class="link"
-								target="_blank">
+								class="link">
 								Hochschule Luzern
 							</go>
 						</div>
@@ -43,7 +42,7 @@
 								2016 - 2016
 								<small>USA</small>
 							</h3>Establishing a new IT environment & forged a new website for
-							<go to="https://florentinoicecream.com/" class="link" target="_blank">
+							<go to="https://florentinoicecream.com/" class="link">
 								Florentino Ice Cream
 							</go>
 						</div>
@@ -55,7 +54,7 @@
 								2013 - 2017
 								<small>CH</small>
 							</h3>Automated testing and upgrading legacy databases at
-							<go to="https://www.credit-suisse.com/" class="link" target="_blank">
+							<go to="https://www.credit-suisse.com/" class="link">
 								Credit Suisse
 							</go>
 						</div>

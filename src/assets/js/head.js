@@ -379,18 +379,15 @@ function update(delta) {
 			ctx.translate(bodies[i].position.x, bodies[i].position.y)
 			ctx.rotate(bodies[i].angle)
 			ctx.fillStyle = FG_HOVER[FG_HOVER.length - (bodies[i].fade | 0) - 1]
-			ctx.strokeStyle = FG_HOVER[FG_HOVER.length - (bodies[i].fade | 0) - 1]
 
 			if (bodies[i].userData.icon) {
 
-				var path = new Path2D(bodies[i].userData.icon)
-				//ctx.translate(-bodies[i].circleRadius/2 + 1, -bodies[i].circleRadius/2 + 1)
-				ctx.fill(path)
+				ctx.fill(new Path2D(bodies[i].userData.icon))
 
 			} else {
 
 				ctx.textAlign = "center"
-				ctx.font = '22px "3270"'
+				ctx.font = '23px "3270"'
 				ctx.fillText(bodies[i].userData.label, 0, lineHeight / 2)
 
 			}
