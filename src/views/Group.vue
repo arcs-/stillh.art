@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import Head from "@/assets/js/head";
 import Projects from "@/assets/data/projects";
 
 export default {

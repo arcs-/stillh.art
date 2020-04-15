@@ -1,5 +1,5 @@
 import Matter from 'matter-js'
-import Color from './Color'
+import Color from './color'
 
 // ------------------------------------------------------------
 // globals
@@ -38,7 +38,7 @@ const pos = (e, what) => e.touches ? e.changedTouches[0][what] : e[what]
 // working
 // ------------------------------------------------------------
 
-var init = false, running = false, canvas, ctx, bridge, mouse = { x: -50, y: -50 }, screen = { x: window.screenX, y: window.screenY }, config = CONFIG.DESKTOP
+var init = false, running = false, canvas, ctx, bridge, mouse = { x: -50, y: -50 }, screen = { x: window.screenX, y: window.screenY }, lastAccelerationY, config = CONFIG.DESKTOP
 var then = timestamp()
 var wheel = null, balls = []
 
@@ -169,7 +169,7 @@ function onMouseup(e) {
 		Math.abs(mouse.dy - pos(e, 'pageY')) < 10) {
 		let sight = Matter.Query.point(balls, mouse)
 		if (sight.length > 0) {
-			bridge.$emit('interact', sight[0])
+			bridge.$emit('interact', e, sight[0])
 		}
 		e.preventDefault()
 	}
@@ -216,11 +216,15 @@ function onGyro(event) {
 function onMotion(event) {
 
 	// will default to `accelerationIncludingGravity` but we cant use those values
-	if(event.acceleration.y == event.accelerationIncludingGravity.y ||
+	// will also reuse values
+	if(event.acceleration.y == lastAccelerationY ||
+	   event.acceleration.y == event.accelerationIncludingGravity.y ||
 	   event.acceleration.x == event.accelerationIncludingGravity.x) return
 
-	var velocityX = event.acceleration.x * .3
-  	var velocityY = -(event.acceleration.y * .3)
+	lastAccelerationY = event.acceleration.y
+
+	let velocityX = event.acceleration.x * .3
+	let velocityY = -(event.acceleration.y * .3)
 
   	for(let ball of balls) {
 		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius
@@ -307,8 +311,8 @@ function update(delta) {
 
 	// velocity screen
 
-	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 4 / window.devicePixelRatio, -10, 10)
-	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 7 / window.devicePixelRatio, -10, 10)
+	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 3 / window.devicePixelRatio, -10, 10)
+	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 4 / window.devicePixelRatio, -10, 10)
 
 	for(let ball of balls) {
 		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius

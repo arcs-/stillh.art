@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import Head from "@/assets/js/head";
+import Balls from "@/assets/js/balls";
 import Projects from "@/assets/data/projects";
 
 export default {
@@ -53,7 +53,7 @@ export default {
 	mounted() {
 		this.$root.$on("interact", this.onInteract);
 
-		Head.init(this.$root, [
+		Balls.init(this.$root, [
 			...Projects.reduce((acc, cur) => {
 				acc.push({
 					label: cur.label,
@@ -100,32 +100,43 @@ export default {
 	},
 	destroyed() {
 		this.$root.$off("interact", this.onInteract);
-		Head.stop();
+		Balls.stop();
 	},
 	methods: {
-		onInteract(object) {
+		onInteract(event, object) {
+
+			if(event.which == 3) return
+
 			this.$refs.grower.style.top = object.position.y + "px";
 			this.$refs.grower.style.left = object.position.x + "px";
-			this.$refs.grower.style.width = this.$refs.grower.style.height =
-				object.circleRadius * 2 + "px";
+			this.$refs.grower.style.width = this.$refs.grower.style.height = object.circleRadius * 2 + "px";
 
-			if (object.userData.link.startsWith("http")) {
-				this.$nextTick(() => this.$refs.grower.classList.add("mega-expand"));
+			event.preventDefault()
+
+			let newTab = event instanceof MouseEvent && (event.ctrlKey || event.which == 2)
+
+			if(newTab ||
+			  object.userData.link.startsWith("http") ||
+				object.userData.link.startsWith("mailto") ) {
+
+				if(!newTab) this.$nextTick(() => this.$refs.grower.classList.add("mega-expand"));
+				
+				window.open(object.userData.link, newTab ? "_blank" : "_self");
 				setTimeout(() => {
-					window.open(object.userData.link, "_self");
 					document.body.classList.remove("hover");
 					this.$refs.grower.classList.remove("mega-expand");
-				}, 300);
-			} else if(object.userData.link.startsWith("mailto")) {
-					window.location.href = object.userData.link
-			} else {
-				this.$nextTick(() => this.$refs.grower.classList.add("expand"));
-				Head.stop();
-				setTimeout(() => {
-					document.body.classList.remove("hover");
-					this.$router.push(object.userData.link);
-				}, 300);
+				}, 700);
+
+				return
 			}
+
+			this.$nextTick(() => this.$refs.grower.classList.add("expand"));
+			Balls.stop();
+			setTimeout(() => {
+				document.body.classList.remove("hover");
+				this.$router.push(object.userData.link);
+			}, 300);
+
 		}
 	}
 };
@@ -217,7 +228,7 @@ export default {
 	}
 
 	&.mega-expand {
-		transition: transform .5s ease-in;
+		transition: transform .3s ease-in;
 		transform: translate(-50%, -50%) scale(80);
 	}
 }

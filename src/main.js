@@ -4,7 +4,6 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-
 import checkView from 'vue-check-view'
 Vue.use(checkView)
 
@@ -14,20 +13,12 @@ Vue.use(VueLazyload)
 import Go from '@/components/utils/Go'
 Vue.component('go', Go)
 
-function isItDark() {
-
-	// if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return true
-
-	const hours = new Date().getHours()
-	if( hours <= 6 || hours >= 18) return true
-
-	return false
-}
+import { isDay } from "@/assets/js/sun"
 
 new Vue({
 	data() {
 		return {
-			darkmode: isItDark()
+			darkmode: !isDay(47.039776, 8.310458)
 		}
 	},
 	router,
