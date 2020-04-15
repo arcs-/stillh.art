@@ -64,19 +64,19 @@ export default {
 			}, []),
 
 			{
-				icon: "\uf229",
+				icon: "M8-4v1H7v1H6V-3H5V-4H3V-6H1V-8H0V-9H1v-1H2v1H3v1H4v1H5v1H6v1H7v1ZM6,8H-6V3H-8v7H8V3H6ZM5,4H-5V6H5ZM-3,2V3H5V1H0V0H-4V1H-5V2h2Zm1-4h1v1H2V0H6V-1H5V-2H3V-3H1V-4H-2V-5H-3v2h1Z",
 				link: "https://stackoverflow.com/users/3137109"
 			},
 			{
-				icon: "\uf4e8",
+				icon: "M7.24-5.56V-6.3H6.48V-7h.76v-3h-3v1.5H3.43v.75H2.67V-8.5H-1.9v.75h-.77V-8.5h-.76V-10H-6.48v3H-5v1.28l-1.48.16h-.76V.37h.76v.74h.77v.74h.76v.74h3.81V4.07H-1.9v.74h-.77v.75H-4.95V4.81h-.76V4.07h-.77V2.59H-8V4.07h.76v.74h.76v.75h.77V6.3H-1.9V10H3.43V4.81H1.9V2.59H5.71V1.85h.77V1.11h.76V.37H8V-5.56ZM5-6.87V-7H6.15Z",
 				link: "https://github.com/arcs-"
 			},
 			{
-				icon: "\uf4dd",
+				icon: "M-9.6,3.45,0,9.85a.91.91,0,0,0,1,0l9.6-6.4A.91.91,0,0,0,11,2.7V-3.71a.9.9,0,0,0-.4-.74L1-10.85a.91.91,0,0,0-1,0l-9.6,6.4a.9.9,0,0,0-.4.74V2.7a.92.92,0,0,0,.4.75Zm8.6,4L-8.07,2.7-4.91.59-1,3.2Zm2,0V3.2L4.91.59,8.07,2.7ZM9,1,6.74-.5,9-2ZM1-8.41,8.07-3.7,4.91-1.59,1-4.2ZM.26-2.63,3.45-.5.26,1.63-2.93-.5ZM-1-8.41V-4.2L-4.91-1.59-8.07-3.7ZM-8-2h0L-5.74-.5-8,1Z",
 				link: "https://codepen.io/arcs/"
 			},
 			{
-				icon: "\uf243",
+				icon: "M9-6h1v1H9v4H8V2H7V3H6V5H5V6H4V7H2V8H-1V9H-7V8h-3V7h3V6h2V5H-6V4H-8V1H-9V0h-1V-2h1V-4h-1V-8h1v1h1v1h1v1h2v1h4v1H0V-7H1V-8H2V-9H6v1h4v1H9Zm1-1v1h1V-7Z",
 				link: "https://twitter.com/tiredPatrick"
 			}
 		]);	

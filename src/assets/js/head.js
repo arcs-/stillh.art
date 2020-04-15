@@ -368,22 +368,33 @@ function update(delta) {
 				bodies[i].fade = Math.max(bodies[i].fade - 180 * delta, 0)
 			}
 
+			// circle
 			ctx.beginPath()
 			ctx.arc(bodies[i].position.x, bodies[i].position.y, bodies[i].circleRadius, 0, TAU)
-
 			ctx.fillStyle = BG_HOVER[bodies[i].fade | 0]
 			ctx.fill()
 
+			// content
 			ctx.save()
 			ctx.translate(bodies[i].position.x, bodies[i].position.y)
 			ctx.rotate(bodies[i].angle)
-			ctx.textAlign = "center"
-
-			if (bodies[i].userData.icon) ctx.font = '22px Ionicons'
-			else ctx.font = '22px "3270"'
-
 			ctx.fillStyle = FG_HOVER[FG_HOVER.length - (bodies[i].fade | 0) - 1]
-			ctx.fillText(bodies[i].userData.icon ? bodies[i].userData.icon : bodies[i].userData.label, 0, lineHeight / 2)
+			ctx.strokeStyle = FG_HOVER[FG_HOVER.length - (bodies[i].fade | 0) - 1]
+
+			if (bodies[i].userData.icon) {
+
+				var path = new Path2D(bodies[i].userData.icon)
+				//ctx.translate(-bodies[i].circleRadius/2 + 1, -bodies[i].circleRadius/2 + 1)
+				ctx.fill(path)
+
+			} else {
+
+				ctx.textAlign = "center"
+				ctx.font = '22px "3270"'
+				ctx.fillText(bodies[i].userData.label, 0, lineHeight / 2)
+
+			}
+			
 			ctx.restore()
 
 		}

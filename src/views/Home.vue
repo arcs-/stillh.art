@@ -28,8 +28,7 @@
 					</p>
 
 					<p class="center mb-2" v-view>
-						cheers and
-						<i class="ion-heart"></i> by yours truly,
+						cheers and ♥ by yours truly,
 						<go to="/" class="link">Patrick</go>
 					</p>
 

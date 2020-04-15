@@ -5,7 +5,7 @@
                 "image": "/images/outrun.png",
                 "description": "In a discussion with a prof I got interested if one could create a game that would run smoothly within the browser only using HTML Elements.<br /><br />I tried to replicate Outrun from 1986 and really enjoy the result.",
                 "link": {
-                    "label": "Play&nbsp;<i class='ion-android-open'></i>",
+                    "label": "Play",
                     "target": "https://codepen.io/arcs/full/aGzNKY"
                 }
             },
@@ -14,7 +14,7 @@
                 "image": "/images/glühbär.png",
                 "description": "Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.",
                 "link": {
-                    "label": "Play Store&nbsp;<i class='ion-play'></i>",
+                    "label": "Play Store",
                     "target": "https://play.google.com/store/apps/details?id=art.stillh.gluhbar"
                 },
                 "team": {
@@ -28,7 +28,7 @@
                 "image": "/images/hueboo.png",
                 "description": "HUEBOO is a VR-Game in which you are the bartender, tasked with serving drinks to your thirsty customers. Its a game about music, light and agility.",
                 "link": {
-                    "label": "Trailer&nbsp;<i class='ion-social-youtube'></i>",
+                    "label": "Trailer",
                     "target": "https://www.youtube.com/watch?v=b23qYNQ274g"
                 },
                 "team": {
@@ -42,7 +42,7 @@
                 "image": "/images/transmission.png",
                 "description": "My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the game play, two friends did the art<br /><br /> In transmission you try to send a single through the solar system.",
                 "link": {
-                    "label": "Play&nbsp;<i class='ion-android-open'></i>",
+                    "label": "Play",
                     "target": "https://stillh.art/project/transmission/"
                 },
                 "team": {
@@ -59,7 +59,7 @@
                 "image": "/images/di.png",
                 "description": "Our class does not have any place to present our work. So I took in upon myself to create it, the project includes a custom CMS and the 3D landing page. I used it as a chance to experiment with a few new things. ",
                 "link": {
-                    "label": "Visit&nbsp;<i class='ion-android-open'></i>",
+                    "label": "Visit",
                     "target": "https://di.stillh.art/"
                 },
                 "team": {
@@ -72,7 +72,7 @@
                 "image": "/images/wiki.png",
                 "description": "I am not old but I have done many things. Most of which I forgot. That had to stop. I learned Node.js and Mongo and a lot more and started working on a solution.<br /><br /> CodeWiki is my place to store things and I welcome everyone to contribiute.",
                 "link": {
-                    "label": "Visit&nbsp;<i class='ion-android-open'></i>",
+                    "label": "Visit",
                     "target": "https://wiki.stillh.art/"
                 }
             },
@@ -81,7 +81,7 @@
                 "image": "/images/adminer.png",
                 "description": "Ahh Adminer. You are the best SQL manager out there. One file, so simple. Why on earth must you look like you're from 1970.<br /><br /> I took SCSS and the Material Design Guide and coded ahead. It's on GitHub now.",
                 "link": {
-                    "label": "GitHub&nbsp;<i class='ion-android-open'></i>",
+                    "label": "GitHub",
                     "target": "https://github.com/arcs-/Adminer-Material-Theme"
                 }
             },
@@ -90,7 +90,7 @@
                 "image": "/images/mattab.png",
                 "description": "Chrome has this nice new tab page but I can do one better. I've never done a browser extension but this seemed like a good start.<br /><br /> Basically better Windows 8 tiles in Chrome.",
                 "link": {
-                    "label": "Chrome&nbsp;<i class='ion-android-open'></i>",
+                    "label": "Chrome",
                     "target": "https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj"
                 }
             }
@@ -103,7 +103,7 @@
                 "image": "/images/tree.png",
                 "description": "In math we looked at L-Systems... and I was really bored. It was all way to simple and didn't even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.",
                 "link": {
-                    "label": "Try It&nbsp;<i class='ion-android-open'></i>",
+                    "label": "Try It",
                     "target": "https://codepen.io/arcs/full/KeqbLd/"
                 }
             },
@@ -112,7 +112,7 @@
                 "image": "/images/mine.gif",
                 "description": "Minesweeper is one of those games that is actually fun to play but somehow isn't. <br /><br /> It just interested me if one could cheat it... :)",
                 "link": {
-                    "label": "GitHub&nbsp;<i class='ion-android-open'></i>",
+                    "label": "GitHub",
                     "target": "https://github.com/arcs-/Minesweeper-Solver/"
                 }
             }

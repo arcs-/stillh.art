@@ -18,7 +18,6 @@
 							</h3>Coding Websites and Apps at
 							<go to="https://jkweb.ch/" class="link" target="_blank">
 								JKweb
-								<i class="ion-android-open"></i>
 							</go>
 						</div>
 					</li>
@@ -34,7 +33,6 @@
 								class="link"
 								target="_blank">
 								Hochschule Luzern
-								<i class="ion-android-open"></i>
 							</go>
 						</div>
 					</li>
@@ -47,7 +45,6 @@
 							</h3>Establishing a new IT environment & forged a new website for
 							<go to="https://florentinoicecream.com/" class="link" target="_blank">
 								Florentino Ice Cream
-								<i class="ion-android-open"></i>
 							</go>
 						</div>
 					</li>
@@ -60,7 +57,6 @@
 							</h3>Automated testing and upgrading legacy databases at
 							<go to="https://www.credit-suisse.com/" class="link" target="_blank">
 								Credit Suisse
-								<i class="ion-android-open"></i>
 							</go>
 						</div>
 					</li>
@@ -73,12 +69,8 @@
 					<h3 class="marginBottomSmall">Primary Weapons</h3>
 					<p>
 						JavaScript
-						<small>
-							<i class="ion-heart"></i>
-						</small> / WebGL
-						<small>
-							<i class="ion-heart"></i>
-						</small>
+						<span>♥</span> / WebGL
+						<span>♥</span>
 					</p>
 					<p>PHP / SCSS / Java</p>
 					<p>TypeScript / C# / Brainfuck</p>
@@ -87,13 +79,8 @@
 				<div class="shield" v-view>
 					<h3 class="marginBottomSmall">Support Heros</h3>
 					<p>
-						Node.js
-						<small>
-							<i class="ion-heart"></i>
-						</small> / Vue.js
-						<small>
-							<i class="ion-heart"></i>
-						</small> / three.js
+						node.js / Vue.js
+						<span>♥</span> / three.js <span>♥</span>
 					</p>
 					<p>Docker / UnrealEngine / Unity</p>
 					<p>Git / webpack / Yarn</p>
@@ -104,9 +91,7 @@
 					<h3 class="marginBottomSmall">Worlds</h3>
 					<p>
 						VSCode
-						<small>
-							<i class="ion-heart"></i>
-						</small> / nano / Intellij
+						<span>♥</span> / nano / Intellij
 					</p>
 					<p>Windows / Linux / Android</p>
 					
@@ -149,7 +134,7 @@ export default {
 		transition: 0.4s ease-out;
 	}
 
-	small {
+	span {
 		color: $primary;
 	}
 }
