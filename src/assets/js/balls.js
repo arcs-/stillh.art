@@ -311,8 +311,8 @@ function update(delta) {
 
 	// velocity screen
 
-	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 3 / window.devicePixelRatio, -10, 10)
-	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 4 / window.devicePixelRatio, -10, 10)
+	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 7 / window.devicePixelRatio, -10, 10)
+	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 6 / window.devicePixelRatio, -10, 10)
 
 	for(let ball of balls) {
 		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius

@@ -65,18 +65,18 @@
 			<!-- SHIELDS -->
 			<div class="col-lg-4 offset-lg-2">
 				<div class="shield" v-view>
-					<h3 class="marginBottomSmall">Primary Weapons</h3>
+					<h3 class="marginBottomSmall">Weapons</h3>
 					<p>
 						JavaScript
 						<span>♥</span> / WebGL
 						<span>♥</span>
 					</p>
 					<p>PHP / SCSS / Java</p>
-					<p>TypeScript / C# / Brainfuck</p>
+					<p>C# / Brainfuck</p>
 				</div>
 
 				<div class="shield" v-view>
-					<h3 class="marginBottomSmall">Support Heros</h3>
+					<h3 class="marginBottomSmall">Support</h3>
 					<p>
 						node.js / Vue.js
 						<span>♥</span> / three.js <span>♥</span>

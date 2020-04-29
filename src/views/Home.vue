@@ -3,14 +3,19 @@
 		<Head></Head>
 		<Stats class="mb-2 mb-lg-4"></Stats>
 		<div id="info" class="container mb-3 mb-lg-2 pb-lg-1">
+
 			<div class="row">
 				<div class="col-lg-7">
 					<h2 v-view>Message</h2>
+				</div>
+			</div>
 
+			<div class="row">
+				<div class="col-lg-7">
 					<div id="story" class="mb-3">
-						<p v-view>
+						<p v-view class="mt-0">
 							<span title="General Kenobi">Hello there!</span>
-							 I’m Patrick (or arcs) - creator of many things, one of which is this page. I love coding and do a lot of frontend and animation work. 
+							 I’m Patrick (aka arcs) - creator of many things, one of which is this page. I love coding and do a lot of frontend and animation work. 
 							 Although, I am trying to get knowledge in as many areas as I can, so I’d consider myself a full-stack dev with a passion for frontend.
 						</p>
 						<p v-view>
@@ -18,7 +23,7 @@
 							get my 30 lines of code to work, but goddammit was I proud. From then on, everything I did was do push further into the programming world.
 						</p>
 						<p v-view>
-							Next to coding, I don’t do much, but I found joy in photography, camping, gaming, and cooking. Whenever I work, I kind of need music, 
+							Aside from coding, I found joy in photography, camping, gaming, and cooking. Whenever I work, I kind of need music, 
 							so you rarely see me without headphones. The legend goes that sometimes I dance to it; this is a lie.  
 						</p>
 					</div>
@@ -34,7 +39,7 @@
 
 				</div>
 
-				<div class="col-8 offset-lg-2 col-lg-3 mt-2 mt-md-4 pt-md-1">
+				<div class="col-8 offset-lg-2 col-lg-3">
 					<img v-lazy="'/images/wut.jpg'" alt="palms t-shirt" v-view/>
 				</div>
 			</div>

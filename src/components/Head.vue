@@ -17,13 +17,13 @@
 							<circle class="moon-shadow" cx="60" cy="32" r="12" clip-path="url(#sun)" />
 							<g class="rays">
 								<path d="M 32,4 l0,10" />
-								<path d="M 32,4 l0,10" transform="rotate(45)" transform-origin="50% 50%" />
-								<path d="M 32,4 l0,10" transform="rotate(135)" transform-origin="50% 50%"/>
-								<path d="M 32,4 l0,10" transform="rotate(180)" transform-origin="50% 50%"/>
-								<path d="M 32,4 l0,10" transform="rotate(90)" transform-origin="50% 50%"/>
-								<path d="M 32,4 l0,10" transform="rotate(225)" transform-origin="50% 50%"/>
-								<path d="M 32,4 l0,10" transform="rotate(270)" transform-origin="50% 50%"/>
-								<path d="M 32,4 l0,10" transform="rotate(315)" transform-origin="50% 50%"/>
+								<path d="M 32,4 l0,10" style="transform:rotate(45deg);transform-origin:50% 50%;" />
+								<path d="M 32,4 l0,10" style="transform:rotate(90deg);transform-origin:50% 50%;"/>
+								<path d="M 32,4 l0,10" style="transform:rotate(135deg);transform-origin:50% 50%;"/>
+								<path d="M 32,4 l0,10" style="transform:rotate(180deg);transform-origin:50% 50%;"/>
+								<path d="M 32,4 l0,10" style="transform:rotate(225deg);transform-origin:50% 50%;"/>
+								<path d="M 32,4 l0,10" style="transform:rotate(270deg);transform-origin:50% 50%;"/>
+								<path d="M 32,4 l0,10" style="transform:rotate(315deg);transform-origin:50% 50%;"/>
 							</g>
 						</svg>
 					</label>
