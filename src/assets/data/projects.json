@@ -13,7 +13,7 @@
                 "title": "Glühbär",
                 "image": "/images/glühbär.png",
                 "description": "Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.",
-                "link": {
+                "xlink": {
                     "label": "Play Store",
                     "target": "https://play.google.com/store/apps/details?id=art.stillh.gluhbar"
                 },
@@ -38,6 +38,24 @@
 
             },
             {
+                "title": "Tree Builder",
+                "image": "/images/tree.png",
+                "description": "In math we looked at L-Systems... and I was really bored. It was all way to simple and didn't even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.",
+                "link": {
+                    "label": "Try It",
+                    "target": "https://codepen.io/arcs/full/KeqbLd/"
+                }
+            },
+            {
+                "title": "Minesweeper Solver",
+                "image": "/images/mine.gif",
+                "description": "Minesweeper is one of those games that is actually fun to play but somehow isn't. <br /><br /> It just interested me if one could cheat it... :)",
+                "link": {
+                    "label": "GitHub",
+                    "target": "https://github.com/arcs-/Minesweeper-Solver/"
+                }
+            },
+            {
                 "title": "Transmission",
                 "image": "/images/transmission.png",
                 "description": "My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the game play, two friends did the art<br /><br /> In transmission you try to send a single through the solar system.",
@@ -55,23 +73,19 @@
     {
         "label": "Sites",
         "projects": [{
-                "title": "The DI Museum",
+                "title": "DI Museum",
                 "image": "/images/di.png",
-                "description": "Our class does not have any place to present our work. So I took in upon myself to create it, the project includes a custom CMS and the 3D landing page. I used it as a chance to experiment with a few new things. ",
+                "description": "The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students.",
                 "link": {
                     "label": "Visit",
-                    "target": "https://di.stillh.art/"
-                },
-                "team": {
-                    "Simon (Design)": "http://simon-wirth.ch",
-                    "Stephanie (Design)": "mailto:s-meier@posteo.ch"
+                    "target": "http://di-museum.ch/"
                 }
             },
             {
                 "title": "Code Wiki",
                 "image": "/images/wiki.png",
                 "description": "I am not old but I have done many things. Most of which I forgot. That had to stop. I learned Node.js and Mongo and a lot more and started working on a solution.<br /><br /> CodeWiki is my place to store things and I welcome everyone to contribiute.",
-                "link": {
+                "xlink": {
                     "label": "Visit",
                     "target": "https://wiki.stillh.art/"
                 }
@@ -92,28 +106,6 @@
                 "link": {
                     "label": "Chrome Store",
                     "target": "https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj"
-                }
-            }
-        ]
-    },
-    {
-        "label": "Else",
-        "projects": [{
-                "title": "Tree Builder",
-                "image": "/images/tree.png",
-                "description": "In math we looked at L-Systems... and I was really bored. It was all way to simple and didn't even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.",
-                "link": {
-                    "label": "Try It",
-                    "target": "https://codepen.io/arcs/full/KeqbLd/"
-                }
-            },
-            {
-                "title": "Minesweeper Solver",
-                "image": "/images/mine.gif",
-                "description": "Minesweeper is one of those games that is actually fun to play but somehow isn't. <br /><br /> It just interested me if one could cheat it... :)",
-                "link": {
-                    "label": "GitHub",
-                    "target": "https://github.com/arcs-/Minesweeper-Solver/"
                 }
             }
         ]

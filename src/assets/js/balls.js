@@ -15,8 +15,8 @@ const CONFIG = {
 		sections: 65,
 		wheelRadius: 3000,
 		wheelOffset: 3,
-		bigBallRadius: 90,
-		ballRadius: 20
+		bigBallRadius: 100,
+		ballRadius: 25
 	},
 	MOBILE: {
 		sections: 65,
@@ -74,7 +74,7 @@ function onResize() {
 		if (canvas.width < canvas.height) config = CONFIG.MOBILE
 		else config = CONFIG.DESKTOP
 
-		canvas.height += 400
+		//canvas.height += 400
 
 		// balls
 
@@ -110,7 +110,7 @@ function onResize() {
 			let y = Math.sin(angle)
 
 			let cx = x * r + (window.innerWidth / config.wheelOffset)
-			let cy = y * r - 500
+			let cy = y * r - 470
 
 			parts.push(Bodies.rectangle(
 				cx,
@@ -333,7 +333,7 @@ function update(delta) {
 
 	ctx.lineWidth = 1
 
-	var lineHeight = 15
+	var lineHeight = 20
 
 	for (var i = 0; i < bodies.length; i += 1) {
 
@@ -391,7 +391,7 @@ function update(delta) {
 			} else {
 
 				ctx.textAlign = "center"
-				ctx.font = '23px "3270"'
+				ctx.font = '26px "3270"'
 				ctx.fillText(bodies[i].userData.label, 0, lineHeight / 2)
 
 			}

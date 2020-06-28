@@ -7,26 +7,15 @@
 
 html {
     font-family: '3270', sans-serif;
-    font-size: 17px;
+    font-size: 18px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-    font-size: 5rem;
-
-    -webkit-text-stroke: .5px currentColor;
-    -webkit-text-fill-color: transparent;
-
-    @include media-breakpoint-down(md) {
-        font-size: 2.7rem;
-        line-height: 3.5rem;
-    }
-    
-}
-
 h2 {
     font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateY(30px);
     transition: 0.4s ease-out;

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
 import Group from '@/views/Group.vue'
 import NotFound from '@/views/NotFound.vue'
 
@@ -9,6 +10,7 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', component: Home },
+  { path: '/about', component: About },
   { path: '/:group', component: Group },
   { path: '*', name: '404', component: NotFound }
 ]

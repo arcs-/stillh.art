@@ -3,10 +3,8 @@
 		<div class="container" v-if="data">
 			<div class="row">
 				<div class="col">
-					<go to="/" id="close">
-						×
-					</go>
-					<h1 v-view># {{data.label}}</h1>
+					<go to="/" id="close">×</go>
+					<h1 v-view v-if="data.label">{{data.label.toLowerCase()}}[]</h1>
 				</div>
 			</div>
 
@@ -28,7 +26,7 @@
 							</span>
 						</p>
 
-						<go :to="project.link.target" class="button" v-html="project.link.label"></go>
+						<go v-if="project.link" :to="project.link.target" class="button" v-html="project.link.label"></go>
 					</div>
 				</div>
 			</div>
@@ -68,7 +66,9 @@ export default {
 			next({ name: "404", params: [to.path], replace: true });
 		}
 	},
-	mounted() {}
+	mounted() {
+		setTimeout(() => dispatchEvent(new CustomEvent('scroll')), 400);
+	}
 };
 </script>
 
@@ -87,75 +87,12 @@ h1 {
 	transform: translateY(30px);
 	transition: 0.4s ease-out;
 	margin: 0;
-	font-size: 6.5rem;
+	font-size: 4.5rem;
 
 	&.view-in {
 		opacity: 1;
 		transform: translateY(0);
 	}
-}
-
-#close {
-	position: relative;
-	float: right;
-	z-index: 10;
-	font-size: 5rem;
-	line-height: 80px;
-	transition: color 0.3s;
-
-	// ignore kerning
-	margin-right: -7px;
-
-	@include media-breakpoint-down(md) {
-		line-height: .55em;
-
-		&:before {
-			top: 31px!important;
-		}
-	}    
-
-	&::before {
-		content: "";
-		position: absolute;
-		z-index: -1;
-		top: 45px;
-		left: 50%;
-		width: 0;
-		height: 0;
-		transform: translate(-50%, -50%);
-		background: $primary;
-		border-radius: 50%;
-		transition: all 0.3s;
-	}
-
-	&:hover {
-		color: $text;
-
-		&::before {
-			animation: wobble 3s ease infinite alternate;
-			width: 80px;
-			height: 80px;
-		}
-
-	}
-}
-
-@keyframes wobble {
-  10%, 100% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0); 
-  }
-  
-  20%, 80% {
-    transform: translate(-50%, -50%) translate3d(2px, -1px, 0);
-  }
-
-  30%, 70% {
-    transform: translate(-50%, -50%) translate3d(-2px, -1px, 0);
-  }
-
-  40%, 60% {
-    transform: translate(-50%, -50%) translate3d(3px, 2px, 0);
-  }
 }
 
 .project {

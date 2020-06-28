@@ -2,6 +2,7 @@
 	<div class="container stats mt-2 mt-lg-3">
 		<div class="row">
 			<div class="col">
+			    <go to="/" id="close">×</go>
 				<h2 id="overview" v-view>Summary</h2>
 			</div>
 		</div>
@@ -25,7 +26,7 @@
 					<li v-view>
 						<div>
 							<h3>
-								2017 - present
+								2017 - 3 Years
 								<small>CH</small>
 							</h3>B.Sc. in Informatics in Digital Ideation at
 							<go
@@ -39,7 +40,7 @@
 					<li v-view>
 						<div>
 							<h3>
-								2016 - 2016
+								2016 - 2 Months
 								<small>USA</small>
 							</h3>Establishing a new IT environment & forged a new website for
 							<go to="https://florentinoicecream.com/" class="link">
@@ -51,7 +52,7 @@
 					<li v-view>
 						<div>
 							<h3>
-								2013 - 2017
+								2013 - 4 Years
 								<small>CH</small>
 							</h3>Automated testing and upgrading legacy databases at
 							<go to="https://www.credit-suisse.com/" class="link">
@@ -64,41 +65,45 @@
 
 			<!-- SHIELDS -->
 			<div class="col-lg-4 offset-lg-2">
-				<div class="shield" v-view>
-					<h3 class="marginBottomSmall">Weapons</h3>
-					<p>
-						JavaScript
-						<span>♥</span> / WebGL
-						<span>♥</span>
-					</p>
-					<p>PHP / SCSS / Java</p>
-					<p>C# / Brainfuck</p>
+				<div class="shield-wrapper">
+					<div class="shield" v-view>
+						<h3 class="marginBottomSmall">Weapons</h3>
+						<p>
+							JavaScript&nbsp;<span>♥</span> / WebGL&nbsp;<span>♥</span>
+						</p>
+						<p>PHP / SCSS / Java</p>
+						<p>C# / Brainfuck</p>
+					</div>
 				</div>
 
-				<div class="shield" v-view>
-					<h3 class="marginBottomSmall">Support</h3>
-					<p>
-						node.js / Vue.js
-						<span>♥</span> / three.js <span>♥</span>
-					</p>
-					<p>Docker / UnrealEngine / Unity</p>
-					<p>Git / webpack / Yarn</p>
-					<p>MongoDB / MySQL / ElasticSearch</p>
+				<div class="shield-wrapper">
+					<div class="shield" v-view>
+						<h3 class="marginBottomSmall">Support</h3>
+						<p>
+							node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span>♥</span>
+						</p>
+						<p>Docker / UnrealEngine / Unity</p>
+						<p>Git / webpack / Yarn</p>
+						<p>MongoDB / MySQL / ElasticSearch</p>
+					</div>
 				</div>
 
-				<div class="shield" v-view>
-					<h3 class="marginBottomSmall">Worlds</h3>
-					<p>
-						VSCode
-						<span>♥</span> / nano / Intellij
-					</p>
-					<p>Windows / Linux / Android</p>
+				<div class="shield-wrapper">
+					<div class="shield" v-view>
+						<h3 class="marginBottomSmall">Worlds</h3>
+						<p>
+							VSCode
+							<span>♥</span> / nano / Intellij
+						</p>
+						<p>Windows / Linux / Android</p>
+						
+						
+						<p class="mt-2">Gimp / Illustrator / Cinema 4D</p>
+						<p></p>
 					
-					
-					<p class="mt-2">Gimp / Illustrator / Cinema 4D</p>
-					<p></p>
-				
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -113,24 +118,34 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/_variables.scss";
 
-.stats {
-	overflow: hidden;
-	width: 100%;
-}
-
 /* pinpoints
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+.shield-wrapper {
+	margin: 80px 0;
+}
+
 .shield {
 	width: 270px;
-	margin-top: 80px;
+	
 	opacity: 0;
-	transform: translateY(60px);
+	
+	&.view-out--above {
+		transform: translateY(-60px);
+	}
 
-	&.view-in--gt-half {
+	&.view-out--below {
+		transform: translateY(60px);
+	}
+
+	&.view-in {
 		opacity: 1;
 		transform: translateY(0);
 		transition: 0.4s ease-out;
+	}
+
+	p {
+		white-space: nowrap;
 	}
 
 	span {
