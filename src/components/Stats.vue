@@ -13,10 +13,8 @@
 				<ul class="timeline">
 					<li v-view>
 						<div>
-							<h3>
-								2019 - present
-								<small>CH</small>
-							</h3>Coding Websites and Apps at
+							<h3>2019 - present<small>CH</small></h3>
+							Coding Websites and Apps at
 							<go to="https://jkweb.ch/" class="link">
 								JKweb
 							</go>
@@ -25,10 +23,8 @@
 
 					<li v-view>
 						<div>
-							<h3>
-								2017 - 3 Years
-								<small>CH</small>
-							</h3>B.Sc. in Informatics in Digital Ideation at
+							<h3>2017 - 3 Years<small>CH</small></h3>
+							B.Sc. in Informatics in Digital Ideation at
 							<go
 								to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/bachelor/digital-ideation/"
 								class="link">
@@ -39,10 +35,8 @@
 
 					<li v-view>
 						<div>
-							<h3>
-								2016 - 2 Months
-								<small>USA</small>
-							</h3>Establishing a new IT environment & forged a new website for
+							<h3>2016 - 2 Months<small>USA</small></h3>
+							Establishing a new IT environment & forged a new website for
 							<go to="https://florentinoicecream.com/" class="link">
 								Florentino Ice Cream
 							</go>
@@ -51,10 +45,8 @@
 
 					<li v-view>
 						<div>
-							<h3>
-								2013 - 4 Years
-								<small>CH</small>
-							</h3>Automated testing and upgrading legacy databases at
+							<h3>2013 - 4 Years<small>CH</small></h3>
+							Automated testing and upgrading legacy databases at
 							<go to="https://www.credit-suisse.com/" class="link">
 								Credit Suisse
 							</go>
@@ -64,7 +56,7 @@
 			</div>
 
 			<!-- SHIELDS -->
-			<div class="col-lg-4 offset-lg-2">
+			<div class="col-lg-4 offset-lg-2 shields">
 				<div class="shield-wrapper">
 					<div class="shield" v-view>
 						<h3 class="marginBottomSmall">Weapons</h3>
@@ -98,7 +90,7 @@
 						<p>Windows / Linux / Android</p>
 						
 						
-						<p class="mt-2">Gimp / Illustrator / Cinema 4D</p>
+						<p>Gimp / Illustrator / Cinema 4D</p>
 						<p></p>
 					
 					</div>
@@ -120,6 +112,10 @@ export default {
 
 /* pinpoints
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.shields {
+	padding-top: 1.7rem;
+}
 
 .shield-wrapper {
 	margin: 80px 0;
@@ -146,6 +142,7 @@ export default {
 
 	p {
 		white-space: nowrap;
+		margin: 0;
 	}
 
 	span {
@@ -167,7 +164,7 @@ export default {
 			content: "";
 			position: absolute;
 			left: -20px;
-			top: 5.4rem;
+			top: 4.8rem;
 			transform: translateX(-50%);
 			width: 15px;
 			height: 15px;
@@ -193,6 +190,10 @@ export default {
 	small {
 		color: $half;
 		padding-left: 10px;
+	}
+
+	h3::before {
+		display: none;
 	}
 }
 

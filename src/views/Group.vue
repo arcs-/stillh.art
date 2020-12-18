@@ -60,7 +60,7 @@ export default {
 		if (data) {
 			next(instance => {
 				instance.data = data;
-				document.title = data.label + " | Patrick Stillhart";
+				document.title = "Patrick Stillhart // " + data.label;
 			});
 		} else {
 			next({ name: "404", params: [to.path], replace: true });
@@ -87,7 +87,7 @@ h1 {
 	transform: translateY(30px);
 	transition: 0.4s ease-out;
 	margin: 0;
-	font-size: 4.5rem;
+	font-size: 4rem;
 
 	&.view-in {
 		opacity: 1;

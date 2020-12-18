@@ -54,7 +54,7 @@ var mouseConstraint = Matter.Constraint.create({
 	pointA: mouse,
 	pointB: { x: 0, y: 0 },
 	length: 0.01,
-	stiffness: 0.3,
+	stiffness: 0.1,
 	render: {
 		visible: false
 	}
@@ -73,8 +73,6 @@ function onResize() {
 
 		if (canvas.width < canvas.height) config = CONFIG.MOBILE
 		else config = CONFIG.DESKTOP
-
-		//canvas.height += 400
 
 		// balls
 
@@ -133,6 +131,11 @@ function onResize() {
 }
 
 function onMousedown(e) {
+
+	if(e.button == 1) {
+        e.preventDefault()
+    }
+
 	mouse.down = true
 	mouse.x = mouse.dx = pos(e, 'pageX')
 	mouse.y = mouse.dy = pos(e, 'pageY')
@@ -241,12 +244,12 @@ function onDarkmode(val) {
 	if (val) {
 		PRIMARY = 'rgb(231, 201, 33)'
 		BLACK = '#000000'
-		GRAY = '#999999'
+		GRAY = '#ffffff'
 		HOVER = '#1e1e29'
 	} else {
 		PRIMARY = 'rgb(231, 201, 33)'
 		BLACK = '#0f0f13'
-		GRAY = '#999999'
+		GRAY = '#0f0f13'
 		HOVER = '#0f0f13'
 	}
 
@@ -391,7 +394,7 @@ function update(delta) {
 			} else {
 
 				ctx.textAlign = "center"
-				ctx.font = '26px "3270"'
+				ctx.font = '24px "3270"'
 				ctx.fillText(bodies[i].userData.label, 0, lineHeight / 2)
 
 			}

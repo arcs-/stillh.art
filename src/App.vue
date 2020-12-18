@@ -4,12 +4,23 @@
 			<transition name="default">
 				<router-view class="child-view" />
 			</transition>
+			<canvas id="fireflies"></canvas>
 		</main>
 
 </template>
 
 <style lang="scss">
 @import "@/assets/scss/main.scss";
+
+#fireflies {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	pointer-events: none;
+}
 </style>
 
 <script>

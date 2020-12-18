@@ -40,7 +40,7 @@
 
 				</div>
 
-				<div class="col-8 offset-lg-2 col-lg-3">
+				<div class="col-8 offset-lg-2 col-lg-3 mb-3">
 					<img v-lazy="'/images/moins.jpg'" alt="palms t-shirt" v-view/>
 				</div>
 			</div>
@@ -55,7 +55,7 @@ export default {
 	name: "home",
 	components: { Stats },
 	mounted() {
-		document.title = "Patrick Stillhart | Developer";
+		document.title = "Patrick Stillhart // About";
 		setTimeout(() => dispatchEvent(new CustomEvent('scroll')), 400);
 	},
 	computed: {
