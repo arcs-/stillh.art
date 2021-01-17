@@ -434,7 +434,6 @@ export default {
 
 		if (init) {
 			onResize()
-			loop()
 			return
 		}
 		init = true

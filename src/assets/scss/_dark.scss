@@ -7,7 +7,7 @@ body.dark {
         transition: none!important;
     }
      ::selection {
-        color: $text;
+        color: $dark;
         background: rgba($primary, .99);
     }
     a {

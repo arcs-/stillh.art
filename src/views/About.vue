@@ -3,6 +3,28 @@
 
 		<Stats class="mb-2 mb-lg-4"></Stats>
 
+		<div id="awards" class="container mb-2 mb-lg-4">
+
+			<div class="row">
+				<div class="col-lg-7">
+					<h2 v-view>Articles and Awards</h2>
+				</div>
+			</div>
+
+			<ul>
+				<li v-view class="from-bottom">
+					PAGE > Oct 2020 > <go to="https://page-online.de/branche-karriere/bachelorarbeit-werkschau-mal-anders/" class="link">Werkschau mal anders</go>
+				</li>
+				<li v-view class="from-bottom">
+					awwwards > Jul 2020 > <go to="https://www.awwwards.com/sites/di-museum" class="link">Honorable Mention</go>
+				</li>
+				<li v-view class="from-bottom">
+					ICT Berufsbildung > Aug 2017 > Berufsabschluss im Rang</go>
+				</li>
+			</ul>
+
+		</div>
+
 		<div id="info" class="container mb-3 mb-lg-2 pb-lg-1">
 
 			<div class="row">
@@ -21,10 +43,10 @@
 						</p>
 						<p v-view>
 							I did get into coding when I was 11 because I was too lazy to manage permissions on my Minecraft server. It took me half a year to finally 
-							get my 30 lines of code to work, but goddammit was I proud. From then on, everything I did was do push further into the programming world.
+							get my 30 lines of code to work, but goddammit was I proud. From then on, everything I did was do push further into the world of programming.
 						</p>
 						<p v-view>
-							Aside from coding, I found joy in photography, camping, gaming, and cooking. Whenever I work, I kind of need music, 
+							Aside from coding, I found joy in photography, camping, gaming, and cooking. Also, whenever I work, I kind of need music, 
 							so you rarely see me without headphones. The legend goes that sometimes I dance to it; this is a lie.  
 						</p>
 					</div>
@@ -69,7 +91,7 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/_variables.scss";
 
-p {
+p, .from-bottom {
 	opacity: 0;
 	transform: translateY(60px);
 	transition: 0.4s ease-out;

@@ -10,10 +10,13 @@
 		<div class="row">
 			<!-- TIMELINE -->
 			<div class="col-lg-6">
+				
+				<h4>Professional</h4>
+
 				<ul class="timeline">
-					<li v-view>
+					<li v-view class="pt-1">
 						<div>
-							<h3>2019 - present<small>CH</small></h3>
+							<h3 class="mt-0">2019 - present<small>CH</small></h3>
 							Coding Websites and Apps at
 							<go to="https://jkweb.ch/" class="link">
 								JKweb
@@ -43,7 +46,7 @@
 						</div>
 					</li>
 
-					<li v-view>
+					<li v-view class="pb-1">
 						<div>
 							<h3>2013 - 4 Years<small>CH</small></h3>
 							Automated testing and upgrading legacy databases at
@@ -53,6 +56,11 @@
 						</div>
 					</li>
 				</ul>
+
+				<h4>Also seen here</h4>
+				<go to="https://soi.ch/" class="link">SOI</go> • 
+				<go to="https://globalgamejam.org/" class="link">GGJ</go>
+
 			</div>
 
 			<!-- SHIELDS -->
@@ -63,14 +71,14 @@
 						<p>
 							JavaScript&nbsp;<span>♥</span> / WebGL&nbsp;<span>♥</span>
 						</p>
-						<p>PHP / SCSS / Java</p>
-						<p>C# / Brainfuck</p>
+						<p>PHP / SCSS / HTML</p>
+						<p>Java / C# / Brainfuck</p>
 					</div>
 				</div>
 
 				<div class="shield-wrapper">
 					<div class="shield" v-view>
-						<h3 class="marginBottomSmall">Support</h3>
+						<h3 class="marginBottomSmall">Battlegrounds</h3>
 						<p>
 							node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span>♥</span>
 						</p>
@@ -82,7 +90,7 @@
 
 				<div class="shield-wrapper">
 					<div class="shield" v-view>
-						<h3 class="marginBottomSmall">Worlds</h3>
+						<h3 class="marginBottomSmall">Utilities</h3>
 						<p>
 							VSCode
 							<span>♥</span> / nano / Intellij

@@ -3,12 +3,12 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve --port 5500 --watch",
+    "dev": "vue-cli-service serve --port 3000 --watch",
     "build": "vue-cli-service build"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
-    "ftp-deploy": "^2.3.7",
+    "ftp-deploy": "^2.4.0",
     "matter-js": "^0.14.2",
     "vue": "^2.6.11",
     "vue-check-view": "^0.3.0",
