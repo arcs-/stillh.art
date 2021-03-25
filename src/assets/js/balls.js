@@ -16,7 +16,7 @@ const CONFIG = {
 		wheelRadius: 3000,
 		wheelOffset: 3,
 		bigBallRadius: 100,
-		ballRadius: 25
+		ballRadius: 30
 	},
 	MOBILE: {
 		sections: 65,
@@ -394,7 +394,7 @@ function update(delta) {
 			} else {
 
 				ctx.textAlign = "center"
-				ctx.font = '24px "3270"'
+				ctx.font = '28px "3270"'
 				ctx.fillText(bodies[i].userData.label, 0, lineHeight / 2)
 
 			}
@@ -451,7 +451,7 @@ export default {
 				page.big ? config.bigBallRadius : config.ballRadius,
 				{
 					label: 'BALL',
-					mass: page.big ? 150 : 30,
+					mass: page.big ? 170 : 40,
 					frictionAir: page.big ? .02 : .03
 				}
 			)

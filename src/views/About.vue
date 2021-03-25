@@ -62,7 +62,7 @@
 
 				</div>
 
-				<div class="col-8 offset-lg-2 col-lg-3 mb-3">
+				<div class="col-8 offset-lg-1 col-lg-4 mb-3">
 					<img v-lazy="'/images/moins.jpg'" alt="palms t-shirt" v-view/>
 				</div>
 			</div>
