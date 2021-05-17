@@ -1,6 +1,7 @@
 [{
         "label": "Games",
-        "projects": [{
+        "projects": [
+            {
                 "title": "Outrun",
                 "image": "/images/outrun.png",
                 "description": "In a discussion with a prof I got interested if one could create a game that would run smoothly within the browser only using HTML Elements.<br /><br />I tried to replicate Outrun from 1986 and really enjoy the result.",
@@ -72,7 +73,17 @@
     },
     {
         "label": "Sites",
-        "projects": [{
+        "projects": [
+            {
+                "title": "Serafin Krieger",
+                "image": "/images/serafin.png",
+                "description": "An artist was asking for some advice on setting up a website, I gave it to him, but while we were at it, we also just made him a new webpage altogether.",
+                "link": {
+                    "label": "Inspect",
+                    "target": "https://serafinkrieger.ch/"
+                }
+            },
+            {
                 "title": "DI Museum",
                 "image": "/images/di.png",
                 "description": "The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students.",

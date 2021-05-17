@@ -13,13 +13,19 @@
 
 			<ul>
 				<li v-view class="from-bottom">
+					HSLU > Apr 2021 > <go to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/" class="link">Dean List</go>
+				</li>
+				<li v-view class="from-bottom">
 					PAGE > Oct 2020 > <go to="https://page-online.de/branche-karriere/bachelorarbeit-werkschau-mal-anders/" class="link">Werkschau mal anders</go>
 				</li>
 				<li v-view class="from-bottom">
-					awwwards > Jul 2020 > <go to="https://www.awwwards.com/sites/di-museum" class="link">Honorable Mention</go>
+					awwwards > Aug 2020 > <go to="https://www.awwwards.com/sites/di-museum" class="link">Honorable Mention</go>
 				</li>
 				<li v-view class="from-bottom">
-					ICT Berufsbildung > Aug 2017 > Berufsabschluss im Rang</go>
+					awwwards > Jul 2020 > <go to="https://www.awwwards.com/sites/di-museum" class="link">Mobile Excellence</go>
+				</li>
+				<li v-view class="from-bottom">
+					ICT Berufsbildung > Aug 2017 > <go to="https://www.zli.ch/berufsverband-oda/ict-berufsabschluss/" class="link">Berufsabschluss im Rang</go>
 				</li>
 			</ul>
 
