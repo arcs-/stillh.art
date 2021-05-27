@@ -14,7 +14,7 @@ const CONFIG = {
 	DESKTOP: {
 		sections: 65,
 		wheelRadius: 3000,
-		wheelOffset: 3,
+		wheelOffset: 2.5,
 		bigBallRadius: 100,
 		ballRadius: 30
 	},
@@ -66,75 +66,81 @@ Matter.World.add(engine.world, mouseConstraint)
 // ------------------------------------------------------------
 
 function onResize() {
-	if (canvas) {
+	if (!canvas) return
 
-		canvas.width = document.body.offsetWidth
-		canvas.height = document.body.offsetHeight
+	const scale = window.devicePixelRatio;
+	const height = document.body.offsetHeight
+	const width = document.body.offsetWidth
 
-		if (canvas.width < canvas.height) config = CONFIG.MOBILE
-		else config = CONFIG.DESKTOP
+	canvas.style.width = width + "px";
+	canvas.style.height = height + "px";
+	canvas.width = width * scale | 0
+	canvas.height = height * scale | 0
 
-		// balls
+	ctx.scale(scale, scale);
 
-		for(let ball of balls) {
+	if (width < height) config = CONFIG.MOBILE
+	else config = CONFIG.DESKTOP
 
-			let targetRadius = ball.userData.big ? config.bigBallRadius : config.ballRadius
-			let factor = targetRadius / ball.circleRadius
+	// balls
 
-			Matter.Body.scale(ball, factor, factor)
-			Matter.Body.setMass(ball, ball.userData.big ? 150 : 30)
-		
-			ball.circleRadius = targetRadius
+	for (let ball of balls) {
 
-		}
-		
-		// wheel
+		let targetRadius = ball.userData.big ? config.bigBallRadius : config.ballRadius
+		let factor = targetRadius / ball.circleRadius
 
-		var bodies = Matter.Composite.allBodies(engine.world)
-		for (var i = bodies.length - 1; i >= 0; i -= 1) {
-			if (bodies[i].label == "WHEEL") Matter.World.remove(engine.world, bodies[i])
-		}
+		Matter.Body.scale(ball, factor, factor)
+		Matter.Body.setMass(ball, ball.userData.big ? 150 : 30)
 
-		var parts = []
-		var babies = config.sections
-		var m = config.wheelRadius
-		var r = m * (1 / 5 * 2)
-		for (let i = 0; i < babies; i++) {
-
-			let segment = TAU / babies
-			let angle = i / babies * TAU + segment / 2
-
-			let x = Math.cos(angle)
-			let y = Math.sin(angle)
-
-			let cx = x * r + (window.innerWidth / config.wheelOffset)
-			let cy = y * r - 470
-
-			parts.push(Bodies.rectangle(
-				cx,
-				cy,
-				20,
-				150 / 933 * m, {
-				angle: angle,
-				// friction: 0,
-				isStatic: true,
-				label: 'WHEEL'
-			}
-			))
-
-		}
-
-		Matter.World.add(engine.world, parts)
-		wheel = Matter.Body.create({ parts, isStatic: true })
+		ball.circleRadius = targetRadius
 
 	}
+
+	// wheel
+
+	let bodies = Matter.Composite.allBodies(engine.world)
+	for (let i = bodies.length - 1; i >= 0; i -= 1) {
+		if (bodies[i].label == "WHEEL") Matter.World.remove(engine.world, bodies[i])
+	}
+
+	let parts = []
+	let babies = config.sections
+	let r = config.wheelRadius * (1 / 5 * 2)
+	for (let i = 0; i < babies; i++) {
+
+		let segment = TAU / babies
+		let angle = i / babies * TAU + segment / 2
+
+		let x = Math.cos(angle)
+		let y = Math.sin(angle)
+
+		let cx = x * r + (width / config.wheelOffset)
+		let cy = y * r + (height / 4 - config.wheelRadius / 4)
+
+		parts.push(Bodies.rectangle(
+			cx,
+			cy,
+			20,
+			150 / 933 * config.wheelRadius, {
+			angle: angle,
+			isStatic: true,
+			label: 'WHEEL'
+		}
+		))
+
+	}
+
+	Matter.World.add(engine.world, parts)
+	wheel = Matter.Body.create({ parts, isStatic: true })
+
+
 }
 
 function onMousedown(e) {
 
-	if(e.button == 1) {
-        e.preventDefault()
-    }
+	if (e.button == 1) {
+		e.preventDefault()
+	}
 
 	mouse.down = true
 	mouse.x = mouse.dx = pos(e, 'pageX')
@@ -220,16 +226,16 @@ function onMotion(event) {
 
 	// will default to `accelerationIncludingGravity` but we cant use those values
 	// will also reuse values
-	if(event.acceleration.y == lastAccelerationY ||
-	   event.acceleration.y == event.accelerationIncludingGravity.y ||
-	   event.acceleration.x == event.accelerationIncludingGravity.x) return
+	if (event.acceleration.y == lastAccelerationY ||
+		event.acceleration.y == event.accelerationIncludingGravity.y ||
+		event.acceleration.x == event.accelerationIncludingGravity.x) return
 
 	lastAccelerationY = event.acceleration.y
 
 	let velocityX = event.acceleration.x * .3
 	let velocityY = -(event.acceleration.y * .3)
 
-  	for(let ball of balls) {
+	for (let ball of balls) {
 		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius
 		Matter.Body.applyForce(ball, ball.position, {
 			x: velocityX * factor,
@@ -279,7 +285,7 @@ function listeners(on) {
 	window[usage]("deviceorientation", onGyro)
 	window[usage]("devicemotion", onMotion)
 
-	if(on) bridge.$on('darkmode', onDarkmode)
+	if (on) bridge.$on('darkmode', onDarkmode)
 	else bridge.$off('darkmode', onDarkmode)
 
 }
@@ -302,7 +308,7 @@ function update(delta) {
 
 	let engineDelta = delta * 1000
 	// limit (e.g. open on closed screen)
-	if(engineDelta > 33) engineDelta = 33
+	if (engineDelta > 33) engineDelta = 33
 	Matter.Engine.update(engine, engineDelta)
 
 	if (wheel) Matter.Body.rotate(wheel, .08 * delta)
@@ -317,10 +323,10 @@ function update(delta) {
 	var screenVelocityX = Matter.Common.clamp((screen.x - window.screenX) * delta * 7 / window.devicePixelRatio, -10, 10)
 	var screenVelocityY = Matter.Common.clamp((screen.y - window.screenY) * delta * 6 / window.devicePixelRatio, -10, 10)
 
-	for(let ball of balls) {
+	for (let ball of balls) {
 		let factor = Math.min(ball.circleRadius, config.bigBallRadius) / config.bigBallRadius
 		Matter.Body.applyForce(ball, ball.position, {
-			x: screenVelocityX * factor, 
+			x: screenVelocityX * factor,
 			y: screenVelocityY * factor
 		})
 	}
@@ -398,7 +404,7 @@ function update(delta) {
 				ctx.fillText(bodies[i].userData.label, 0, lineHeight / 2)
 
 			}
-			
+
 			ctx.restore()
 
 		}

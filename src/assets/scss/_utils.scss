@@ -13,13 +13,13 @@
 	font-size: 5rem;
 	line-height: 80px;
 	transition: color 0.3s;
+	overflow: visible;
+	user-select: none;
 
 	// ignore kerning
 	margin-right: -7px;
 
 	@include media-breakpoint-down(md) {
-		//line-height: .8em;
-
 		&:before {
 			top: 31px!important;
 		}
@@ -37,13 +37,15 @@
 		background: $primary;
 		border-radius: 50%;
 		transition: all 0.3s;
+		animation: wobble 3s .1s ease infinite alternate;
+		opacity: 0;
 	}
 
 	&:hover {
 		color: $text;
 
 		&::before {
-			animation: wobble 3s ease infinite alternate;
+			opacity: 1;
 			width: 80px;
 			height: 80px;
 		}
@@ -51,20 +53,17 @@
 	}
 }
 
-@keyframes wobble {
-  10%, 100% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0); 
-  }
-  
-  20%, 80% {
-    transform: translate(-50%, -50%) translate3d(2px, -1px, 0);
-  }
-
-  30%, 70% {
-    transform: translate(-50%, -50%) translate3d(-2px, -1px, 0);
-  }
-
-  40%, 60% {
-    transform: translate(-50%, -50%) translate3d(3px, 2px, 0);
-  }
+@keyframes wobble { 
+	10%, 100% {
+		transform: translate(calc(-50% + 0px), calc(-50% + 0px)); 
+	}
+	20%, 80% {
+		transform: translate(calc(-50% + 2px), calc(-50% + -1px)); 
+	}
+	30%, 70% {
+		transform: translate(calc(-50% + -2px), calc(-50% + -1px));
+	}
+	40%, 60% {
+		transform: translate(calc(-50% + 3px), calc(-50% + 2px));
+	}
 }
