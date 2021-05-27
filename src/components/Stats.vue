@@ -1,5 +1,5 @@
 <template>
-	<div class="container stats mt-2 mt-lg-3">
+	<div class="constrain stats mt-2 mt-lg-3">
 		<div class="row">
 			<div class="col">
 			    <go to="/" id="close">×</go>

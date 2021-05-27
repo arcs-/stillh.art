@@ -3,10 +3,10 @@
 
 		<Stats class="mb-2 mb-lg-4"></Stats>
 
-		<div id="awards" class="container mb-2 mb-lg-4">
+		<div id="awards" class="constrain mb-2 mb-lg-4">
 
 			<div class="row">
-				<div class="col-lg-7">
+				<div class="col-lg-12">
 					<h2 v-view>Articles and Awards</h2>
 				</div>
 			</div>
@@ -31,7 +31,7 @@
 
 		</div>
 
-		<div id="info" class="container mb-3 mb-lg-2 pb-lg-1">
+		<div id="info" class="constrain mb-3 mb-lg-2 pb-lg-1">
 
 			<div class="row">
 				<div class="col-lg-7">
@@ -69,7 +69,7 @@
 				</div>
 
 				<div class="col-8 offset-lg-1 col-lg-4 mb-3">
-					<img v-lazy="'/images/moins.jpg'" alt="palms t-shirt" v-view/>
+					<img src="/images/me.jpg" loading="lazy" v-view alt="Profile of me"/>
 				</div>
 			</div>
 		</div>

@@ -8,6 +8,15 @@ $half: #999;
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 
-$container-max-widths: (
-  xxl: 1250px
-);
+.constrain {
+  width: 100%;
+  max-width: 1420px;
+  padding-right: 6rem;
+  padding-left: 6rem;
+  margin-right: auto;
+  margin-left: auto;
+  @media (max-width: 900px) {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}

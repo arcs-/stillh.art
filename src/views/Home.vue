@@ -26,7 +26,7 @@
 
 		<div id="grower" ref="grower"></div>
 
-		<div class="container">
+		<div class="constrain">
 			<div class="row">
 				<div class="col col-lg-11 intro">
 					<input class="darkmode-checkbox" id="darkMode" type="checkbox" v-model="$root.darkmode" @change="$root.$emit('darkmode', $root.darkmode)">

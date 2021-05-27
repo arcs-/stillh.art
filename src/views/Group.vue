@@ -1,6 +1,6 @@
 <template>
 	<div class="group">
-		<div class="container" v-if="data">
+		<div class="constrain" v-if="data">
 			<div class="row">
 				<div class="col">
 					<go to="/" id="close">×</go>
@@ -8,11 +8,11 @@
 				</div>
 			</div>
 
-			<div class="projects mt-2 pt-1" v-lazy-container="{ selector: 'img', error: '/images/empty.png', loading: '/images/empty.png' }">
+			<div class="projects mt-2 pt-1">
 				<div class="project row mb-3 mb-md-5" v-for="project of data.projects" :key="project.title" v-view>
 					<div class="col-md-8 pr-md-2 pb-1 pb-md-0">
 						<div class="image">
-							<img :data-src="project.image" />
+							<img :src="project.image" loading="lazy" />
 						</div>
 					</div>
 					<div class="col-md-4 right info">
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 		</div>
-		<div v-else class="container">
+		<div v-else class="constrain">
 			<go to="/" id="close">
 				<i class="ion-close"></i>
 			</go>
