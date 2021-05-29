@@ -8,12 +8,16 @@
 		</div>
 
 		<div class="row">
+
+			<div class="col-lg-8 mb-1">
+				If you'd compare me to a cook, I'd be able to cook in two cuisines: web development and game development. With that combination, I'm able to develop some pretty spicy stuff. My specialty is unnecessary 404 pages.
+			</div>
+
 			<!-- TIMELINE -->
 			<div class="col-lg-6">
 				
-				<h4>Professional</h4>
 
-				<ul class="timeline">
+				<ul class="timeline mt-2 pt-1">
 					<li v-view class="pt-1">
 						<div>
 							<h3 class="mt-0">2019 - present<small>CH</small></h3>
@@ -57,7 +61,7 @@
 					</li>
 				</ul>
 
-				<h4>Also seen here</h4>
+				<h4 class="mt-3">Also seen here</h4>
 				<go to="https://soi.ch/" class="link">SOI</go> • 
 				<go to="https://globalgamejam.org/" class="link">GGJ</go>
 
@@ -83,14 +87,14 @@
 							node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span>♥</span>
 						</p>
 						<p>Docker / UnrealEngine / Unity</p>
-						<p>Git / webpack / Yarn</p>
+						<p>Git / webpack / Ionic</p>
 						<p>MongoDB / MySQL / ElasticSearch</p>
 					</div>
 				</div>
 
 				<div class="shield-wrapper">
 					<div class="shield" v-view>
-						<h3 class="marginBottomSmall">Utilities</h3>
+						<h3 class="marginBottomSmall">Worlds</h3>
 						<p>
 							VSCode
 							<span>♥</span> / nano / Intellij

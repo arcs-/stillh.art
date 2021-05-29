@@ -68,7 +68,7 @@
 
 				</div>
 
-				<div class="col-8 offset-lg-1 col-lg-4 mb-3">
+				<div class="col-10 offset-lg-1 col-lg-4 mb-3">
 					<img src="/images/me.jpg" loading="lazy" v-view alt="Profile of me"/>
 				</div>
 			</div>
