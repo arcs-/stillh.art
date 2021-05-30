@@ -3,8 +3,9 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
+    "build": "vue-cli-service build",
     "dev": "vue-cli-service serve --port 3000 --watch",
-    "build": "vue-cli-service build"
+    "sitemap": "vue-cli-service sitemap"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
@@ -19,6 +20,7 @@
     "@vue/cli-service": "^4.4.6",
     "sass": "^1.26.10",
     "sass-loader": "^8.0.0",
+    "vue-cli-plugin-sitemap": "~2.3.0",
     "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [

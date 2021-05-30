@@ -10,7 +10,9 @@
 		<div class="row">
 
 			<div class="col-lg-8 mb-1">
-				If you'd compare me to a cook, I'd be able to cook in two cuisines: web development and game development. With that combination, I'm able to develop some pretty spicy stuff. My specialty is unnecessary 404 pages.
+				<p class="abstract" v-view>
+					If you'd compare me to a cook, I'd be able to cook in two cuisines: web development and game development. With that combination, I'm able to develop some pretty spicy stuff. My specialty is unnecessary 404 pages.
+				</p>
 			</div>
 
 			<!-- TIMELINE -->
@@ -121,6 +123,17 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/scss/_variables.scss";
+
+.abstract {
+	opacity: 0;
+	transform: translateY(60px);
+	transition: 0.4s ease-out;
+
+	&.view-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 
 /* pinpoints
 /* –––––––––––––––––––––––––––––––––––––––––––––––––– */
