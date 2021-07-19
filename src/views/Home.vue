@@ -107,7 +107,17 @@ export default {
 				link: "https://twitter.com/tiredPatrick"
 			}
 			*/
-		]);	
+		]);
+
+
+		if(window.DeviceMotionEvent && window.DeviceMotionEvent.requestPermission) {
+			document.getElementsByTagName('main')[0]
+				.addEventListener(
+					'click',
+					() => window.DeviceMotionEvent.requestPermission(),
+					{ capture:true, once:true }
+				)
+		}
 
 	},
 	destroyed() {
@@ -209,9 +219,11 @@ export default {
 	cursor: pointer;
 	user-select: none;
 
-	@include media-breakpoint-down(md) {
-			top: 0;
-		}
+  @include media-breakpoint-down(md) {
+    top: 35px;
+    right: 15px;
+	width: 100px;
+  }
   
   .moon-shadow {
     transition: cx .6s ease-out;
@@ -280,9 +292,11 @@ export default {
 	}
 }
 
-.intro {
-	position: relative;
-	top: 13vh;
+@include media-breakpoint-up(md) {
+	.intro {
+		position: relative;
+		top: 13vh;
+	}
 }
 
 

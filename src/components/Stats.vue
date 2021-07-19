@@ -11,7 +11,7 @@
 
 			<div class="col-lg-8 mb-1">
 				<p class="abstract" v-view>
-					If you'd compare me to a cook, I'd be able to cook in two cuisines: web development and game development. With that combination, I'm able to develop some pretty spicy stuff. My specialty is unnecessary 404 pages.
+					If you'd compare me to a cook, I'd be able to cook in two cuisines: web development and game development. With that combination, I'm able to develop some pretty spicy stuff. My specialty are over engineered 404 pages.
 				</p>
 			</div>
 

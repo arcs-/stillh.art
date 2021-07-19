@@ -180,7 +180,7 @@ function onMouseup(e) {
 		if (sight.length > 0) {
 			bridge.$emit('interact', e, sight[0])
 		}
-		e.preventDefault()
+		//e.preventDefault()
 	}
 	if (mouseConstraint.bodyB) {
 		mouseConstraint.bodyB = null

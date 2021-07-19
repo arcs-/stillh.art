@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --modern",
     "dev": "vue-cli-service serve --port 3000 --watch",
     "sitemap": "vue-cli-service sitemap"
   },
