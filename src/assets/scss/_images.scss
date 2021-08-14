@@ -2,17 +2,17 @@ img {
     width: 100%;
 }
 
-img[lazy=loading] {
-    box-shadow: none!important;
+img[lazy="loading"] {
+    box-shadow: none !important;
 }
 
-img[lazy=error] {
+img[lazy="error"] {
     background: red;
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
 .image-label {
-    font-size: .8em;
+    font-size: 0.8em;
 }
 
 .aspect {
@@ -33,14 +33,14 @@ img[lazy=error] {
     &.a11::before {
         padding-top: 100%;
     }
-    &.cover>*:first-child {
+    &.cover > *:first-child {
         object-fit: cover;
         object-position: center;
     }
-    &.center>*:first-child {
+    &.center > *:first-child {
         object-position: center;
     }
-    >*:first-child {
+    > *:first-child {
         height: 100%;
         object-position: top;
         object-fit: contain;

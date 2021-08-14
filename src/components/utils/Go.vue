@@ -11,7 +11,7 @@
     <slot></slot>
   </a>
 
-  <a v-else @click="click($event, to)" :href="to" >
+  <a v-else @click="click($event, to)" :href="to">
     <slot></slot>
   </a>
 </template>

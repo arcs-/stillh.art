@@ -1,6 +1,6 @@
 .default-leave-active,
 .default-enter-active {
-    transition: all .5s;
+    transition: all 0.5s;
 }
 
 .default-enter,
@@ -9,12 +9,12 @@
 }
 
 .default-move {
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .child-view {
     position: absolute;
     width: 100vw;
     overflow: hidden;
-    transition: opacity .3s cubic-bezier(.55, 0, .1, 1);
+    transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
 }

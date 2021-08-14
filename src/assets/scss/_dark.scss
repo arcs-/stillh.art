@@ -4,20 +4,20 @@ body.dark {
     background-color: $dark;
     color: $text;
     &.loading {
-        transition: none!important;
+        transition: none !important;
     }
-     ::selection {
+    ::selection {
         color: $dark;
-        background: rgba($primary, .99);
+        background: rgba($primary, 0.99);
     }
     a {
         color: $text;
-        transition: all .3s;
+        transition: all 0.3s;
         &:hover {
             color: $dark;
         }
         &.button:hover {
-            transition-delay: .3s
+            transition-delay: 0.3s;
         }
     }
     .timeline {

@@ -1,5 +1,6 @@
 [{
         "label": "Games",
+        "intro": "",
         "projects": [
             {
                 "title": "Outrun",
@@ -73,7 +74,17 @@
     },
     {
         "label": "Sites",
+        "intro": "This is a display of some projects I did in my spare time. Professional projects are on the company's website and my CV.",
         "projects": [
+            {
+                "title": "Docs",
+                "image": "/images/docs.png",
+                "description": "Remembering stuff is hard... I tried it, but I must say, writing knowledge down is just way smarter. The docs are a place where I write down the things I can't remember.",
+                "link": {
+                    "label": "Read",
+                    "target": "https://docs.stillh.art/"
+                }
+            },
             {
                 "title": "Serafin Krieger",
                 "image": "/images/serafin.png",
@@ -90,15 +101,6 @@
                 "link": {
                     "label": "Visit",
                     "target": "http://di-museum.ch/"
-                }
-            },
-            {
-                "title": "Code Wiki",
-                "image": "/images/wiki.png",
-                "description": "I am not old but I have done many things. Most of which I forgot. That had to stop. I learned Node.js and Mongo and a lot more and started working on a solution.<br /><br /> CodeWiki is my place to store things and I welcome everyone to contribiute.",
-                "xlink": {
-                    "label": "Visit",
-                    "target": "https://wiki.stillh.art/"
                 }
             },
             {

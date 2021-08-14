@@ -1,10 +1,20 @@
-.mt-2 { margin-top: 5rem }
-.mt-3 { margin-top: 15rem }
+.mt-2 {
+	margin-top: 5rem;
+}
+.mt-3 {
+	margin-top: 15rem;
+}
 
-.float-left{ float: left }
-.float-right{ float: right }
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
 
-.position-relative {position: relative;}
+.position-relative {
+	position: relative;
+}
 
 #close {
 	position: relative;
@@ -12,18 +22,25 @@
 	z-index: 10;
 	font-size: 5rem;
 	line-height: 80px;
-	transition: color 0.3s;
+	transition: 0.3s;
 	overflow: visible;
 	user-select: none;
+
+	transform: translateX(30px);
+	opacity: 0;
+	&.view-in {
+		opacity: 1;
+		transform: translateX(0);
+	}
 
 	// ignore kerning
 	margin-right: -7px;
 
 	@include media-breakpoint-down(md) {
 		&:before {
-			top: 31px!important;
+			top: 31px !important;
 		}
-	}    
+	}
 
 	&::before {
 		content: "";
@@ -37,7 +54,7 @@
 		background: $primary;
 		border-radius: 50%;
 		transition: all 0.3s;
-		animation: wobble 3s .1s ease infinite alternate;
+		animation: wobble 3s 0.1s ease infinite alternate;
 		opacity: 0;
 	}
 
@@ -49,21 +66,24 @@
 			width: 80px;
 			height: 80px;
 		}
-
 	}
 }
 
-@keyframes wobble { 
-	10%, 100% {
-		transform: translate(calc(-50% + 0px), calc(-50% + 0px)); 
+@keyframes wobble {
+	10%,
+	100% {
+		transform: translate(calc(-50% + 0px), calc(-50% + 0px));
 	}
-	20%, 80% {
-		transform: translate(calc(-50% + 2px), calc(-50% + -1px)); 
+	20%,
+	80% {
+		transform: translate(calc(-50% + 2px), calc(-50% + -1px));
 	}
-	30%, 70% {
+	30%,
+	70% {
 		transform: translate(calc(-50% + -2px), calc(-50% + -1px));
 	}
-	40%, 60% {
+	40%,
+	60% {
 		transform: translate(calc(-50% + 3px), calc(-50% + 2px));
 	}
 }
