@@ -1,4 +1,5 @@
-[{
+[
+    {
         "label": "Games",
         "intro": "",
         "projects": [
@@ -37,7 +38,6 @@
                     "Seline (Design)": "https://www.georgeluni.ch/",
                     "Yannick (Code)": ""
                 }
-
             },
             {
                 "title": "Tree Builder",
@@ -100,7 +100,7 @@
                 "description": "The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students.",
                 "link": {
                     "label": "Visit",
-                    "target": "http://di-museum.ch/"
+                    "target": "https://museum.stillh.art/"
                 }
             },
             {

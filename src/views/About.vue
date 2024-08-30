@@ -12,39 +12,25 @@
       <ul>
         <li v-view class="from-bottom">
           HSLU > Apr 2021 >
-          <go
-            to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/"
-            class="link"
-            >Dean List</go
-          >
+          <go to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/"
+            class="link">Dean List</go>
         </li>
         <li v-view class="from-bottom">
           PAGE > Oct 2020 >
-          <go
-            to="https://page-online.de/branche-karriere/bachelorarbeit-werkschau-mal-anders/"
-            class="link"
-            >Werkschau mal anders</go
-          >
+          <go to="https://page-online.de/branche-karriere/bachelorarbeit-werkschau-mal-anders/" class="link">Werkschau
+            mal anders</go>
         </li>
         <li v-view class="from-bottom">
           awwwards > Aug 2020 >
-          <go to="https://www.awwwards.com/sites/di-museum" class="link"
-            >Honorable Mention</go
-          >
+          <go to="https://www.awwwards.com/sites/di-museum" class="link">Honorable Mention</go>
         </li>
         <li v-view class="from-bottom">
           awwwards > Jul 2020 >
-          <go to="https://www.awwwards.com/sites/di-museum" class="link"
-            >Mobile Excellence</go
-          >
+          <go to="https://www.awwwards.com/sites/di-museum" class="link">Mobile Excellence</go>
         </li>
         <li v-view class="from-bottom">
           ICT Berufsbildung > Aug 2017 >
-          <go
-            to="https://www.zli.ch/berufsverband-oda/ict-berufsabschluss/"
-            class="link"
-            >Berufsabschluss im Rang</go
-          >
+          <go to="https://www.zli.ch/berufsverband-oda/ict-berufsabschluss/" class="link">Berufsabschluss im Rang</go>
         </li>
       </ul>
     </div>
@@ -70,12 +56,12 @@
             <p v-view>
               I did get into coding when I was 11 because I was too lazy to
               manage permissions on my Minecraft server. It took me half a year
-              to finally get my 30 lines of code to work, but goddammit was I
-              proud. From then on, everything I did was do push further into the
+              to finally get my 30 lines of code to work, but it was so worth it.
+              From then on, everything I did was do push further into the
               world of programming.
             </p>
             <p v-view>
-              Aside from coding, I found joy in photography, camping, gaming,
+              Aside from coding, I found joy in photography, camping, gaming, cycling,
               and cooking. Also, whenever I work, I kind of need music, so you
               rarely see me without headphones. The legend goes that sometimes I
               dance to it; this is a lie.
@@ -83,7 +69,7 @@
           </div>
 
           <p class="center mt-0 mb-4" v-view>
-            <a href="/cv_online.pdf" class="button mt-0">Curriculum Vitae</a>
+            <a href="/cv.pdf" class="button mt-0">Curriculum Vitae</a>
           </p>
 
           <p class="center mb-3" v-view>
@@ -104,17 +90,16 @@
 import Stats from "@/components/Stats.vue";
 
 export default {
-	name: "home",
-	components: { Stats },
-	mounted() {
-		document.title = "Patrick Stillhart // About";
-		setTimeout(() => dispatchEvent(new CustomEvent('scroll')), 400);
-	},
-	computed: {
-		age() {
-			return ((Date.now() - new Date("1997/5/7")) / 31557600000) | 0;
-		}
-	}
+  components: { Stats },
+  mounted() {
+    document.title = "Patrick Stillhart // About";
+    setTimeout(() => dispatchEvent(new CustomEvent('scroll')), 400);
+  },
+  computed: {
+    age() {
+      return ((Date.now() - new Date("1997/5/7")) / 31557600000) | 0;
+    }
+  }
 };
 </script>
 
@@ -144,4 +129,3 @@ img {
   }
 }
 </style>
-

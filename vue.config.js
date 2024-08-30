@@ -6,10 +6,5 @@ module.exports = {
       baseURL: 'https://stillh.art',
       routes,
     }
-  },
-  devServer: {
-    allowedHosts: [
-      'run.stillh.art'
-    ]
   }
 };

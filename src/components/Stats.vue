@@ -10,19 +10,24 @@
     <div class="row">
       <div class="col-lg-8 mb-1">
         <p class="abstract" v-view>
-          If you'd compare me to a cook, I'd be able to cook in two cuisines:
-          web development and game development. With that combination, I'm able
-          to develop some pretty spicy stuff. My specialty are over engineered
-          404 pages.
+          My two passions are web development and game development. With that combination,
+          I'm able to develop some pretty spicy stuff. My specialty are 3D websites and animations.
         </p>
       </div>
 
       <!-- TIMELINE -->
       <div class="col-lg-6">
         <ul class="timeline mt-2 pt-1">
-          <li v-view class="pt-1">
+          <li v-view>
             <div>
-              <h3 class="mt-0">2019 - present<small>CH</small></h3>
+              <h3 class="mt-0">2022 - present<small>CH</small></h3>
+              Circle Lead at
+              <go to="https://novu.ch" class="link"> novu </go>
+            </div>
+          </li>
+          <li v-view>
+            <div>
+              <h3 class="mt-0">2019 - 2022<small>CH</small></h3>
               Coding Websites and Apps at
               <go to="https://jkweb.ch/" class="link"> JKweb </go>
             </div>
@@ -34,8 +39,7 @@
               B.Sc. in Informatics in Digital Ideation at
               <go
                 to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/bachelor/digital-ideation/"
-                class="link"
-              >
+                class="link">
                 Hochschule Luzern
               </go>
             </div>
@@ -73,8 +77,8 @@
           <div class="shield" v-view>
             <h3 class="marginBottomSmall">Weapons</h3>
             <p>JavaScript&nbsp;<span>♥</span> / WebGL&nbsp;<span>♥</span></p>
-            <p>PHP / SCSS / HTML</p>
-            <p>Java / C# / Brainfuck</p>
+            <p>PHP / CSS / SVG</p>
+            <p>Java / C# </p>
           </div>
         </div>
 
@@ -82,9 +86,7 @@
           <div class="shield" v-view>
             <h3 class="marginBottomSmall">Battlegrounds</h3>
             <p>
-              node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span
-                >♥</span
-              >
+              node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span>♥</span>
             </p>
             <p>Docker / UnrealEngine / Unity</p>
             <p>Git / webpack / Ionic</p>
@@ -94,12 +96,12 @@
 
         <div class="shield-wrapper">
           <div class="shield" v-view>
-            <h3 class="marginBottomSmall">Worlds</h3>
+            <h3 class="marginBottomSmall">Environments</h3>
             <p>
-              VSCode
-              <span>♥</span> / nano / Intellij
+              vscode
+              <span>♥</span> / nano
             </p>
-            <p>Windows / Linux / Android</p>
+            <p>macOS / Windows / Linux</p>
 
             <p>Gimp / Illustrator / Cinema 4D</p>
             <p></p>
@@ -112,7 +114,7 @@
 
 <script>
 export default {
-	name: "Stats"
+  name: "Stats"
 };
 </script>
 
@@ -222,22 +224,26 @@ export default {
   &::before {
     transition: all 0.5s ease-out;
   }
+
   &.view-in--gt-half::before {
     background: currentColor;
     left: -2px;
   }
+
   div {
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s ease-out;
     transform: translate3d(200px, 0, 0);
   }
+
   &.view-in--gt-half div {
     transform: none;
     visibility: visible;
     opacity: 1;
   }
 }
+
 @media screen and (max-width: 600px) {
   .timeline li {
     margin-left: 0;
