@@ -10,8 +10,9 @@
     <div class="row">
       <div class="col-lg-8 mb-1">
         <p class="abstract" v-view>
-          My two passions are web development and game development. With that combination,
-          I'm able to develop some pretty spicy stuff. My specialty are 3D websites and animations.
+          I have two passions: web development and game development. Combining these
+          allows me to create some truly exciting projects. My expertise lies in
+          crafting 3D websites and animations.
         </p>
       </div>
 
@@ -29,7 +30,7 @@
             <div>
               <h3 class="mt-0">2019 - 2022<small>CH</small></h3>
               Coding Websites and Apps at
-              <go to="https://jkweb.ch/" class="link"> JKweb </go>
+              <go to="https://jkweb.ch/" class="link"> jkweb </go>
             </div>
           </li>
 
@@ -58,7 +59,7 @@
           <li v-view class="pb-1">
             <div>
               <h3>2013 - 4 Years<small>CH</small></h3>
-              Automated testing and upgrading legacy databases at
+              Automated testing and upgrading databases at
               <go to="https://www.credit-suisse.com/" class="link">
                 Credit Suisse
               </go>
@@ -76,9 +77,9 @@
         <div class="shield-wrapper">
           <div class="shield" v-view>
             <h3 class="marginBottomSmall">Weapons</h3>
-            <p>JavaScript&nbsp;<span>♥</span> / WebGL&nbsp;<span>♥</span></p>
+            <p>JS&nbsp;<span>♥</span> / TS / WebGL&nbsp;<span>♥</span></p>
             <p>PHP / CSS / SVG</p>
-            <p>Java / C# </p>
+            <p>Java / C#</p>
           </div>
         </div>
 
@@ -88,8 +89,8 @@
             <p>
               node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span>♥</span>
             </p>
+            <p>gsap / Git / webpack / Ionic</p>
             <p>Docker / UnrealEngine / Unity</p>
-            <p>Git / webpack / Ionic</p>
             <p>MongoDB / MySQL / ElasticSearch</p>
           </div>
         </div>
@@ -97,14 +98,9 @@
         <div class="shield-wrapper">
           <div class="shield" v-view>
             <h3 class="marginBottomSmall">Environments</h3>
-            <p>
-              vscode
-              <span>♥</span> / nano
-            </p>
-            <p>macOS / Windows / Linux</p>
-
+            <p>vscode&nbsp;<span>♥</span> / nano</p>
+            <p>macOS / Solus</p>
             <p>Gimp / Illustrator / Cinema 4D</p>
-            <p></p>
           </div>
         </div>
       </div>

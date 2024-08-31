@@ -84,6 +84,12 @@ export default {
     this.$root.$on("interact", this.onInteract);
 
     Balls.init(this.$root, [
+      {
+        label: "About",
+        link: "/about",
+        big: true
+      },
+
       ...Projects.reduce((acc, cur) => {
         acc.push({
           label: cur.label,
@@ -93,11 +99,6 @@ export default {
         return acc;
       }, []),
 
-      {
-        label: "About",
-        link: "/about",
-        big: true
-      },
 
       {
         icon: "M5.31,10.33H-9.09c-.24,0-.24,0-.24-.25v-9h1.51V8.82H3.8V1.11H5.31ZM-6.56,5.44V7.32H2.29V5.44ZM-3.42-6.12l-1,1.63L3.25,0l1-1.63Zm6,8.49L3.09.54l-8.55-2.3L-5.95.07ZM6.77-12.11l-1.87.32L6.42-3.06l1.86-.33ZM4.52-1.88,6.08-2.95l-5-7.32L-.48-9.2ZM2.34,4.89,2.51,3l-8.82-.82-.17,1.89Z",
