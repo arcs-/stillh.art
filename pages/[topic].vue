@@ -28,10 +28,10 @@
         </div>
         <div
           class="
-            -bottom-16 right-0 z-10 rounded-tl border-l-2 bg-white pl-14 pt-10 text-xl
+            -bottom-16 right-0 z-10 border-l-2 bg-white pl-14 pt-10 text-xl
             dark:border-yellow dark:bg-dark
             lg:w-2/5
-            md:absolute md:border-t-2
+            md:absolute md:rounded-tl md:border-t-2
           "
         >
           <h2 class="mb-2 font-bold">

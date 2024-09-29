@@ -21,14 +21,16 @@ const CONFIG = {
   DESKTOP: {
     sections: 65,
     wheelRadius: 2000,
-    wheelOffset: 2.5,
+    wheelFactorX: 0.4,
+    wheelFactorY: 0,
     bigBallRadius: 100,
     ballRadius: 30,
   },
   MOBILE: {
     sections: 65,
-    wheelRadius: 1700,
-    wheelOffset: 2,
+    wheelRadius: 1200,
+    wheelFactorX: 0.5,
+    wheelFactorY: 0.3,
     bigBallRadius: 60,
     ballRadius: 30,
   },
@@ -151,8 +153,8 @@ function onResize() {
     const x = Math.cos(angle)
     const y = Math.sin(angle)
 
-    const cx = (x * r) + (width / config.wheelOffset)
-    const cy = (y * r) + ((height / 3) - (config.wheelRadius / 4.6))
+    const cx = (x * r) + (width * config.wheelFactorX)
+    const cy = (y * r) + (height * config.wheelFactorY)
 
     parts.push(
       Bodies.rectangle(cx, cy, 20, (150 / 933) * config.wheelRadius, {

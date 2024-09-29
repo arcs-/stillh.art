@@ -118,7 +118,7 @@ onMounted(() => {
   const motionEvent = window.DeviceMotionEvent as any
   if (motionEvent.requestPermission) {
     document
-      .getElementsByTagName('main')[0]
+      .getElementById('arcs')
       .addEventListener(
         'click',
         () => motionEvent.requestPermission(),

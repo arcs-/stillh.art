@@ -4,7 +4,7 @@
       <UiClose
         to="/"
       />
-      <h1 class="mb-4 text-6xl">
+      <h1 class="mb-4 text-4xl md:text-6xl">
         About
       </h1>
       <p class="text-xl lg:w-3/5">
@@ -18,7 +18,7 @@
 
     <section class="text-xl">
       <AnimatedAppear>
-        <h2 class="mb-4 text-6xl" slide-right>
+        <h2 class="mb-4 text-4xl md:text-6xl" slide-right>
           Articles and Awards
         </h2>
       </AnimatedAppear>
@@ -70,7 +70,7 @@
     </section>
 
     <AnimatedAppear as="section">
-      <h2 class="mb-4 text-6xl" slide-right>
+      <h2 class="mb-4 text-4xl md:text-6xl" slide-right>
         Note
       </h2>
       <div class="flex flex-col gap-20 md:flex-row">
