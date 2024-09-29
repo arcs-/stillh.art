@@ -86,6 +86,15 @@ export const projects = [
         },
       },
       {
+        title: 'Code Wiki',
+        image: '/images/wiki.png',
+        description: 'I was trying to build a wiki for codes, I came quite far but eventually had to stop for finanical reasons. Eventually I startet again and wrote the \'docs\'',
+        link: {
+          label: 'Code',
+          target: 'https://bitbucket.org/Arcs-/code.wiki/src/master/',
+        },
+      },
+      {
         title: 'Serafin Krieger',
         image: '/images/serafin.png',
         description: 'An artist was asking for some advice on setting up a website, I gave it to him, but while we were at it, we also just made him a new webpage altogether.',
