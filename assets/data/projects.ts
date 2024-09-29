@@ -70,6 +70,13 @@ export const projects = [
           'Simon (Design)': 'http://simon-wirth.ch',
         },
       },
+      // {
+      //   title: 'LoginRank Plugin',
+      //   link: {
+      //     label: 'Bukkit',
+      //     target: 'https://legacy.curseforge.com/minecraft/bukkit-plugins/chat-loginrank-simple-password/screenshots',
+      //   },
+      // },
     ],
   },
   {
