@@ -30,7 +30,7 @@ const CONFIG = {
     sections: 65,
     wheelRadius: 1200,
     wheelFactorX: 0.5,
-    wheelFactorY: 0.3,
+    wheelFactorY: 0.2,
     bigBallRadius: 60,
     ballRadius: 30,
   },
@@ -95,11 +95,8 @@ function onResize() {
   if (!canvas) return
 
   const scale = window.devicePixelRatio
-  const height = window.innerHeight
-  const width = window.innerWidth
+  const { height, width } = canvas.getBoundingClientRect()
 
-  canvas.style.width = width + 'px'
-  canvas.style.height = height + 'px'
   canvas.width = (width * scale) | 0
   canvas.height = (height * scale) | 0
 

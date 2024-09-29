@@ -7,7 +7,7 @@
       <h1 class="mb-4 text-4xl md:text-6xl">
         About
       </h1>
-      <p class="text-xl lg:w-3/5">
+      <p class="lg:w-3/5 md:text-xl">
         I have two passions: web development and game development. Combining
         these allows me to create some truly exciting projects. My expertise
         lies in crafting 3D websites and animations.
