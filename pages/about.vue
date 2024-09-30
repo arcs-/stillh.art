@@ -112,7 +112,7 @@
 
     <AnimatedAppear class="!mt-12">
       <p slide-up>
-        <UiButton to="/cv.pdf">
+        <UiButton to="https://stillh.art/cv.pdf">
           Curriculum Vitae
         </UiButton>
       </p>
