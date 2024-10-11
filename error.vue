@@ -31,7 +31,7 @@ useHead({
 })
 
 onMounted(() => {
-  const code = props.error?.statusCode
+  const code = props.error?.statusCode ?? ''
   const entries = code
     .toString()
     .repeat(45)
