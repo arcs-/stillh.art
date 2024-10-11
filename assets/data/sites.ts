@@ -20,7 +20,10 @@ export const sites = {
     'hauseins.ch',
     'graubuendenmusik.ch',
     'culturescapes.ch',
+    'choschtbar.ch',
     'fmi.ch',
+    'hallo-ausserholligen.ch',
+    'lettenmatt.ch',
   ],
   other: [
     'dietikercider.ch',
