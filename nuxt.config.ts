@@ -32,7 +32,7 @@ export default defineNuxtConfig({
           innerHTML: `@font-face {
             font-family: "3270";
             font-display: block;
-            src: url("/assets/font/3270 Narrow 500.ttf") format("truetype");
+            src: url("/assets/font/3270Narrow500.ttf") format("truetype");
           }`,
         },
       ],
