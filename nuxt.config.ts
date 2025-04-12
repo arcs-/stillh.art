@@ -55,6 +55,27 @@ export default defineNuxtConfig({
     ],
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
-    'nuxt-security',
+    [
+      'nuxt-security',
+      {
+        headers: {
+          contentSecurityPolicy: {
+            'script-src': [
+              '\'self\'', // Fallback value, will be ignored by most modern browsers (level 3)
+              'https:', // Fallback value, will be ignored by almost any browser (level 2)
+              '\'unsafe-inline\'', // Fallback value, will be ignored by almost any browser (level 2)
+              '\'strict-dynamic\'', // Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
+              '\'nonce-{{nonce}}\'', // Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
+              'static.cloudflareinsights.com',
+            ],
+            'connect-src': [
+              '\'self\'',
+              'https:',
+              'static.cloudflareinsights.com',
+            ],
+          },
+        },
+      },
+    ],
   ],
 })
