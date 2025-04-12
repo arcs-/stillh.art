@@ -14,7 +14,7 @@ export const projects = [
       },
       {
         title: 'Glühbär',
-        image: '/images/glühbär.png',
+        image: '/images/gluhbar.png',
         description: 'Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.',
         xlink: {
           label: 'Play Store',
@@ -74,7 +74,7 @@ export const projects = [
       //   title: 'LoginRank Plugin',
       //   link: {
       //     label: 'Bukkit',
-      //     target: 'https://legacy.curseforge.com/minecraft/bukkit-plugins/chat-loginrank-simple-password/screenshots',
+      //     target: 'https://legacy.curseforge.com/minecraft/bukkit-plugins/chat-loginrank-simple-password',
       //   },
       // },
     ],

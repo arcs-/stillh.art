@@ -10,29 +10,23 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint . --fix"
   },
-  "dependencies": {
-    "@nuxt/eslint": "^0.5.7",
-    "@vueuse/core": "^11.1.0",
-    "@vueuse/nuxt": "^11.1.0",
-    "d3": "^7.9.0",
-    "gsap": "^3.12.5",
-    "matter-js": "^0.20.0",
-    "nuxt": "^3.13.0",
-    "vue": "latest",
-    "vue-router": "latest"
-  },
   "packageManager": "pnpm@8.15.3",
+  "dependencies": {
+    "@vueuse/core": "^11.3.0",
+    "@vueuse/nuxt": "^11.3.0",
+    "d3": "^7.9.0",
+    "gsap": "^3.12.7",
+    "matter-js": "^0.20.0",
+    "nuxt": "^3.16.2",
+    "nuxt-security": "^2.2.0"
+  },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "@teamnovu/eslint-config-vue": "^9.0.8",
+    "@nuxt/eslint": "^0.5.7",
+    "@nuxtjs/tailwindcss": "^6.13.2",
+    "@teamnovu/eslint-config-vue": "^9.0.11",
     "@types/d3": "^7.4.3",
-    "@types/matter-js": "^0.19.7",
-    "eslint": "^9.10.0",
-    "eslint-plugin-readable-tailwind": "^1.8.0",
-    "eslint-plugin-tailwindcss": "^3.17.4",
-    "eslint-plugin-vue": "^9.28.0",
-    "eslint-plugin-vuejs-accessibility": "^2.4.1",
-    "typescript": "^5.6.2",
-    "vue-tsc": "^2.1.6"
+    "@types/matter-js": "^0.19.8",
+    "eslint": "^9.24.0",
+    "typescript": "^5.8.3"
   }
 }
