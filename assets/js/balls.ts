@@ -51,8 +51,17 @@ let init = false
 let running = false
 let canvas: HTMLCanvasElement
 let ctx: CanvasRenderingContext2D
-const mouse = { x: -50, y: -50, dx: 0, dy: 0, down: false }
-const screen = { x: 0, y: 0 }
+const mouse = {
+  x: -50,
+  y: -50,
+  dx: 0,
+  dy: 0,
+  down: false,
+}
+const screen = {
+  x: 0,
+  y: 0,
+}
 let lastAccelerationY: number
 let config = CONFIG.DESKTOP
 let then = timestamp()
@@ -78,7 +87,10 @@ World.clear(engine.world, false)
 const mouseConstraint = Constraint.create({
   label: 'Mouse Constraint',
   pointA: mouse,
-  pointB: { x: 0, y: 0 },
+  pointB: {
+    x: 0,
+    y: 0,
+  },
   length: 0.01,
   stiffness: 0.1,
   render: {
@@ -118,7 +130,10 @@ function onResize() {
     ball.circleRadius = targetRadius
 
     if (ball.userData.pin) {
-      const pinAt = { x: window.innerWidth * ball.userData.pin.x, y: window.innerHeight * ball.userData.pin.y }
+      const pinAt = {
+        x: window.innerWidth * ball.userData.pin.x,
+        y: window.innerHeight * ball.userData.pin.y,
+      }
       if (!ball.pinned) {
         Body.setPosition(ball, pinAt)
         ball.pinned = Constraint.create({
@@ -137,7 +152,7 @@ function onResize() {
   // wheel
   const bodies = Composite.allBodies(engine.world)
   for (let i = bodies.length - 1; i >= 0; i -= 1) {
-    if (bodies[i].label == 'WHEEL') World.remove(engine.world, bodies[i])
+    if (bodies[i].label === 'WHEEL') World.remove(engine.world, bodies[i])
   }
 
   const parts = []
@@ -163,11 +178,14 @@ function onResize() {
   }
 
   World.add(engine.world, parts)
-  wheel = Body.create({ parts, isStatic: true }) as Obj
+  wheel = Body.create({
+    parts,
+    isStatic: true,
+  }) as Obj
 }
 
 function onMousedown(e: MouseEvent) {
-  if (e.button == 1) {
+  if (e.button === 1) {
     e.preventDefault()
   }
 
@@ -256,9 +274,9 @@ function onMotion(event: DeviceMotionEvent) {
   // will default to `accelerationIncludingGravity` but we cant use those values
   // will also reuse values
   if (
-    event.acceleration.y == lastAccelerationY
-    || event.acceleration.y == event.accelerationIncludingGravity!.y
-    || event.acceleration.x == event.accelerationIncludingGravity!.x
+    event.acceleration.y === lastAccelerationY
+    || event.acceleration.y === event.accelerationIncludingGravity!.y
+    || event.acceleration.x === event.accelerationIncludingGravity!.x
   ) return
 
   lastAccelerationY = event.acceleration.y!
@@ -283,7 +301,11 @@ function setTheme(dark: boolean, init?: boolean) {
     frame: dark ? '#ffffff' : '#0f0f13',
   }
   if (init) Colors = _colors
-  else gsap.to(Colors, { ..._colors, duration: 0.7, ease: 'linear' })
+  else gsap.to(Colors, {
+    ..._colors,
+    duration: 0.7,
+    ease: 'linear',
+  })
 }
 
 // ------------------------------------------------------------
@@ -380,27 +402,42 @@ function update(delta: number) {
       // balls
     } else if (body.label.includes('BALL')) {
       if (body.position.y > canvas.height + body.circleRadius!) {
-        Body.setPosition(body, { x: window.innerWidth / 2, y: -body.circleRadius! - 10 })
-        Body.setVelocity(body, { x: 0, y: 0 })
+        Body.setPosition(body, {
+          x: window.innerWidth / 2,
+          y: -body.circleRadius! - 10,
+        })
+        Body.setVelocity(body, {
+          x: 0,
+          y: 0,
+        })
       }
 
-      const hover = mouseConstraint.bodyB == body || Query.point([body], mouse).length > 0
+      const hover = mouseConstraint.bodyB === body || Query.point([body], mouse).length > 0
       if (hover && body.userData.link) {
         isHovering = true
+
         if (!body.tween) {
-          body.tween = gsap.to(body, { color: Colors.hover, overwrite: true, duration: 0.3 })
+          body.tween = gsap.to(body, {
+            color: body.userData.color || Colors.hover,
+            overwrite: true,
+            duration: 0.3,
+          })
         }
       } else {
         if (body.tween) {
           body.tween = undefined
-          gsap.to(body, { color: Colors.primary, overwrite: true, duration: 0.3 })
+          gsap.to(body, {
+            color: body.userData.color || Colors.primary,
+            overwrite: true,
+            duration: 0.3,
+          })
         }
       }
 
       // disc
       ctx.beginPath()
       ctx.arc(body.position.x, body.position.y, body.circleRadius!, 0, TAU)
-      ctx.fillStyle = body.color
+      ctx.fillStyle = body.userData.color || body.color
       ctx.fill()
 
       // content
@@ -458,8 +495,8 @@ export default {
 
     for (const page of pages.reverse()) {
       const ball = Bodies.circle(
-        page.big ? 460 : 1200, // x
-        380, // y
+        page.big ? 450 : 600, // x
+        280, // y
         page.big ? config.bigBallRadius : config.ballRadius,
         {
           label: 'BALL',
