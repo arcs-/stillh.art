@@ -1,0 +1,5 @@
+AddHandler text/css .css
+AddType text/css .css
+
+AddHandler text/javascript .js
+AddType text/javascript .js

@@ -1,0 +1,6 @@
+RewriteEngine On
+DirectorySlash Off
+
+# redirect all 404 to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . /index.html [L,C]

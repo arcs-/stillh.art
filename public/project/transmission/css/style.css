@@ -1,0 +1,91 @@
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  user-select: none;
+  user-drag: none;
+}
+
+body {
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  background-color: #19192e;
+  background-image: url('../img/bg.png');
+  background-position: center;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 29px 242px 94px rgba(0, 0, 0, 0.19)
+}
+
+.menu{
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: inline-block;
+}
+
+img {
+  height: 100vh;
+}
+
+.menu .button {
+  position: absolute;
+  margin: 0 auto;
+  height: 70px;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  background-size: auto 100%;
+}
+
+#startGame {
+  bottom: 25%;
+  width: 172px;
+  background-image: url(../img/button_start.png);
+}
+#startGame:active {
+  background-position: 516px 0;
+}
+#highscore {
+  bottom: 10%;
+  width: 231px;
+  filter: grayscale(100%);
+  background-image: url(../img/button_highscore.png);
+}
+#highscore:active {
+  /*background-position: -232px 0;*/
+}
+
+
+#replayGame {
+  bottom: 35%;
+  width: 231px;
+  background-image: url(../img/button_restart.png);
+}
+#replayGame:active {
+  background-position: -231px 0;
+}
+#menu {
+  bottom: 22%;
+  width: 172px;
+  background-image: url(../img/button_menu.png);
+}
+#menu:active {
+  background-position: 516px 0;
+}
+
+
+#tv, #redOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#redOverlay {
+  background: rgba(132, 1, 63, 0.27);
+}

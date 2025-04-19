@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name='msapplication-TileImage' content='img/fav.png'/>
+    <meta name='msapplication-TileColor' content='#451630'/>
+    <meta name='theme-color' content='#451630'/>
+    <link rel='shortcut icon' href='img/fav.png'/>
+    <link rel="icon" sizes="192x192" href="img/fav.png">
+    <title>Transmission</title>
+  </head>
+  <body>
+
+    <audio id="ambient" loop="loop">
+      <source src="audio/ambient_music.mp3" type="audio/mp3"></source>
+    </audio>
+
+    <div id="redOverlay"></div>
+    <div id="home" class="menu">
+      <div id="startGame" class="button" onclick="startGame()"></div>
+      <div id="highscore" class="button"></div>
+      <img src="img/hp.png"/>
+    </div>
+
+    <div id="end" class="menu" style="display: none">
+      <div id="replayGame" class="button" onclick="startGame()"></div>
+      <div id="menu" class="button" onclick="goHome()"></div>
+      <img src="img/hp.png" style="visibility: hidden"/>
+    </div>
+
+    <canvas id="tv" style="pointer-events: none"></canvas>
+
+  </body>
+
+  <link href='css/style.css' rel='stylesheet' type='text/css'/>
+
+  <script src='js/lib/p5.min.js' type='text/javascript'></script>
+
+  <script src='js/Animation.js' type='text/javascript'></script>
+  <script src='js/Asteroid.js' type='text/javascript'></script>
+  <script src='js/HUD.js' type='text/javascript'></script>
+  <script src='js/Beam.js' type='text/javascript'></script>
+  <script src='js/Planet.js' type='text/javascript'></script>
+  <script src='js/index.js' type='text/javascript'></script>
+
+</html>
