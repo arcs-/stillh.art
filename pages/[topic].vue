@@ -1,7 +1,7 @@
 <template>
   <UiContainer v-if="topic" class="py-20 md:pb-40 md:pt-24">
     <div class="relative">
-      <UiClose to="/">
+      <UiClose to="/" aria-label="Close this page">
         ×
       </UiClose>
       <h1 v-if="topic.label" class="mb-4 text-6xl">
@@ -12,14 +12,18 @@
       </p>
     </div>
 
-    <div class="!mt-20 space-y-40 md:space-y-72">
+    <div class="!mt-20 space-y-40 md:space-y-80">
       <AnimatedAppear
-        v-for="project in topic.projects"
+        v-for="(project, index) in topic.projects"
         :key="project.title"
         class="relative"
       >
         <div class="w-full md:w-5/6" slide-right>
-          <div class="relative overflow-hidden rounded border border-t-0 border-yellow drop-shadow-lg">
+          <div
+            class="
+              relative overflow-hidden rounded border border-t-0 border-yellow bg-white/10 drop-shadow-lg
+            "
+          >
             <div class="flex h-4 items-center gap-1 bg-yellow px-2">
               <div class="size-2 rounded-full bg-dark/80" />
               <div class="size-2 rounded-full bg-dark/80" />
@@ -31,8 +35,8 @@
             </div>
             <img
               :src="'/assets'+project.image"
-              :alt="'Screenshot of '+ project.title "
-              loading="lazy"
+              :alt="'Screenshot of '+project.title"
+              :loading="index > 1 ? 'lazy' : 'eager'"
               class="w-full"
             />
           </div>
@@ -46,7 +50,7 @@
           "
         >
           <h2 class="mb-2 font-bold">
-            $ {{ project.title }}
+            ^ {{ project.title }}
           </h2>
           <p class="text-[1rem] leading-5" v-html="project.description" />
           <p v-if="project.team" class="my-4 text-sm leading-5">
@@ -75,7 +79,7 @@
       </AnimatedAppear>
     </div>
 
-    <div class="pt-40 text-center text-2xl">
+    <div class="pt-32 text-center text-2xl">
       ~ <span class="inline-block translate-y-[-6px] px-2">end</span> ~
     </div>
   </UiContainer>

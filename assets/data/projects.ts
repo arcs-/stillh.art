@@ -1,4 +1,22 @@
-export const projects = [
+type Topic = {
+  label: string
+  intro: string
+  projects: Project[]
+}
+type Project = {
+  title: string
+  image: string
+  description: string
+  link?: {
+    label: string
+    target: string
+  }
+  team?: {
+    [key: string]: string
+  }
+}
+
+export const projects: Topic[] = [
   {
     label: 'Games',
     intro: '',
@@ -16,10 +34,6 @@ export const projects = [
         title: 'Glühbär',
         image: '/images/gluhbar.png',
         description: 'Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.',
-        xlink: {
-          label: 'Play Store',
-          target: 'https://play.google.com/store/apps/details?id=art.stillh.gluhbar',
-        },
         team: {
           'Andrin (Design)': 'http://andrindobler.ch/',
           'Tin (Design)': 'https://www.vyelo.net/',
@@ -70,15 +84,18 @@ export const projects = [
           'Simon (Design)': 'http://simon-wirth.ch',
         },
       },
-      // {
-      //   title: 'LoginRank Plugin',
-      //   link: {
-      //     label: 'Bukkit',
-      //     target: 'https://legacy.curseforge.com/minecraft/bukkit-plugins/chat-loginrank-simple-password',
-      //   },
-      // },
+      {
+        title: 'LoginRank for Bukkit (Minecraft)',
+        image: '/images/loginrank.png',
+        description: 'My first programm ever. It helped me manage my server and apperanly thousands others :) It allowed players to enter a password and receive a rank.',
+        link: {
+          label: 'Bukkit Page',
+          target: 'https://dev.bukkit.org/projects/chat-loginrank-simple-password',
+        },
+      },
     ],
   },
+
   {
     label: 'Sites',
     intro: 'Here are some parts of the web that I developed, these are not all projects but a small selection of what I think is interesting.',
@@ -86,21 +103,12 @@ export const projects = [
       {
         title: '3D Configurator @ novu',
         image: '/images/kbs.png',
-        description: 'I lead the development of this 3D configurator for a client. Further we also developed the generation of BIM and Technical Drawings.',
-      },
-      {
-        title: 'bossbern @ novu',
-        image: '/images/bossbern.png',
-        description: 'One of my favorite pages I built at novu with qturn togheter for an amazing company.',
-        link: {
-          label: 'Print something?',
-          target: 'https://bossbern.ch/',
-        },
+        description: 'I lead the development of this 3D configurator for a client. We also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews.',
       },
       {
         title: 'Serafin Krieger',
         image: '/images/serafin.png',
-        description: 'An artist and friend needed a website, inspiered by his moving art we created this moving page.',
+        description: 'An artist and friend needed a website, inspiered by his moving art we created a moving sphere. The most intressting part was figuring out how to render 2D text on to the sphere.',
         link: {
           label: 'Inspect',
           target: 'https://serafinkrieger.ch/',
@@ -116,9 +124,18 @@ export const projects = [
         },
       },
       {
+        title: 'bossbern @ novu',
+        image: '/images/bossbern.png',
+        description: 'One of my favorite pages that I built at novu with qturn togheter for an amazing company.',
+        link: {
+          label: 'Print something?',
+          target: 'https://bossbern.ch/',
+        },
+      },
+      {
         title: 'keller-druck.ch @ novu',
         image: '/images/keller.png',
-        description: 'My second project at novu and since maintained for several years. I live the page and the people at keller.',
+        description: 'My second project at novu and also the longest, as I maintained it for several years. It has always been a pleasure to work with keller.',
         link: {
           label: 'How much pressure?',
           target: 'https://keller-druck.ch/',
@@ -136,7 +153,7 @@ export const projects = [
       {
         title: 'Docs',
         image: '/images/docs.png',
-        description: 'Remembering stuff is hard... I tried it, writing stuff down is the way to go. The docs are a place where I write down the things I can\'t remember.',
+        description: 'Remembering code is hard... I tried it, writing it down goes further. The docs are a place where I write down the things I can\'t remember.',
         link: {
           label: 'Read up',
           target: 'https://docs.stillh.art/',
