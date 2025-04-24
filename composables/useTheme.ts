@@ -1,5 +1,8 @@
 export const useTheme = () => {
-  const isDark = useCookie('theme', { sameSite: 'lax', maxAge: 60 * 60 * 24 * 7 })
+  const isDark = useCookie('theme', {
+    sameSite: 'lax',
+    maxAge: 60 * 60 * 24 * 7,
+  })
   const preferredDark = usePreferredDark({ window })
   const system = computed(() => preferredDark.value ? 'dark' : 'light')
 

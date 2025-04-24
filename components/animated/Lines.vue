@@ -36,16 +36,18 @@ const maxRadius = 65
 function refresh() {
   svg.value!.innerHTML = ''
 
-  const stepElements = [
-    ...container.value!.querySelectorAll('[data-path-element]'),
-  ]
+  const stepElements = [...container.value!.querySelectorAll('[data-path-element]')]
 
   // get positions
   const offset = svg.value!.getBoundingClientRect()
   const connections = stepElements.map((el, index) => {
     const from = el.querySelector('[data-path-from]')!.getBoundingClientRect()
     const to = el.querySelector('[data-path-to]')!.getBoundingClientRect()
-    return { from, to, index }
+    return {
+      from,
+      to,
+      index,
+    }
   })
 
   // draw connections

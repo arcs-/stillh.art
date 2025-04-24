@@ -142,7 +142,7 @@ onMounted(() => {
 onBeforeUnmount(() => Balls.stop())
 
 function onInteract(event: MouseEvent | TouchEvent, object: any) {
-  if (object.userData.link == 'MODE') {
+  if (object.userData.link === 'MODE') {
     emit('mode', !isDark.value)
     Balls.setTheme(isDark.value)
     event.preventDefault()
