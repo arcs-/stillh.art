@@ -72,7 +72,7 @@ const links = [
   {
     label: 'Hire me!',
     link: 'mailto:patrick@stillh.art?subject=Wanna grab a coffee?',
-    color: '#FF8668',
+    color: '#ddd',
     big: true,
   },
   {
