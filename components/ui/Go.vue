@@ -28,5 +28,8 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{ to: string; unstyled?: boolean }>()
+defineProps<{
+  to: string
+  unstyled?: boolean
+}>()
 </script>

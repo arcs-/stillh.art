@@ -81,33 +81,47 @@ export const projects = [
   },
   {
     label: 'Sites',
-    intro: 'This is a display of some projects I did in my spare time. Professional projects are on the company\'s website and my CV.',
+    intro: 'Here are some parts of the web that I developed, these are not all projects but a small selection of what I think is interesting.',
     projects: [
       {
-        title: 'Docs',
-        image: '/images/docs.png',
-        description: 'Remembering stuff is hard... I tried it, but I must say, writing knowledge down is just way smarter. The docs are a place where I write down the things I can\'t remember.',
-        link: {
-          label: 'Read',
-          target: 'https://docs.stillh.art/',
-        },
+        title: '3D Configurator @ novu',
+        image: '/images/kbs.png',
+        description: 'I lead the development of this 3D configurator for a client. Further we also developed the generation of BIM and Technical Drawings.',
       },
       {
-        title: 'Code Wiki',
-        image: '/images/wiki.png',
-        description: 'I was trying to build a wiki for codes, I came quite far but eventually had to stop for finanical reasons. Eventually I startet again and wrote the \'docs\'',
+        title: 'bossbern @ novu',
+        image: '/images/bossbern.png',
+        description: 'One of my favorite pages I built at novu with qturn togheter for an amazing company.',
         link: {
-          label: 'Code',
-          target: 'https://bitbucket.org/Arcs-/code.wiki/src/master/',
+          label: 'Print something?',
+          target: 'https://bossbern.ch/',
         },
       },
       {
         title: 'Serafin Krieger',
         image: '/images/serafin.png',
-        description: 'An artist was asking for some advice on setting up a website, I gave it to him, but while we were at it, we also just made him a new webpage altogether.',
+        description: 'An artist and friend needed a website, inspiered by his moving art we created this moving page.',
         link: {
           label: 'Inspect',
           target: 'https://serafinkrieger.ch/',
+        },
+      },
+      {
+        title: 'Sozialversicherung @ novu',
+        image: '/images/ahv.png',
+        description: 'I\'m really proud to have been part of this project. Especially the animations and accessibility features are something I\'m really happy with.',
+        link: {
+          label: 'Check it out',
+          target: 'https://selbststaendig-erwerbend.ch/',
+        },
+      },
+      {
+        title: 'keller-druck.ch @ novu',
+        image: '/images/keller.png',
+        description: 'My second project at novu and since maintained for several years. I live the page and the people at keller.',
+        link: {
+          label: 'How much pressure?',
+          target: 'https://keller-druck.ch/',
         },
       },
       {
@@ -115,8 +129,17 @@ export const projects = [
         image: '/images/di.png',
         description: 'The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students.',
         link: {
-          label: 'Visit',
+          label: 'Dive in',
           target: 'https://museum.stillh.art/',
+        },
+      },
+      {
+        title: 'Docs',
+        image: '/images/docs.png',
+        description: 'Remembering stuff is hard... I tried it, writing stuff down is the way to go. The docs are a place where I write down the things I can\'t remember.',
+        link: {
+          label: 'Read up',
+          target: 'https://docs.stillh.art/',
         },
       },
       {

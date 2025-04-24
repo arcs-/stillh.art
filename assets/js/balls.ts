@@ -23,8 +23,8 @@ const CONFIG = {
     wheelRadius: 2000,
     wheelFactorX: 0.4,
     wheelFactorY: -0.1,
-    bigBallRadius: 100,
-    ballRadius: 30,
+    bigBallRadius: 98,
+    ballRadius: 33,
   },
   MOBILE: {
     sections: 65,
