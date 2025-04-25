@@ -133,21 +133,21 @@ export const projects: Topic[] = [
         },
       },
       {
-        title: 'keller-druck.ch @ novu',
-        image: '/images/keller.png',
-        description: 'My second project at novu and also the longest, as I maintained it for several years. It has always been a pleasure to work with keller.',
-        link: {
-          label: 'How much pressure?',
-          target: 'https://keller-druck.ch/',
-        },
-      },
-      {
         title: 'DI Museum',
         image: '/images/di.png',
         description: 'The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students.',
         link: {
           label: 'Dive in',
           target: 'https://museum.stillh.art/',
+        },
+      },
+      {
+        title: 'keller-druck.ch @ novu',
+        image: '/images/keller.png',
+        description: 'My second project at novu and also the longest, as I maintained it for several years. It has always been a pleasure to work with keller.',
+        link: {
+          label: 'How much pressure?',
+          target: 'https://keller-druck.ch/',
         },
       },
       {

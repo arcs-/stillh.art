@@ -1,9 +1,7 @@
 <template>
-  <UiContainer v-if="topic" class="py-20 md:pb-40 md:pt-24">
+  <UiContainer is="main" v-if="topic" class="py-20 md:pb-40 md:pt-24">
     <div class="relative">
-      <UiClose to="/" aria-label="Close this page">
-        ×
-      </UiClose>
+      <UiClose to="/" />
       <h1 v-if="topic.label" class="mb-4 text-6xl">
         {{ topic.label.toLowerCase() }}[]
       </h1>
@@ -14,6 +12,7 @@
 
     <div class="!mt-20 space-y-40 md:space-y-80">
       <AnimatedAppear
+        is="section"
         v-for="(project, index) in topic.projects"
         :key="project.title"
         class="relative"
@@ -43,8 +42,8 @@
         </div>
         <div
           class="
-            -bottom-16 right-0 z-10 bg-white pt-6 text-xl
-            dark:border-yellow dark:bg-dark
+            -bottom-16 right-0 z-10 border-yellow bg-white pt-6 text-xl
+            dark:bg-dark
             lg:w-2/5
             md:absolute md:rounded-tl md:border-l-2 md:border-t-2 md:pl-14 md:pt-10
           "

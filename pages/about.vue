@@ -1,9 +1,7 @@
 <template>
-  <UiContainer class="overflow-hidden py-20 md:py-36 md:pb-40">
+  <UiContainer is="main" class="overflow-hidden py-20 md:py-36 md:pb-40">
     <section class="relative">
-      <UiClose
-        to="/"
-      />
+      <UiClose to="/" />
       <h1 class="mb-4 text-4xl md:text-6xl">
         About
       </h1>
@@ -22,7 +20,7 @@
           Articles and Awards
         </h2>
       </AnimatedAppear>
-      <AnimatedAppear as="ul">
+      <AnimatedAppear is="ul">
         <li slide-up>
           HSLU > Apr 2021 >
           <UiGo to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/">
@@ -55,7 +53,7 @@
         </li>
       </AnimatedAppear>
 
-      <AnimatedAppear as="div">
+      <AnimatedAppear is="div">
         <h4 class="mb-2 mt-12 text-2xl" slide-up>
           Also seen here
         </h4>
@@ -69,7 +67,7 @@
       </AnimatedAppear>
     </section>
 
-    <AnimatedAppear as="section">
+    <AnimatedAppear is="section">
       <h2 class="mb-4 text-4xl md:text-6xl" slide-right>
         Note
       </h2>

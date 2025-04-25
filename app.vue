@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans selection:bg-yellow">
+  <div class="font-sans dark:selection:text-dark selection:bg-yellow">
     <NuxtLoadingIndicator color="#FFD168" />
     <NuxtPage @mode="toggleTheme" />
   </div>

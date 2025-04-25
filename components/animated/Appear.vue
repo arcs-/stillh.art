@@ -1,5 +1,5 @@
 <template>
-  <component :is="as" ref="el" class="animated-container">
+  <component :is="is" ref="el" class="animated-container">
     <slot />
   </component>
 </template>
@@ -12,13 +12,13 @@ if (import.meta.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
 const props = withDefaults(defineProps<{
-  as?: string
+  is?: string
   start?: string
   end?: string
   markers?: boolean
   delay?: number
 }>(), {
-  as: 'div',
+  is: 'div',
   delay: 0,
 })
 

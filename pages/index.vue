@@ -8,16 +8,15 @@
       dark:before:bg-white/10
     "
   >
-    <h1 class="opacity-0">
-      Patrick Stillhart
-    </h1>
-
     <nav
       class="
-        pointer-events-none relative z-10 w-0 p-12 opacity-0 transition duration-700
+        pointer-events-none relative z-10 w-0 whitespace-nowrap p-12 opacity-0 transition duration-700
         focus-within:opacity-100
       "
     >
+      <h1 class="mb-4">
+        Patrick Stillharts Portfolio
+      </h1>
       <menu>
         <template v-for="link in links" :key="link.label">
           <li v-if="link.link && link.link != 'MODE'">

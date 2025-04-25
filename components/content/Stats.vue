@@ -3,7 +3,7 @@
     <!-- TIMELINE -->
     <AnimatedLines class="mx-auto mb-20 md:mb-0 md:w-3/5">
       <ul class="mt-2 space-y-24 pt-1 [&_li]:md:w-[30rem] md:space-y-28">
-        <AnimatedAppear as="li" data-path-element class="relative">
+        <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
             class="absolute left-0 size-3 rounded-full bg-black dark:bg-white"
@@ -22,7 +22,7 @@
           </div>
         </AnimatedAppear>
 
-        <AnimatedAppear as="li" data-path-element class="relative">
+        <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
             class="absolute top-8 size-3 rounded-full bg-black dark:bg-white"
@@ -42,7 +42,7 @@
           </div>
         </AnimatedAppear>
 
-        <AnimatedAppear as="li" data-path-element class="relative !my-28">
+        <AnimatedAppear is="li" data-path-element class="relative !my-28">
           <div
             zoom-in-out
             class="absolute right-0 top-12 size-3 rounded-full bg-black dark:bg-white"
@@ -60,7 +60,7 @@
           </div>
         </AnimatedAppear>
 
-        <AnimatedAppear as="li" data-path-element class="relative !mb-20">
+        <AnimatedAppear is="li" data-path-element class="relative !mb-20">
           <div
             zoom-in-out
             class="absolute top-12 size-3 rounded-full bg-black dark:bg-white"
@@ -78,7 +78,7 @@
           </div>
         </AnimatedAppear>
 
-        <AnimatedAppear as="li" class="relative" data-path-element>
+        <AnimatedAppear is="li" class="relative" data-path-element>
           <div
             zoom-in-out
             class="absolute right-0 top-12 size-3 rounded-full bg-black dark:bg-white"
