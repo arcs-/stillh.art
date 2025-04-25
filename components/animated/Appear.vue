@@ -28,6 +28,10 @@ onMounted(() => {
   gsap.delayedCall(props.delay, () => initAnimation())
 })
 
+useResizeObserver(el, useThrottleFn(() => {
+  ScrollTrigger.refresh()
+}, 100))
+
 const initAnimation = () => {
   gsap.context((self) => {
     const slide = self.selector!('[slide-up],[slide-right],[slide-left],[slide-down]')
