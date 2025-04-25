@@ -1,0 +1,38 @@
+body, canvas {
+  display: block;
+  margin: 0;
+  font-family: 'Courier New';
+  color: #949169;
+  background: #ded895;
+}
+
+#fps {
+  position: absolute;
+  right: 0;
+}
+
+#gameCanvas {
+  background: #4ec0ca;
+  border-bottom: 2px solid #949169;
+}
+
+h1, h3 {
+  position: absolute;
+  top: 410px;
+  left: 50px;
+}
+
+h3 {
+  left: auto;
+  right: 50px;
+}
+
+#fitness {
+  top: 440px;
+}
+
+#progress {
+  display: inline-block!important;
+  width: 100%;
+  max-height: calc(100vh - 502px)
+}
