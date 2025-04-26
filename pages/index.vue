@@ -135,15 +135,31 @@ const links = [
 ]
 
 const promptInteract = ref(false)
+
+function getDeviceMotionEvent() {
+  return window.DeviceMotionEvent as any as DeviceMotionEvent & { requestPermission?: () => Promise<string> }
+}
+
+async function checkDeviceMotionPermission() {
+  const DeviceMotion = getDeviceMotionEvent()
+  if (!DeviceMotion.requestPermission) return false
+  try {
+    const response = await DeviceMotion.requestPermission()
+    return response === 'granted'
+  } catch {
+    return false
+  }
+}
+
 function requestGyro() {
-  const DeviceMotion = window.DeviceMotionEvent as any as DeviceMotionEvent & { requestPermission?: () => void }
-  DeviceMotion.requestPermission?.()
+  getDeviceMotionEvent().requestPermission?.()
   promptInteract.value = false
 }
-onMounted(() => {
+
+onMounted(async () => {
   Balls.init(container.value!, onInteract, links)
-  const DeviceMotion = window.DeviceMotionEvent as any as DeviceMotionEvent & { requestPermission?: () => void }
-  if (DeviceMotion.requestPermission) {
+  const hasPermission = await checkDeviceMotionPermission()
+  if (!hasPermission) {
     promptInteract.value = true
     document
       .getElementById('arcs')
