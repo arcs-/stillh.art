@@ -1,5 +1,5 @@
 <template>
-  <UiContainer is="main" v-if="topic" class="py-20 md:pb-40 md:pt-24">
+  <UiContainer is="main" v-if="topic" class="py-16 md:pb-40 md:pt-24">
     <div class="relative">
       <UiClose to="/" />
       <h1 v-if="topic.label" class="mb-4 text-6xl">
@@ -121,7 +121,7 @@ onUnmounted(() => {
 })
 
 useEventListener(document, 'scroll', () => {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+  if (window.innerHeight + window.scrollY === document.body.offsetHeight) {
     jsConfetti?.addConfetti({
       confettiColors: ['#FFD168', '#FFD168', '#ffffff', '#000000'],
     })

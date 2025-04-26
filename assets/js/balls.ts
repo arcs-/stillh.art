@@ -28,10 +28,10 @@ const CONFIG = {
   },
   MOBILE: {
     sections: 65,
-    wheelRadius: 1200,
+    wheelRadius: 950,
     wheelFactorX: 0.5,
-    wheelFactorY: 0.2,
-    bigBallRadius: 60,
+    wheelFactorY: 0.4,
+    bigBallRadius: 75,
     ballRadius: 30,
   },
 }

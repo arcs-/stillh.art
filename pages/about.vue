@@ -1,8 +1,8 @@
 <template>
-  <UiContainer is="main" class="overflow-hidden py-20 md:py-36 md:pb-40">
+  <UiContainer is="main" class="overflow-hidden py-12 md:py-36 md:pb-40">
     <section class="relative">
-      <UiClose to="/" />
-      <h1 class="mb-4 text-4xl md:text-6xl">
+      <UiClose to="/" class="-mt-1" />
+      <h1 class="mb-4 text-6xl">
         About
       </h1>
       <p class="lg:w-3/5 md:text-xl">

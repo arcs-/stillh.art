@@ -4,8 +4,9 @@
       relative h-dvh w-dvw overflow-hidden
       before:absolute before:size-full before:bg-black/10 before:transition before:content-['']
       before:[mask-image:url('/assets/images/banner.svg')] before:[mask-position:center]
-      before:[mask-size:85vw]
+      before:[mask-size:160vw]
       dark:before:bg-white/10
+      md:before:[mask-size:85vw]
     "
   >
     <nav
@@ -27,6 +28,19 @@
         </template>
       </menu>
     </nav>
+
+    <button
+      v-if="promptInteract"
+      type="button"
+      class="
+        fixed left-1/2 top-16 z-10 -translate-x-1/2 whitespace-nowrap rounded bg-yellow px-7 py-2 text-black
+        shadow
+        [&_*]:size-full
+      "
+      @click="requestGyro"
+    >
+      Press to use gyro
+    </button>
 
     <div ref="container" class="absolute inset-0 h-dvh w-dvw [&_*]:size-full" />
 
@@ -115,21 +129,27 @@ const links = [
     link: 'MODE',
     pin: {
       x: 0.85,
-      y: 0.85,
+      y: 0.92,
     },
   },
 ]
 
+const promptInteract = ref(true)
+function requestGyro() {
+  const DeviceMotion = window.DeviceMotionEvent as any as DeviceMotionEvent & { requestPermission?: () => void }
+  DeviceMotion.requestPermission?.()
+  promptInteract.value = false
+}
 onMounted(() => {
   Balls.init(container.value!, onInteract, links)
-
-  const motionEvent = window.DeviceMotionEvent as any
-  if (motionEvent.requestPermission) {
+  const DeviceMotion = window.DeviceMotionEvent as any as DeviceMotionEvent & { requestPermission?: () => void }
+  if (DeviceMotion.requestPermission) {
+    promptInteract.value = true
     document
       .getElementById('arcs')
       ?.addEventListener(
         'click',
-        () => motionEvent.requestPermission(),
+        requestGyro,
         {
           capture: true,
           once: true,
