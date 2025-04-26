@@ -12,7 +12,7 @@
 
     <div class="!mt-20 space-y-28 md:space-y-80">
       <AnimatedAppear
-        is="section"
+        is="article"
         v-for="(project, index) in topic.projects"
         :key="project.title"
         class="relative"
@@ -44,8 +44,7 @@
           class="
             -bottom-16 right-0 z-10 border-yellow bg-white pt-6 text-xl
             dark:bg-dark
-            lg:w-2/5
-            md:absolute md:rounded-tl md:border-l-2 md:border-t-2 md:pl-14 md:pt-10
+            lg:absolute lg:w-2/5 lg:rounded-tl lg:border-l-2 lg:border-t-2 lg:pl-14 lg:pt-10
           "
         >
           <h2 class="mb-2 font-bold">
