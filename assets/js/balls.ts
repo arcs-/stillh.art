@@ -30,7 +30,7 @@ const CONFIG = {
     sections: 65,
     wheelRadius: 950,
     wheelFactorX: 0.5,
-    wheelFactorY: 0.4,
+    wheelFactorY: 0.25,
     bigBallRadius: 75,
     ballRadius: 30,
   },

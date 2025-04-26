@@ -33,8 +33,8 @@
       v-if="promptInteract"
       type="button"
       class="
-        fixed left-1/2 top-16 z-10 -translate-x-1/2 whitespace-nowrap rounded bg-yellow px-7 py-2 text-black
-        shadow
+        fixed left-1/2 top-16 z-10 -translate-x-1/2 whitespace-nowrap rounded bg-yellow px-7 py-2 font-bold
+        text-black shadow
         [&_*]:size-full
       "
       @click="requestGyro"
@@ -134,7 +134,7 @@ const links = [
   },
 ]
 
-const promptInteract = ref(true)
+const promptInteract = ref(false)
 function requestGyro() {
   const DeviceMotion = window.DeviceMotionEvent as any as DeviceMotionEvent & { requestPermission?: () => void }
   DeviceMotion.requestPermission?.()

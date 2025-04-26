@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <div class="!mt-20 space-y-40 md:space-y-80">
+    <div class="!mt-20 space-y-28 md:space-y-80">
       <AnimatedAppear
         is="section"
         v-for="(project, index) in topic.projects"
@@ -78,7 +78,7 @@
       </AnimatedAppear>
     </div>
 
-    <div class="pt-32 text-center text-2xl">
+    <div class="pt-20 text-center text-2xl md:pt-32">
       ~ <span class="inline-block translate-y-[-6px] px-2">end</span> ~
     </div>
   </UiContainer>
@@ -120,11 +120,15 @@ onUnmounted(() => {
   jsConfetti = null
 })
 
+let reachedEnd = false
 useEventListener(document, 'scroll', () => {
-  if (window.innerHeight + window.scrollY === document.body.offsetHeight) {
+  if (!reachedEnd && window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    reachedEnd = true
     jsConfetti?.addConfetti({
       confettiColors: ['#FFD168', '#FFD168', '#ffffff', '#000000'],
     })
+  } else {
+    reachedEnd = false
   }
 })
 </script>
