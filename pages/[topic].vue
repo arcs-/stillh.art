@@ -122,11 +122,13 @@ onUnmounted(() => {
 
 let reachedEnd = false
 useEventListener(document, 'scroll', () => {
-  if (!reachedEnd && window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    reachedEnd = true
-    jsConfetti?.addConfetti({
-      confettiColors: ['#FFD168', '#FFD168', '#ffffff', '#000000'],
-    })
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    if (!reachedEnd) {
+      reachedEnd = true
+      jsConfetti?.addConfetti({
+        confettiColors: ['#FFD168', '#FFD168', '#ffffff', '#000000'],
+      })
+    }
   } else {
     reachedEnd = false
   }
