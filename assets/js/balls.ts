@@ -17,12 +17,14 @@ let Colors: {
 
 const TAU = Math.PI * 2
 
+const MAX_SCREEN_VELOCITY = 20
+
 const CONFIG = {
   DESKTOP: {
     sections: 65,
     wheelRadius: 2000,
     wheelFactorX: 0.4,
-    wheelFactorY: -0.1,
+    wheelFactorY: -0.11,
     bigBallRadius: 98,
     ballRadius: 33,
   },
@@ -92,7 +94,7 @@ const mouseConstraint = Constraint.create({
     y: 0,
   },
   length: 0.01,
-  stiffness: 0.1,
+  stiffness: 0.9,
   render: {
     visible: false,
   },
@@ -137,10 +139,11 @@ function onResize() {
       if (!ball.pinned) {
         Body.setPosition(ball, pinAt)
         ball.pinned = Constraint.create({
+          label: 'Pinned Constraint',
           bodyA: ball,
           pointB: pinAt,
-          length: 0.5,
-          stiffness: 0.1,
+          length: 0.001,
+          stiffness: 1,
         })
         World.add(engine.world, ball.pinned)
       } else {
@@ -358,25 +361,27 @@ function update(delta: number) {
 
   const screenVelocityX = Common.clamp(
     ((screen.x - window.screenX) * delta * 7) / window.devicePixelRatio,
-    -10,
-    10,
+    -MAX_SCREEN_VELOCITY,
+    MAX_SCREEN_VELOCITY,
   )
   const screenVelocityY = Common.clamp(
     ((screen.y - window.screenY) * delta * 6) / window.devicePixelRatio,
-    -10,
-    10,
+    -MAX_SCREEN_VELOCITY,
+    MAX_SCREEN_VELOCITY,
   )
 
-  for (const ball of balls) {
-    const factor = Math.min(ball.circleRadius!, config.bigBallRadius) / config.bigBallRadius
-    Body.applyForce(ball, ball.position, {
-      x: screenVelocityX * factor,
-      y: screenVelocityY * factor,
-    })
-  }
+  if (screenVelocityX !== 0 || screenVelocityY !== 0) {
+    screen.x = window.screenX
+    screen.y = window.screenY
 
-  screen.x = window.screenX
-  screen.y = window.screenY
+    for (const ball of balls) {
+      const factor = Math.min(ball.circleRadius!, config.bigBallRadius) / config.bigBallRadius
+      Body.applyForce(ball, ball.position, {
+        x: screenVelocityX * factor,
+        y: screenVelocityY * factor,
+      })
+    }
+  }
 
   // reset
   ctx.lineWidth = 1
