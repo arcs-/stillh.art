@@ -19,7 +19,7 @@ type Project = {
 export const projects: Topic[] = [
   {
     label: 'Games',
-    intro: '',
+    intro: 'Some of the game related projects I worked on. While most are a bit older I still think they are intressting.',
     projects: [
       {
         title: 'Outrun',
@@ -98,17 +98,21 @@ export const projects: Topic[] = [
 
   {
     label: 'Sites',
-    intro: 'Here are some parts of the web that I developed, these are not all projects but a small selection of what I think is interesting.',
+    intro: 'Here are some parts of the web that I developed, these are by far not all projects but a small sample what I want to share.',
     projects: [
       {
         title: '3D Configurator @ novu',
         image: '/images/kbs.png',
-        description: 'I lead the development of this 3D configurator for a client. We also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews.',
+        description: 'Here I lead the development of this 3D configurator and frontend for a client. I also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews from the newly configured product.',
+        link: {
+          label: 'Still in beta',
+          target: 'https://neu.kabelschacht.ch/',
+        },
       },
       {
         title: 'Serafin Krieger',
         image: '/images/serafin.png',
-        description: 'An artist and friend needed a website, inspiered by his moving art we created a moving sphere. The most intressting part was figuring out how to render 2D text on to the sphere.',
+        description: 'An artist and friend needed a website, inspiered by his moving art we created a moving sphere as the main navigation. The most intressting part was figuring out how to render 2D text on to the sphere and how to make it compreensiable.',
         link: {
           label: 'Inspect',
           target: 'https://serafinkrieger.ch/',
@@ -117,7 +121,7 @@ export const projects: Topic[] = [
       {
         title: 'Sozialversicherung @ novu',
         image: '/images/ahv.png',
-        description: 'I\'m really proud to have been part of this project. Especially the animations and accessibility features are something I\'m really happy with.',
+        description: 'I\'m really proud to have been part of this project. Especially the animations and accessibility features are something I\'m really happy with but also just the spirit of the website to help self employed people to have social security.',
         link: {
           label: 'Check it out',
           target: 'https://selbststaendig-erwerbend.ch/',
@@ -135,7 +139,7 @@ export const projects: Topic[] = [
       {
         title: 'DI Museum',
         image: '/images/di.png',
-        description: 'The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students.',
+        description: 'The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students. I has been written in 2 months as a replacement for the cancelled exhibition.',
         link: {
           label: 'Dive in',
           target: 'https://museum.stillh.art/',
@@ -144,16 +148,16 @@ export const projects: Topic[] = [
       {
         title: 'keller-druck.ch @ novu',
         image: '/images/keller.png',
-        description: 'My second project at novu and also the longest, as I maintained it for several years. It has always been a pleasure to work with keller.',
+        description: 'My second project at novu and also the longest one, as I maintained it for several years. It has always been a pleasure to work with keller.',
         link: {
           label: 'How much pressure?',
           target: 'https://keller-druck.ch/',
         },
       },
       {
-        title: 'Docs',
+        title: 'My Wiki',
         image: '/images/docs.png',
-        description: 'Remembering code is hard... I tried it, writing it down goes further. The docs are a place where I write down the things I can\'t remember.',
+        description: 'Remembering code is hard... I tried it, writing stuff down is easier. The wiki is a place where I keep the things I can\'t remember or want to share... as at this point most people looking at aren\'t me.',
         link: {
           label: 'Read up',
           target: 'https://docs.stillh.art/',

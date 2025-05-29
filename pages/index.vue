@@ -62,6 +62,15 @@ import { projects } from '@/assets/data/projects'
 
 const emit = defineEmits(['mode'])
 
+useHead({
+  meta: [
+    {
+      name: 'description',
+      content: 'Fan of great frontends, fullstack developer myself with a special passion for 3D and animations. Here to make the web more fun.',
+    },
+  ],
+})
+
 const isDark = inject<Ref<boolean>>('isDark')!
 Balls.setTheme(isDark.value, true)
 

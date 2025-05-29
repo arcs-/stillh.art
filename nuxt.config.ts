@@ -39,11 +39,11 @@ export default defineNuxtConfig({
         },
         {
           name: 'description',
-          content: 'Hello there! I\'m Patrick (aka arcs) - creator of many things, one of which is this page.',
+          content: 'Fan of great frontends, fullstack developer myself with a special passion for 3D and animations. Here to make the web more fun.',
         },
         {
           property: 'og:description',
-          content: 'Hello there! I\'m Patrick (aka arcs) - creator of many things, one of which is this page.',
+          content: 'Fan of great frontends, fullstack developer myself with a special passion for 3D and animations. Here to make the web more fun.',
         },
         {
           property: 'og:image',

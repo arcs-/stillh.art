@@ -6,9 +6,9 @@
         About
       </h1>
       <p class="lg:w-3/5 md:text-xl">
-        I have two passions: web development and game development. Combining
-        these allows me to create some truly exciting projects. My expertise
-        lies in crafting 3D websites and animations.
+        I'm a fullstack developer with a great passion for beautiful frontends.
+        I especially enjoy creating 3D experiences and animations. That allowed me to
+        create some truly exciting projects and hopefully made the web a bit more fun.
       </p>
     </section>
 
@@ -85,12 +85,12 @@
             <p slide-up>
               I did get into coding when I was 11 because I was too lazy to
               manage permissions on my Minecraft server. It took me half a year
-              to finally get my 30 lines of code to work, but it was so worth
-              it. From then on, everything I did was do push further into the
-              world of programming.
+              to finally get my 30 lines of code to work, but it was absolutely
+              worth it. From then on, most things I did were to push further into
+              the world of programming.
             </p>
             <p slide-up>
-              Aside from coding, I found joy in photography, camping, gaming,
+              Aside from coding, I enjoy in photography, camping, gaming,
               cycling, and cooking. Also, whenever I work, I kind of need music,
               so you rarely see me without headphones. The legend goes that
               sometimes I dance to it; this is a lie.
