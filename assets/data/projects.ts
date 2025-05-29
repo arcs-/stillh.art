@@ -160,7 +160,7 @@ export const projects: Topic[] = [
         description: 'Remembering code is hard... I tried it, writing stuff down is easier. The wiki is a place where I keep the things I can\'t remember or want to share... as at this point most people looking at aren\'t me.',
         link: {
           label: 'Read up',
-          target: 'https://docs.stillh.art/',
+          target: 'https://wiki.stillh.art/',
         },
       },
       {
