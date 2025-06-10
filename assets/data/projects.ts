@@ -3,9 +3,14 @@ type Topic = {
   intro: string
   projects: Project[]
 }
+
 type Project = {
   title: string
-  image: string
+  image: {
+    src: string
+    width: number
+    height: number
+  }
   description: string
   link?: {
     label: string
@@ -23,7 +28,11 @@ export const projects: Topic[] = [
     projects: [
       {
         title: 'Outrun',
-        image: '/images/outrun.png',
+        image: {
+          src: '/images/outrun.png',
+          width: 3140,
+          height: 1956,
+        },
         description: 'In a discussion with a prof I got interested if one could create a game that would run smoothly within the browser only using HTML Elements.<br /><br />I tried to replicate Outrun from 1986 and really enjoy the result.',
         link: {
           label: 'Play',
@@ -32,7 +41,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'Glühbär',
-        image: '/images/gluhbar.png',
+        image: {
+          src: '/images/gluhbar.png',
+          width: 1117,
+          height: 692,
+        },
         description: 'Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.',
         team: {
           'Andrin (Design)': 'http://andrindobler.ch/',
@@ -42,7 +55,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'HUEBOO VR',
-        image: '/images/hueboo.png',
+        image: {
+          src: '/images/hueboo.png',
+          width: 1235,
+          height: 693,
+        },
         description: 'HUEBOO is a VR-Game in which you are the bartender, tasked with serving drinks to your thirsty customers. Its a game about music, light and agility.',
         link: {
           label: 'Trailer',
@@ -55,7 +72,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'Tree Builder',
-        image: '/images/tree.png',
+        image: {
+          src: '/images/tree.png',
+          width: 1252,
+          height: 691,
+        },
         description: 'In math we looked at L-Systems... and I was really bored. It was all way to simple and didn\'t even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.',
         link: {
           label: 'Try It',
@@ -64,7 +85,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'Minesweeper Solver',
-        image: '/images/mine.gif',
+        image: {
+          src: '/images/mine.gif',
+          width: 600,
+          height: 338,
+        },
         description: 'Minesweeper is one of those games that is actually fun to play but somehow isn\'t. <br /><br /> It just interested me if one could cheat it... :)',
         link: {
           label: 'GitHub',
@@ -73,7 +98,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'Transmission',
-        image: '/images/transmission.png',
+        image: {
+          src: '/images/transmission.png',
+          width: 1111,
+          height: 688,
+        },
         description: 'My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the game play, two friends did the art<br /><br /> In transmission you try to send a single through the solar system.',
         link: {
           label: 'Play',
@@ -86,7 +115,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'LoginRank for Bukkit (Minecraft)',
-        image: '/images/loginrank.png',
+        image: {
+          src: '/images/loginrank.png',
+          width: 797,
+          height: 451,
+        },
         description: 'My first programm ever. It helped me manage my server and apperanly thousands others :) It allowed players to enter a password and receive a rank.',
         link: {
           label: 'Bukkit Page',
@@ -102,7 +135,11 @@ export const projects: Topic[] = [
     projects: [
       {
         title: '3D Configurator @ novu',
-        image: '/images/kbs.png',
+        image: {
+          src: '/images/kbs.png',
+          width: 1637,
+          height: 876,
+        },
         description: 'Here I lead the development of this 3D configurator and frontend for a client. I also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews from the newly configured product.',
         link: {
           label: 'in beta',
@@ -111,7 +148,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'Serafin Krieger',
-        image: '/images/serafin.png',
+        image: {
+          src: '/images/serafin.png',
+          width: 1540,
+          height: 940,
+        },
         description: 'An artist and friend needed a website, inspiered by his moving art we created a moving sphere as the main navigation. The most intressting part was figuring out how to render 2D text on to the sphere and how to make it compreensiable.',
         link: {
           label: 'Inspect',
@@ -120,7 +161,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'Sozialversicherung @ novu',
-        image: '/images/ahv.png',
+        image: {
+          src: '/images/ahv.png',
+          width: 1631,
+          height: 1041,
+        },
         description: 'I\'m really proud to have been part of this project. Especially the animations and accessibility features are something I\'m really happy with but also just the spirit of the website to help self employed people to have social security.',
         link: {
           label: 'Check it out',
@@ -129,7 +174,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'bossbern @ novu',
-        image: '/images/bossbern.png',
+        image: {
+          src: '/images/bossbern.png',
+          width: 1332,
+          height: 817,
+        },
         description: 'One of my favorite pages that I built at novu with qturn togheter for an amazing company.',
         link: {
           label: 'Print something?',
@@ -138,7 +187,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'DI Museum',
-        image: '/images/di.png',
+        image: {
+          src: '/images/di.png',
+          width: 1304,
+          height: 694,
+        },
         description: 'The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students. I has been written in 2 months as a replacement for the cancelled exhibition.',
         link: {
           label: 'Dive in',
@@ -147,7 +200,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'keller-druck.ch @ novu',
-        image: '/images/keller.png',
+        image: {
+          src: '/images/keller.png',
+          width: 1545,
+          height: 944,
+        },
         description: 'My second project at novu and also the longest one, as I maintained it for several years. It has always been a pleasure to work with keller.',
         link: {
           label: 'How much pressure?',
@@ -156,7 +213,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'My Wiki',
-        image: '/images/docs.png',
+        image: {
+          src: '/images/docs.png',
+          width: 3153,
+          height: 1956,
+        },
         description: 'Remembering code is hard... I tried it, writing stuff down is easier. The wiki is a place where I keep the things I can\'t remember or want to share... as at this point most people looking at aren\'t me.',
         link: {
           label: 'Read up',
@@ -165,7 +226,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'Adminer Theme',
-        image: '/images/adminer.png',
+        image: {
+          src: '/images/adminer.png',
+          width: 1317,
+          height: 693,
+        },
         description: 'Ahh Adminer. You are the best SQL manager out there. One file, so simple. Why on earth must you look like you\'re from 1970.<br /><br /> I took SCSS and the Material Design Guide and coded ahead. It\'s on GitHub now.',
         link: {
           label: 'GitHub',
@@ -174,7 +239,11 @@ export const projects: Topic[] = [
       },
       {
         title: 'MatTab',
-        image: '/images/mattab.png',
+        image: {
+          src: '/images/mattab.png',
+          width: 1315,
+          height: 720,
+        },
         description: 'Chrome has this nice new tab page but I can do one better. I\'ve never done a browser extension but this seemed like a good start.<br /><br /> Basically better Windows 8 tiles in Chrome.',
         link: {
           label: 'Chrome Store',

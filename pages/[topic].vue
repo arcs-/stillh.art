@@ -33,8 +33,10 @@
               />
             </div>
             <img
-              :src="'/assets'+project.image"
+              :src="'/assets'+project.image.src"
               :alt="'Screenshot of '+project.title"
+              :width="project.image.width"
+              :height="project.image.height"
               :loading="index > 1 ? 'lazy' : 'eager'"
               class="w-full"
             />
