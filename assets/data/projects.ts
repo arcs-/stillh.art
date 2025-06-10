@@ -105,7 +105,7 @@ export const projects: Topic[] = [
         image: '/images/kbs.png',
         description: 'Here I lead the development of this 3D configurator and frontend for a client. I also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews from the newly configured product.',
         link: {
-          label: 'Still in beta',
+          label: 'in beta',
           target: 'https://neu.kabelschacht.ch/',
         },
       },
