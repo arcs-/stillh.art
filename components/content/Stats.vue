@@ -3,7 +3,7 @@
     <!-- TIMELINE -->
     <AnimatedLines class="mx-auto mb-20 md:mb-0 md:w-3/5">
       <ul class="mt-2 space-y-24 pt-1 [&_li]:md:w-[30rem] md:space-y-28">
-        <AnimatedAppear is="li" data-path-element class="relative">
+        <AnimatedAppear is="li" data-path-element class="relative pb-8">
           <div
             zoom-in-out
             class="absolute left-0 size-3 rounded-full bg-black dark:bg-white"
@@ -12,7 +12,26 @@
           />
           <div class="pl-14" slide-left>
             <span>
-              2022 - present <small>CH</small>
+              2025 - present <small>CH</small>
+            </span>
+            <h3 class="text-xl">
+              Frontend Architect at <UiGo to="https://deepjudge.ai">
+                DeepJudge
+              </UiGo>
+            </h3>
+          </div>
+        </AnimatedAppear>
+
+        <AnimatedAppear is="li" data-path-element class="relative">
+          <div
+            zoom-in-out
+            class="absolute right-0 top-1 size-3 rounded-full bg-black dark:bg-white"
+            data-path-from
+            data-path-to
+          />
+           <div class="pr-14 text-right" slide-right>
+            <span>
+              2022 - 2025 <small>CH</small>
             </span>
             <h3 class="text-xl">
               Frontend Circle Lead at <UiGo to="https://novu.ch">
@@ -25,11 +44,11 @@
         <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
-            class="absolute top-8 size-3 rounded-full bg-black dark:bg-white"
+            class="absolute top-1 right-0 size-3 rounded-full bg-black dark:bg-white"
             data-path-from
             data-path-to
           />
-          <div class="pl-14" slide-left>
+          <div class="pr-14 text-right" slide-right>
             <span>
               2019 - 3 Years <small>CH</small>
             </span>
@@ -42,14 +61,14 @@
           </div>
         </AnimatedAppear>
 
-        <AnimatedAppear is="li" data-path-element class="relative !my-28">
+        <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
-            class="absolute right-0 top-12 size-3 rounded-full bg-black dark:bg-white"
+            class="absolute left-0 top-5 size-3 rounded-full bg-black dark:bg-white"
             data-path-from
             data-path-to
           />
-          <div class="pr-14 pt-4 text-right" slide-right>
+          <div class="pl-14 pt-4 text-left" slide-left>
             <span>2017 - 3 Years <small>CH</small></span>
             <h3 class="text-xl">
               B.Sc. in Informatics in Digital Ideation at
@@ -60,14 +79,14 @@
           </div>
         </AnimatedAppear>
 
-        <AnimatedAppear is="li" data-path-element class="relative !mb-20">
+        <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
-            class="absolute top-12 size-3 rounded-full bg-black dark:bg-white"
+            class="absolute top-1 size-3 right-0 rounded-full bg-black dark:bg-white"
             data-path-from
             data-path-to
           />
-          <div class="pl-14" slide-left>
+          <div class="pr-14 text-right" slide-right>
             <span>2016 - 2 Months <small>USA</small></span>
             <h3 class="text-xl">
               Establishing a new IT environment & forged a new website for
@@ -81,14 +100,14 @@
         <AnimatedAppear is="li" class="relative" data-path-element>
           <div
             zoom-in-out
-            class="absolute right-0 top-12 size-3 rounded-full bg-black dark:bg-white"
+            class="absolute left-0 top-5 size-3 rounded-full bg-black dark:bg-white"
             data-path-from
             data-path-to
           />
-          <div class="pr-14 pt-4 text-right" slide-right>
+          <div class="pl-14 pt-4 text-left" slide-left>
             <span>2013 - 4 Years <small>CH</small></span>
             <h3 class="text-xl">
-              Automated testing and upgrading databases at
+              Automated testing at
               <UiGo to="https://www.credit-suisse.com/">
                 Credit Suisse
               </UiGo>
@@ -118,9 +137,9 @@
           <p>
             node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span>♥</span>
           </p>
-          <p>gsap / d3 / Git / webpack / Ionic</p>
+          <p>gsap / d3 / Git / React / Ionic</p>
           <p>Docker / UnrealEngine / Unity</p>
-          <p>MongoDB / MySQL / ElasticSearch</p>
+          <p>MySQL / MongoDB / ElasticSearch</p>
         </div>
       </AnimatedAppear>
       <AnimatedAppear :delay=".6">
@@ -128,8 +147,8 @@
           <h3 class="mb-3 text-2xl">
             > Environments
           </h3>
-          <p>vscode&nbsp;<span>♥</span> / nano</p>
-          <p>macOS / Solus</p>
+          <p>vscode / zsh / OMZ</p>
+          <p>macOS / windows / Solus</p>
           <p>Illustrator / Cinema 4D</p>
         </div>
       </AnimatedAppear>

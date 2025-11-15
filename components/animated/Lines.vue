@@ -31,7 +31,7 @@ const container = ref<HTMLDivElement>()
 let ctx: gsap.Context
 
 const spacing = 0
-const maxRadius = 65
+const maxRadius = 35
 
 function refresh() {
   svg.value!.innerHTML = ''
