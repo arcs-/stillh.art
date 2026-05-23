@@ -1,11 +1,17 @@
 <template>
-  <UiContainer is="main" class="overflow-hidden py-12 md:py-36 md:pb-40">
+  <UiContainer
+    is="main"
+    class="overflow-hidden py-12 md:py-36 md:pb-40">
     <section class="relative">
       <UiClose to="/" class="-mt-1" />
       <h1 class="mb-4 text-6xl">
         About
       </h1>
-      <p class="lg:w-3/5 md:text-xl">
+      <p
+        class="
+          md:text-xl
+          lg:w-3/5
+        ">
         I'm a fullstack developer with a great passion for beautiful frontends.
         I especially enjoy creating 3D experiences and animations. That allowed me to
         create some truly exciting projects and hopefully made the web a bit more fun.
@@ -16,7 +22,9 @@
 
     <section class="text-xl">
       <AnimatedAppear>
-        <h2 class="mb-4 text-4xl md:text-6xl" slide-right>
+        <h2
+          class="mb-4 text-4xl md:text-6xl" slide-right
+        >
           Articles and Awards
         </h2>
       </AnimatedAppear>
@@ -68,11 +76,15 @@
     </section>
 
     <AnimatedAppear is="section">
-      <h2 class="mb-4 text-4xl md:text-6xl" slide-right>
+      <h2
+        class="mb-4 text-4xl md:text-6xl" slide-right
+      >
         Note
       </h2>
-      <div class="flex flex-col gap-20 md:flex-row">
-        <div class="w-full md:w-3/5">
+      <div
+        class="flex flex-col gap-20 md:flex-row">
+        <div
+          class="w-full md:w-3/5">
           <div class="space-y-8 text-xl">
             <p slide-up>
               <span title="General Kenobi">Hello there!</span>
@@ -98,7 +110,9 @@
           </div>
         </div>
 
-        <div class="w-3/5 md:w-2/5" slide-down>
+        <div
+          class="w-3/5 md:w-2/5" slide-down
+        >
           <img
             src="/assets/images/me.jpg"
             loading="lazy"

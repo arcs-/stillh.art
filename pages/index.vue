@@ -2,11 +2,11 @@
   <div
     class="
       relative h-dvh w-dvw overflow-hidden
-      before:absolute before:size-full before:bg-black/10 before:transition before:content-['']
-      before:[mask-image:url('/assets/images/banner.svg')] before:[mask-position:center]
-      before:[mask-size:160vw]
-      dark:before:bg-white/10
+      before:absolute before:size-full before:bg-black/10 before:transition
+      before:content-[''] before:[mask-image:url('/assets/images/banner.svg')]
+      before:[mask-position:center] before:[mask-size:160vw]
       md:before:[mask-size:85vw]
+      dark:before:bg-white/10
     "
   >
     <nav
@@ -42,7 +42,12 @@
       Press to use gyro
     </button>
 
-    <div ref="container" class="absolute inset-0 h-dvh w-dvw [&_*]:size-full" />
+    <div
+      ref="container"
+      class="
+        absolute inset-0 h-dvh w-dvw
+        [&_*]:size-full
+      " />
 
     <div
       ref="grower"

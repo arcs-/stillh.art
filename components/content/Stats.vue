@@ -1,12 +1,22 @@
 <template>
-  <section class="flex flex-col gap-12 md:flex-row">
+  <section
+    class="flex flex-col gap-12 md:flex-row">
     <!-- TIMELINE -->
-    <AnimatedLines class="mx-auto mb-20 md:mb-0 md:w-3/5">
-      <ul class="mt-2 space-y-24 pt-1 [&_li]:md:w-[30rem] md:space-y-28">
+    <AnimatedLines
+      class="mx-auto mb-20 md:mb-0 md:w-3/5">
+      <ul
+        class="
+          mt-2 space-y-24 pt-1
+          md:space-y-28
+          [&_li]:md:w-[30rem]
+        ">
         <AnimatedAppear is="li" data-path-element class="relative pb-8">
           <div
             zoom-in-out
-            class="absolute left-0 size-3 rounded-full bg-black dark:bg-white"
+            class="
+              absolute left-0 size-3 rounded-full bg-black
+              dark:bg-white
+            "
             data-path-from
             data-path-to
           />
@@ -25,11 +35,14 @@
         <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
-            class="absolute right-0 top-1 size-3 rounded-full bg-black dark:bg-white"
+            class="
+              absolute right-0 top-1 size-3 rounded-full bg-black
+              dark:bg-white
+            "
             data-path-from
             data-path-to
           />
-           <div class="pr-14 text-right" slide-right>
+          <div class="pr-14 text-right" slide-right>
             <span>
               2022 - 2025 <small>CH</small>
             </span>
@@ -44,7 +57,7 @@
         <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
-            class="absolute top-1 right-0 size-3 rounded-full bg-black dark:bg-white"
+            class="absolute right-0 top-1 size-3 rounded-full bg-black dark:bg-white"
             data-path-from
             data-path-to
           />
@@ -64,7 +77,10 @@
         <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
-            class="absolute left-0 top-5 size-3 rounded-full bg-black dark:bg-white"
+            class="
+              absolute left-0 top-5 size-3 rounded-full bg-black
+              dark:bg-white
+            "
             data-path-from
             data-path-to
           />
@@ -82,7 +98,7 @@
         <AnimatedAppear is="li" data-path-element class="relative">
           <div
             zoom-in-out
-            class="absolute top-1 size-3 right-0 rounded-full bg-black dark:bg-white"
+            class="absolute right-0 top-1 size-3 rounded-full bg-black dark:bg-white"
             data-path-from
             data-path-to
           />
@@ -100,7 +116,10 @@
         <AnimatedAppear is="li" class="relative" data-path-element>
           <div
             zoom-in-out
-            class="absolute left-0 top-5 size-3 rounded-full bg-black dark:bg-white"
+            class="
+              absolute left-0 top-5 size-3 rounded-full bg-black
+              dark:bg-white
+            "
             data-path-from
             data-path-to
           />
@@ -118,7 +137,12 @@
     </AnimatedLines>
 
     <!-- SHIELDS -->
-    <div class="w-full space-y-16 text-xl [&_span]:text-yellow md:w-2/5">
+    <div
+      class="
+        w-full space-y-16 text-xl
+        md:w-2/5
+        [&_span]:text-yellow
+      ">
       <AnimatedAppear>
         <div slide-up>
           <h3 class="mb-3 text-2xl">

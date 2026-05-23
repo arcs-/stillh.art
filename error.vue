@@ -3,11 +3,12 @@
     ref="container"
     class="
       relative h-dvh w-dvw
-      [&_*]:size-full
-      before:absolute before:-z-10 before:size-full before:bg-black/10 before:transition before:content-['']
-      before:[mask-image:url('/assets/images/banner.svg')] before:[mask-position:center]
-      before:[mask-size:85vw]
+      before:absolute before:-z-10 before:size-full before:bg-black/10
+      before:transition before:content-['']
+      before:[mask-image:url('/assets/images/banner.svg')]
+      before:[mask-position:center] before:[mask-size:85vw]
       dark:before:bg-white/10
+      [&_*]:size-full
     "
     :aria-label="props.error?.message"
   />

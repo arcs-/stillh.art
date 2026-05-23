@@ -1,23 +1,39 @@
 <template>
-  <UiContainer is="main" v-if="topic" class="py-16 md:pb-40 md:pt-24">
+  <UiContainer
+    is="main"
+    v-if="topic"
+    class="py-16 md:pb-40 md:pt-24">
     <div class="relative">
       <UiClose to="/" />
       <h1 v-if="topic.label" class="mb-4 text-6xl">
         {{ topic.label.toLowerCase() }}[]
       </h1>
-      <p class="text-xl lg:w-3/5">
+      <p
+        class="
+          text-xl
+          lg:w-3/5
+        ">
         {{ topic.intro }}
       </p>
     </div>
 
-    <div class="!mt-20 space-y-28 md:space-y-80">
+    <div
+      class="
+        !mt-20 space-y-28
+        md:space-y-80
+      ">
       <AnimatedAppear
         is="article"
         v-for="(project, index) in topic.projects"
         :key="project.title"
         class="relative"
       >
-        <div class="w-full md:w-5/6" slide-right>
+        <div
+          class="
+            w-full
+            md:w-5/6
+          " slide-right
+        >
           <div
             class="
               relative overflow-hidden rounded border border-t-0 border-yellow bg-white/10 drop-shadow-lg
@@ -45,8 +61,9 @@
         <div
           class="
             -bottom-16 right-0 z-10 border-yellow bg-white pt-6 text-xl
+            lg:absolute lg:w-2/5 lg:rounded-tl lg:border-l-2 lg:border-t-2
+            lg:pl-14 lg:pt-10
             dark:bg-dark
-            lg:absolute lg:w-2/5 lg:rounded-tl lg:border-l-2 lg:border-t-2 lg:pl-14 lg:pt-10
           "
         >
           <h2 class="mb-2 font-bold">
@@ -79,7 +96,11 @@
       </AnimatedAppear>
     </div>
 
-    <div class="pt-20 text-center text-2xl md:pt-32">
+    <div
+      class="
+        pt-20 text-center text-2xl
+        md:pt-32
+      ">
       ~ <span class="inline-block translate-y-[-6px] px-2">end</span> ~
     </div>
   </UiContainer>
