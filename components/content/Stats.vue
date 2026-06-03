@@ -105,7 +105,7 @@
           <div class="pr-14 text-right" slide-right>
             <span>2016 - 2 Months <small>USA</small></span>
             <h3 class="text-xl">
-              Establishing a new IT environment & forged a new website for
+              Established a new IT environment & forged a new website for
               <UiGo to="https://florentinoicecream.com/">
                 Florentino Ice Cream
               </UiGo>
@@ -162,8 +162,8 @@
             node.js / Vue.js&nbsp;<span>♥</span> / three.js&nbsp;<span>♥</span>
           </p>
           <p>gsap / d3 / Git / React / Ionic</p>
-          <p>Docker / UnrealEngine / Unity</p>
-          <p>MySQL / MongoDB / ElasticSearch</p>
+          <p>Docker / Unreal Engine / Unity</p>
+          <p>MySQL / MongoDB / Elasticsearch</p>
         </div>
       </AnimatedAppear>
       <AnimatedAppear :delay=".6">

@@ -32,7 +32,7 @@
         <li slide-up>
           HSLU > Apr 2021 >
           <UiGo to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/">
-            Dean List
+            Dean's List
           </UiGo>
         </li>
         <li slide-up>
@@ -88,9 +88,9 @@
           <div class="space-y-8 text-xl">
             <p slide-up>
               <span title="General Kenobi">Hello there!</span>
-              I’m Patrick (aka arcs) - creator of many things, one of which is
+              I’m Patrick (aka arcs); creator of many things, one of which is
               this page. I love coding and do a lot of frontend and animation
-              work. Although, I am trying to get knowledge in as many areas as I
+              work. That said, I try to gain knowledge in as many areas as I
               can, so I’d consider myself a full-stack dev with a passion for
               frontend.
             </p>
@@ -102,7 +102,7 @@
               the world of programming.
             </p>
             <p slide-up>
-              Aside from coding, I enjoy in photography, camping, gaming,
+              Aside from coding, I enjoy photography, camping, gaming,
               cycling, and cooking. Also, whenever I work, I kind of need music,
               so you rarely see me without headphones. The legend goes that
               sometimes I dance to it; this is a lie.

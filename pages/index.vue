@@ -16,7 +16,7 @@
       "
     >
       <h1 class="mb-4">
-        Patrick Stillharts Portfolio
+        Patrick Stillhart's Portfolio
       </h1>
       <menu>
         <template v-for="link in links" :key="link.label">
