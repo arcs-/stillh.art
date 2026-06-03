@@ -40,7 +40,7 @@ export default defineNuxtConfig({
       id: 'arcs',
     },
     head: {
-      title: 'Patrick Stillhart // Developer',
+      title: 'Patrick Stillhart # Developer',
       htmlAttrs: {
         lang: 'en',
       },
@@ -113,5 +113,13 @@ export default defineNuxtConfig({
     },
   },
   srcDir: '.',
+  routeRules: {
+    '/sites': {
+      redirect: {
+        to: '/web',
+        statusCode: 301,
+      },
+    },
+  },
   compatibilityDate: '2024-04-03',
 })

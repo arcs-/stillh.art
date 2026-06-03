@@ -35,16 +35,58 @@
           " slide-right
         >
           <div
+            v-if="project.frame === 'phone'"
             class="
-              relative overflow-hidden rounded border border-t-0 border-yellow bg-white/10 drop-shadow-lg
+              flex justify-center
+              md:justify-start md:pl-[12%]
             "
           >
-            <div class="flex h-4 items-center gap-1 bg-yellow px-2">
-              <div class="size-2 rounded-full bg-dark/80" />
-              <div class="size-2 rounded-full bg-dark/80" />
-              <div class="size-2 rounded-full bg-dark/80" />
+            <div
+              v-for="(shot, shotIndex) in [project.image, project.image2].filter(s => !!s)"
+              :key="shot!.src"
+              class="relative w-full max-w-64"
+              :class="shotIndex > 0 ? '-ml-6 mt-12' : 'z-10'"
+            >
               <div
-                v-if="topic.label == 'Sites'"
+                class="absolute -left-1 top-20 h-6 w-1 rounded-l-md bg-yellow"
+              />
+              <div
+                class="absolute -left-1 top-32 h-10 w-1 rounded-l-md bg-yellow"
+              />
+              <div
+                class="absolute -left-1 top-44 h-10 w-1 rounded-l-md bg-yellow"
+              />
+              <div
+                class="absolute -right-1 top-36 h-16 w-1 rounded-r-md bg-yellow"
+              />
+              <div
+                class="
+                  relative overflow-hidden rounded-[2.5rem] border-4 border-yellow bg-white/10 drop-shadow-lg
+                "
+              >
+                <img
+                  :src="'/assets'+shot!.src"
+                  :alt="'Screenshot of '+project.title"
+                  :width="shot!.width"
+                  :height="shot!.height"
+                  :loading="index > 1 ? 'lazy' : 'eager'"
+                  class="w-full"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            v-else
+            class="
+              relative overflow-hidden rounded-xl border-2 border-t-0 border-yellow bg-white/10 drop-shadow-lg
+            "
+          >
+            <div class="flex h-4 items-center gap-1 bg-yellow px-5">
+              <div class="size-2 rounded-full bg-dark/90" />
+              <div class="size-2 rounded-full bg-dark/90" />
+              <div class="size-2 rounded-full bg-dark/90" />
+              <div
+                v-if="topic.label == 'Web'"
                 class="mx-auto h-[9px] w-1/2 bg-dark/20 px-1 text-center text-[7px] leading-[7px] text-dark"
               />
             </div>
@@ -54,7 +96,7 @@
               :width="project.image.width"
               :height="project.image.height"
               :loading="index > 1 ? 'lazy' : 'eager'"
-              class="w-full"
+              class="w-full rounded"
             />
           </div>
         </div>
@@ -124,7 +166,7 @@ if (!topic) {
 }
 
 useHead({
-  title: `Patrick Stillhart // ${topicParam}[]`,
+  title: `Patrick Stillhart # ${topicParam}[]`,
   meta: [
     {
       name: 'description',

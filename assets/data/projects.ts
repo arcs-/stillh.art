@@ -1,3 +1,5 @@
+/* eslint-disable @stylistic/max-len */
+
 type Topic = {
   label: string
   intro: string
@@ -6,7 +8,13 @@ type Topic = {
 
 type Project = {
   title: string
+  frame?: 'phone'
   image: {
+    src: string
+    width: number
+    height: number
+  }
+  image2?: {
     src: string
     width: number
     height: number
@@ -23,8 +31,46 @@ type Project = {
 
 export const projects: Topic[] = [
   {
+    label: 'Apps',
+    intro: 'I\'ve been cooking with some apps',
+    projects: [
+      {
+        title: 'Tavolata',
+        frame: 'phone',
+        image: {
+          src: '/images/tavolata.png',
+          width: 1320,
+          height: 2868,
+        },
+        image2: {
+          src: '/images/tavolata2.png',
+          width: 1170,
+          height: 2532,
+        },
+        description: 'A shared cookbook for the people you cook with. Save the recipes you actually want to eat, then swipe with your crew to pick tonight\'s dinner.',
+        link: {
+          label: 'Get cooking',
+          target: 'https://tavolata.stillh.art/',
+        },
+      },
+      {
+        title: 'MatTab',
+        image: {
+          src: '/images/mattab.png',
+          width: 1315,
+          height: 720,
+        },
+        description: 'Chrome has this nice new tab page but I can do one better. I\'ve never done a browser extension but this seemed like a good start.<br /><br /> Basically better Windows 8 tiles in Chrome.',
+        link: {
+          label: 'Chrome Store',
+          target: 'https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
+        },
+      },
+    ],
+  },
+  {
     label: 'Games',
-    intro: 'Some of the game related projects I worked on. While most are a bit older I still think they are intressting.',
+    intro: 'Some of the game related projects I worked on. While most are a bit older, I still think they are interesting.',
     projects: [
       {
         title: 'Outrun',
@@ -46,7 +92,7 @@ export const projects: Topic[] = [
           width: 1117,
           height: 692,
         },
-        description: 'Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I got group lead and did all the code, thanks to my friends this game is marvelous.',
+        description: 'Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I was group lead and did all the code, thanks to my friends this game is marvelous.',
         team: {
           'Andrin (Design)': 'http://andrindobler.ch/',
           'Tin (Design)': 'https://www.vyelo.net/',
@@ -60,7 +106,7 @@ export const projects: Topic[] = [
           width: 1235,
           height: 693,
         },
-        description: 'HUEBOO is a VR-Game in which you are the bartender, tasked with serving drinks to your thirsty customers. Its a game about music, light and agility.',
+        description: 'HUEBOO is a VR-Game in which you are the bartender, tasked with serving drinks to your thirsty customers. It\'s a game about music, light and agility.',
         link: {
           label: 'Trailer',
           target: 'https://www.youtube.com/watch?v=b23qYNQ274g',
@@ -77,7 +123,7 @@ export const projects: Topic[] = [
           width: 1252,
           height: 691,
         },
-        description: 'In math we looked at L-Systems... and I was really bored. It was all way to simple and didn\'t even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.',
+        description: 'In math we looked at L-Systems... and I was really bored. It was all way too simple and didn\'t even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.',
         link: {
           label: 'Try It',
           target: 'https://codepen.io/arcs/full/KeqbLd/',
@@ -103,7 +149,7 @@ export const projects: Topic[] = [
           width: 1111,
           height: 688,
         },
-        description: 'My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the game play, two friends did the art<br /><br /> In transmission you try to send a single through the solar system.',
+        description: 'My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the gameplay, two friends did the art<br /><br /> In Transmission you try to send a signal through the solar system.',
         link: {
           label: 'Play',
           target: 'https://stillh.art/project/transmission/',
@@ -120,7 +166,7 @@ export const projects: Topic[] = [
           width: 797,
           height: 451,
         },
-        description: 'My first programm ever. It helped me manage my server and apperanly thousands others :) It allowed players to enter a password and receive a rank.',
+        description: 'My first program ever. It helped me manage my server and apparently thousands of others :) It allowed players to enter a password and receive a rank.',
         link: {
           label: 'Bukkit Page',
           target: 'https://dev.bukkit.org/projects/chat-loginrank-simple-password',
@@ -130,8 +176,8 @@ export const projects: Topic[] = [
   },
 
   {
-    label: 'Sites',
-    intro: 'Here are some parts of the web that I developed, these are by far not all projects but a small sample what I want to share.',
+    label: 'Web',
+    intro: 'Here are some parts of the web that I developed, these are by far not all projects but a small sample of what I want to share.',
     projects: [
       {
         title: '3D Configurator @ novu',
@@ -140,9 +186,9 @@ export const projects: Topic[] = [
           width: 1637,
           height: 876,
         },
-        description: 'Here I lead the development of this 3D configurator and frontend for a client. I also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews from the newly configured product.',
+        description: 'Here I led the development of this 3D configurator and frontend for a client. I also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews from the newly configured product.',
         link: {
-          label: 'in beta',
+          label: 'you better buy one',
           target: 'https://neu.kabelschacht.ch/',
         },
       },
@@ -153,7 +199,7 @@ export const projects: Topic[] = [
           width: 1540,
           height: 940,
         },
-        description: 'An artist and friend needed a website, inspiered by his moving art we created a moving sphere as the main navigation. The most intressting part was figuring out how to render 2D text on to the sphere and how to make it compreensiable.',
+        description: 'An artist and friend needed a website, inspired by his moving art we created a moving sphere as the main navigation. The most interesting part was figuring out how to render 2D text on to the sphere and how to make it comprehensible.',
         link: {
           label: 'Inspect',
           target: 'https://serafinkrieger.ch/',
@@ -166,7 +212,7 @@ export const projects: Topic[] = [
           width: 1631,
           height: 1041,
         },
-        description: 'I\'m really proud to have been part of this project. Especially the animations and accessibility features are something I\'m really happy with but also just the spirit of the website to help self employed people to have social security.',
+        description: 'I\'m really proud to have been part of this project. Especially the animations and accessibility features are something I\'m really happy with but also just the spirit of the website to help self-employed people to have social security.',
         link: {
           label: 'Check it out',
           target: 'https://selbststaendig-erwerbend.ch/',
@@ -179,7 +225,7 @@ export const projects: Topic[] = [
           width: 1332,
           height: 817,
         },
-        description: 'One of my favorite pages that I built at novu with qturn togheter for an amazing company.',
+        description: 'One of my favorite pages that I built at novu together with qturn for an amazing company.',
         link: {
           label: 'Print something?',
           target: 'https://bossbern.ch/',
@@ -192,7 +238,7 @@ export const projects: Topic[] = [
           width: 1304,
           height: 694,
         },
-        description: 'The DI Museum challanges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students. I has been written in 2 months as a replacement for the cancelled exhibition.',
+        description: 'The DI Museum challenges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students. It has been written in 2 months as a replacement for the cancelled exhibition.',
         link: {
           label: 'Dive in',
           target: 'https://museum.stillh.art/',
@@ -218,7 +264,7 @@ export const projects: Topic[] = [
           width: 3153,
           height: 1956,
         },
-        description: 'Remembering code is hard... I tried it, writing stuff down is easier. The wiki is a place where I keep the things I can\'t remember or want to share... as at this point most people looking at aren\'t me.',
+        description: 'Remembering code is hard... I tried it, writing stuff down is easier. The wiki is a place where I keep the things I can\'t remember or want to share... as at this point most people looking at it aren\'t me.',
         link: {
           label: 'Read up',
           target: 'https://wiki.stillh.art/',
@@ -235,19 +281,6 @@ export const projects: Topic[] = [
         link: {
           label: 'GitHub',
           target: 'https://github.com/arcs-/Adminer-Material-Theme',
-        },
-      },
-      {
-        title: 'MatTab',
-        image: {
-          src: '/images/mattab.png',
-          width: 1315,
-          height: 720,
-        },
-        description: 'Chrome has this nice new tab page but I can do one better. I\'ve never done a browser extension but this seemed like a good start.<br /><br /> Basically better Windows 8 tiles in Chrome.',
-        link: {
-          label: 'Chrome Store',
-          target: 'https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
         },
       },
     ],

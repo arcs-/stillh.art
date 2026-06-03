@@ -140,6 +140,6 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Patrick Stillhart // About',
+  title: 'Patrick Stillhart # About',
 })
 </script>

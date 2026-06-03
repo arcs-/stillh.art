@@ -78,12 +78,12 @@ const expand = ref(false)
 
 const links = [
   {
-    label: 'About',
+    label: 'self',
     link: '/about',
     big: true,
   },
   ...projects.map(cur => ({
-    label: cur.label,
+    label: cur.label.toLowerCase()+"[]",
     link: '/' + cur.label.toLowerCase(),
     big: true,
   })),
