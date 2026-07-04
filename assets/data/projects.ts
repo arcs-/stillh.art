@@ -35,6 +35,19 @@ export const projects: Topic[] = [
     intro: 'I\'ve been cooking with some apps',
     projects: [
       {
+        title: 'Waypoints',
+        image: {
+          src: '/images/waypoints.png',
+          width: 1505,
+          height: 857,
+        },
+        description: 'Waypoints turns a Proton Photos album into a map. It reads the album, decrypts everything locally, and lays the geotagged photos out as a timeline of the places you stopped.<br /><br /> I built it for my own travel photos, so it runs on your machine and never sends anything to a server.',
+        link: {
+          label: 'GitHub',
+          target: 'https://github.com/arcs-/waypoints',
+        },
+      },
+      {
         title: 'Tavolata',
         frame: 'phone',
         image: {
