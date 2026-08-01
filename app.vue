@@ -2,8 +2,10 @@
   <div
     class="
       font-sans
+      bg-white
       selection:bg-yellow
-      dark:selection:text-dark
+      dark:selection:text-dark dark:bg-dark dark:text-white
+      transition-colors duration-[.7s]
     ">
     <NuxtLoadingIndicator color="#FFD168" />
     <NuxtPage @mode="toggleTheme" />
@@ -20,6 +22,5 @@ useHead({
 </script>
 
 <style>
-body { @apply bg-white transition-colors duration-[.7s]; }
-body.dark { @apply bg-dark text-white; }
+body { @apply bg-yellow; }
 </style>

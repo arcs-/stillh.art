@@ -16,6 +16,7 @@ export default defineNuxtConfig({
       {
         headers: {
           contentSecurityPolicy: {
+            'upgrade-insecure-requests': process.env.NODE_ENV === 'production',
             'script-src': [
               '\'self\'', // Fallback value, will be ignored by most modern browsers (level 3)
               'https:', // Fallback value, will be ignored by almost any browser (level 2)
