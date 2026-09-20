@@ -60,34 +60,6 @@ export const projects: Topic[] = [
     // highlights first, then newest to oldest
     projects: [
       {
-        title: 'DI Museum',
-        image: {
-          src: '/images/di.png',
-          width: 1304,
-          height: 694,
-        },
-        description:
-          'The DI Museum challenges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students. It has been written in 2 months as a replacement for the cancelled exhibition.',
-        link: {
-          label: 'Dive in',
-          target: 'https://museum.stillh.art/',
-        },
-      },
-      {
-        title: 'bossbern @ novu',
-        image: {
-          src: '/images/bossbern.png',
-          width: 1332,
-          height: 817,
-        },
-        description:
-          'One of my favorite pages that I built at novu together with qturn for an amazing company.',
-        link: {
-          label: 'Print something?',
-          target: 'https://bossbern.ch/',
-        },
-      },
-      {
         title: 'Tavolata',
         frame: 'phone',
         image: {
@@ -106,6 +78,84 @@ export const projects: Topic[] = [
           label: 'Get cooking',
           target: 'https://tavolata.stillh.art/',
         },
+      },
+      {
+        title: 'bossbern @ novu',
+        image: {
+          src: '/images/bossbern.png',
+          width: 1332,
+          height: 817,
+        },
+        description:
+          'One of my favorite pages that I built at novu together with qturn for an amazing company.',
+        link: {
+          label: 'Print something?',
+          target: 'https://bossbern.ch/',
+        },
+      },
+      {
+        title: 'Serafin Krieger',
+        image: {
+          src: '/images/serafin.png',
+          width: 1540,
+          height: 940,
+        },
+        description:
+          'An artist and friend needed a website, inspired by his moving art we created a moving sphere as the main navigation. The most interesting part was figuring out how to render 2D text on to the sphere and how to make it comprehensible.',
+        link: {
+          label: 'Inspect',
+          target: 'https://serafinkrieger.ch/',
+        },
+      },
+      {
+        title: 'wiki @ Stillhart',
+        image: {
+          src: '/images/docs.png',
+          width: 3153,
+          height: 1956,
+        },
+        description:
+          "Remembering code is hard... I tried it, writing stuff down is easier. The wiki is a place where I keep the things I can't remember or want to share... as at this point most people looking at it aren't me.",
+        link: {
+          label: 'Read up',
+          target: 'https://wiki.stillh.art/',
+        },
+      },
+      // runs on quite a few 404 pages out there
+      {
+        title: 'Space Invaders',
+        image: {
+          src: '/images/space-invaders.jpg',
+          width: 1280,
+          height: 720,
+        },
+        description:
+          'Business managers are about to invade our town! A Space Invaders clone on a canvas, defending an ASCII skyline.<br /><br />It started in 2015 as the game behind my 404 page and was forked in 2018 into this version. Use ← → to move and space to shoot.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/XqmKYq?default-tab=result',
+          // codepen header 51 + canvas page 647
+          width: 1216,
+          height: 700,
+          frameHeight: 740,
+        },
+        link: {
+          label: 'Play',
+          target: 'https://codepen.io/arcs/full/XqmKYq',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/vOwJBw',
+            created: '2015-08-17',
+            loves: 289,
+            views: 34674,
+          },
+          {
+            to: 'https://codepen.io/arcs/pen/XqmKYq',
+            created: '2018-04-21',
+            loves: 5,
+            views: 408,
+          },
+        ],
       },
       {
         title: '3D Configurator @ novu',
@@ -150,31 +200,17 @@ export const projects: Topic[] = [
         },
       },
       {
-        title: 'Serafin Krieger',
+        title: 'DI Museum',
         image: {
-          src: '/images/serafin.png',
-          width: 1540,
-          height: 940,
+          src: '/images/di.png',
+          width: 1304,
+          height: 694,
         },
         description:
-          'An artist and friend needed a website, inspired by his moving art we created a moving sphere as the main navigation. The most interesting part was figuring out how to render 2D text on to the sphere and how to make it comprehensible.',
+          'The DI Museum challenges the 2D only approach of websites and explores 3D worlds. It showcases the Bachelor projects of my fellow students. It has been written in 2 months as a replacement for the cancelled exhibition.',
         link: {
-          label: 'Inspect',
-          target: 'https://serafinkrieger.ch/',
-        },
-      },
-      {
-        title: 'My Wiki',
-        image: {
-          src: '/images/docs.png',
-          width: 3153,
-          height: 1956,
-        },
-        description:
-          "Remembering code is hard... I tried it, writing stuff down is easier. The wiki is a place where I keep the things I can't remember or want to share... as at this point most people looking at it aren't me.",
-        link: {
-          label: 'Read up',
-          target: 'https://wiki.stillh.art/',
+          label: 'Dive in',
+          target: 'https://museum.stillh.art/',
         },
       },
       {
@@ -196,42 +232,6 @@ export const projects: Topic[] = [
             to: 'https://chromewebstore.google.com/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
             created: '2018-11-10', // first commit of github.com/arcs-/MatTab; the store shows no release date
             users: 105,
-          },
-        ],
-      },
-      // runs on quite a few 404 pages out there
-      {
-        title: 'Space Invaders',
-        image: {
-          src: '/images/space-invaders.jpg',
-          width: 1280,
-          height: 720,
-        },
-        description:
-          'Business managers are about to invade our town! A Space Invaders clone on a canvas, defending an ASCII skyline.<br /><br />It started in 2015 as the game behind my 404 page and was forked in 2018 into this version. Use ← → to move and space to shoot.',
-        embed: {
-          src: 'https://codepen.io/arcs/embed/XqmKYq?default-tab=result',
-          // codepen header 51 + canvas page 647
-          width: 1216,
-          height: 700,
-          frameHeight: 740,
-        },
-        link: {
-          label: 'Play',
-          target: 'https://codepen.io/arcs/full/XqmKYq',
-        },
-        stats: [
-          {
-            to: 'https://codepen.io/arcs/pen/vOwJBw',
-            created: '2015-08-17',
-            loves: 289,
-            views: 34674,
-          },
-          {
-            to: 'https://codepen.io/arcs/pen/XqmKYq',
-            created: '2018-04-21',
-            loves: 5,
-            views: 408,
           },
         ],
       },
@@ -352,8 +352,7 @@ export const projects: Topic[] = [
           width: 1280,
           height: 720,
         },
-        description:
-          'Canvas fireworks bursting over a birthday greeting.<br /><br />By a wide margin my most viewed pen.',
+        description: 'A friend had another birthday and well, this happened',
         embed: {
           src: 'https://codepen.io/arcs/embed/XKKYZW?default-tab=result',
         },

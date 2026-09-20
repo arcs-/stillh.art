@@ -5,8 +5,8 @@
       <h1 class="mb-4 text-6xl">About</h1>
       <p class="md:text-xl lg:w-3/5">
         I'm a fullstack developer with a passion for lovely frontends. I particurlarly enjoy
-        creating 3D experiences and animations. That allowed me to create some exciting
-        projects and hopefully made the web a bit more fun since 2010, well before AI. :)
+        creating 3D experiences and animations. That allowed me to create some exciting projects and
+        hopefully made the web a bit more fun since 2010, well before AI. :)
       </p>
     </section>
 
