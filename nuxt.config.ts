@@ -30,6 +30,10 @@ export default defineNuxtConfig({
               'https:',
               'static.cloudflareinsights.com',
             ],
+            'frame-src': [
+              '\'self\'',
+              'https://codepen.io', // live project embeds, see ContentLive
+            ],
           },
         },
       },
@@ -115,6 +119,14 @@ export default defineNuxtConfig({
   },
   srcDir: '.',
   routeRules: {
+    // Assets for CodePen pens (codepen.io/arcs), fetched cross-origin via XHR/Image/CSS
+    '/static/pens/**': {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Cache-Control': 'public, max-age=604800',
+      },
+    },
     '/sites': {
       redirect: {
         to: '/web',

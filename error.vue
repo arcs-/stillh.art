@@ -1,17 +1,24 @@
 <template>
   <div
-    ref="container"
     class="
-      relative h-dvh w-dvw
-      before:absolute before:-z-10 before:size-full before:bg-black/10
-      before:transition before:content-['']
-      before:[mask-image:url('/assets/images/banner.svg')]
-      before:[mask-position:center] before:[mask-size:85vw]
-      dark:before:bg-white/10
-      [&_*]:size-full
+      relative h-dvh w-dvw overflow-hidden bg-white font-sans transition-colors
+      duration-[.7s]
+      before:absolute before:size-full before:bg-black/10 before:transition
+      before:content-[''] before:[mask-image:url('/assets/images/banner.svg')]
+      before:[mask-position:center] before:[mask-size:160vw]
+      md:before:[mask-size:85vw]
+      dark:bg-dark dark:text-white dark:before:bg-white/10
     "
-    :aria-label="props.error?.message"
-  />
+  >
+    <div
+      ref="container"
+      class="
+        absolute inset-0 h-dvh w-dvw
+        [&_*]:size-full
+      "
+      :aria-label="props.error?.message"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -37,11 +44,15 @@ onMounted(() => {
     .toString()
     .repeat(45)
     .split('')
-    .map((label: string) => ({ label }))
+    .map((label: string) => ({
+      label,
+      link: '/',
+    }))
 
   entries.push({
     label: props.error?.message,
     big: true,
+    link: '/',
   })
 
   entries.push({
