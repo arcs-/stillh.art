@@ -26,7 +26,7 @@ const CONFIG = {
     wheelFactorX: 0.4,
     wheelFactorY: -0.11,
     bigBallRadius: 98,
-    ballRadius: 33,
+    ballRadius: 40,
   },
   MOBILE: {
     sections: 65,
@@ -99,7 +99,11 @@ const MAX_MINIS = 60
 const minis: Obj[] = []
 
 const radiusFor = (entry: BallEntry) =>
-  entry.big ? config.bigBallRadius : entry.mini ? config.ballRadius * MINI_RADIUS_FACTOR : config.ballRadius
+  entry.big
+    ? config.bigBallRadius
+    : entry.mini
+      ? config.ballRadius * MINI_RADIUS_FACTOR
+      : config.ballRadius
 const massFor = (entry: BallEntry) => (entry.big ? 150 : entry.mini ? 8 : 30)
 
 let clickCallback: BallSelectHandler | null = null
@@ -246,7 +250,11 @@ function onMouseMove(e: MouseEvent) {
 }
 
 function onMouseup(e: MouseEvent) {
-  if (mouse.down && Math.abs(mouse.dx - pos(e, 'pageX')) < 10 && Math.abs(mouse.dy - pos(e, 'pageY')) < 10) {
+  if (
+    mouse.down &&
+    Math.abs(mouse.dx - pos(e, 'pageX')) < 10 &&
+    Math.abs(mouse.dy - pos(e, 'pageY')) < 10
+  ) {
     const sight = Query.point(balls, mouse)
     if (sight.length > 0) {
       clickCallback?.(e, sight[0] as any)

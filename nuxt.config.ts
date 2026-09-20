@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     [
       'nuxt-security',
       {
-        removeLoggers: { consoleType: ['log', 'warn', 'error', 'info', 'debug'] },
+        removeLoggers: false,
         headers: {
           // codepen embeds don't send COEP
           crossOriginEmbedderPolicy: 'unsafe-none',

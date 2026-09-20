@@ -1,6 +1,6 @@
 <template>
   <AnimatedLines class="mx-auto mb-20 md:mb-0 md:w-3/5">
-    <ul class="mt-2 space-y-24 pt-1 md:space-y-28 [&_li]:md:w-[30rem]">
+    <ul class="mt-2 space-y-24 pt-1 md:space-y-28 [&_li]:md:w-120">
       <AnimatedAppear
         is="li"
         v-for="(entry, index) in timeline"

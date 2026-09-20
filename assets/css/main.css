@@ -19,4 +19,15 @@
   button:not(:disabled) {
     cursor: pointer;
   }
+
+  /* shows when overscrolling, same pattern as the home page */
+  body {
+    background: var(--color-yellow) url('/assets/images/banner-bg.svg') center / 160vw repeat
+      fixed;
+  }
+  @media (width >= 48rem) {
+    body {
+      background-size: 85vw;
+    }
+  }
 }

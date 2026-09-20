@@ -19,7 +19,7 @@
     </div>
 
     <div class="pt-20 text-center text-2xl md:pt-32">
-      ~ <span class="inline-block translate-y-[-6px] px-2">end</span> ~
+      ~ <span class="inline-block -translate-y-1.5 px-2">end</span> ~
     </div>
   </UiContainer>
 </template>

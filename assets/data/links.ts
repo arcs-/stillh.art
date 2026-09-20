@@ -5,7 +5,7 @@ export const MODE_LINK = 'MODE'
 
 export const links: BallEntry[] = [
   {
-    label: 'self',
+    label: 'about',
     link: '/about',
     big: true,
   },

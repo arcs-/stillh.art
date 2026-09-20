@@ -15,7 +15,7 @@ defineProps<{ to: string }>()
   position: relative;
   display: inline-block;
   overflow: hidden;
-  @apply border-yellow border-[3px];
+  @apply border-yellow border-3;
   padding: 10px 30px;
   margin-top: 30px;
   text-align: center;

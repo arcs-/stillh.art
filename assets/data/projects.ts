@@ -53,64 +53,10 @@ export const STATS_AS_OF = '2026-09-20'
 export const projects: Topic[] = [
   {
     label: 'Work',
-    intro: 'Things that are out there being used: sites built for clients and tools other people rely on.',
+    intro:
+      'Things that are out there being used: sites built for clients and tools other people rely on.',
+    // highlights first, then newest to oldest
     projects: [
-      {
-        title: '3D Configurator @ novu',
-        image: {
-          src: '/images/kbs.png',
-          width: 1637,
-          height: 876,
-        },
-        description:
-          'Here I led the development of this 3D configurator and frontend for a client. I also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews from the newly configured product.',
-        link: {
-          label: 'you better buy one',
-          target: 'https://neu.kabelschacht.ch/',
-        },
-      },
-      {
-        title: 'Serafin Krieger',
-        image: {
-          src: '/images/serafin.png',
-          width: 1540,
-          height: 940,
-        },
-        description:
-          'An artist and friend needed a website, inspired by his moving art we created a moving sphere as the main navigation. The most interesting part was figuring out how to render 2D text on to the sphere and how to make it comprehensible.',
-        link: {
-          label: 'Inspect',
-          target: 'https://serafinkrieger.ch/',
-        },
-      },
-      {
-        title: 'Sozialversicherung @ novu',
-        image: {
-          src: '/images/ahv.png',
-          width: 1631,
-          height: 1041,
-        },
-        description:
-          "I'm really proud to have been part of this project. Especially the animations and accessibility features are something I'm really happy with but also just the spirit of the website to help self-employed people to have social security.",
-        link: {
-          label: 'Check it out',
-          target: 'https://selbststaendig-erwerbend.ch/',
-        },
-      },
-      {
-        title: 'bossbern @ novu',
-        image: {
-          src: '/images/bossbern.png',
-          width: 1332,
-          height: 817,
-        },
-        description:
-          'One of my favorite pages that I built at novu together with qturn for an amazing company.',
-        link: {
-          label: 'Print something?',
-          target: 'https://bossbern.ch/',
-        },
-      },
       {
         title: 'DI Museum',
         image: {
@@ -126,17 +72,17 @@ export const projects: Topic[] = [
         },
       },
       {
-        title: 'keller-druck.ch @ novu',
+        title: 'bossbern @ novu',
         image: {
-          src: '/images/keller.png',
-          width: 1545,
-          height: 944,
+          src: '/images/bossbern.png',
+          width: 1332,
+          height: 817,
         },
         description:
-          'My second project at novu and also the longest one, as I maintained it for several years. It has always been a pleasure to work with keller.',
+          'One of my favorite pages that I built at novu together with qturn for an amazing company.',
         link: {
-          label: 'How much pressure?',
-          target: 'https://keller-druck.ch/',
+          label: 'Print something?',
+          target: 'https://bossbern.ch/',
         },
       },
       {
@@ -160,25 +106,60 @@ export const projects: Topic[] = [
         },
       },
       {
-        title: 'MatTab',
+        title: '3D Configurator @ novu',
         image: {
-          src: '/images/mattab.png',
-          width: 1315,
-          height: 720,
+          src: '/images/kbs.png',
+          width: 1637,
+          height: 876,
         },
         description:
-          "Chrome has this nice new tab page but I can do one better. I've never done a browser extension but this seemed like a good start.<br /><br /> Basically better Windows 8 tiles in Chrome.",
+          'Here I led the development of this 3D configurator and frontend for a client. I also developed an extension that would allow the user to generate BIM data, Technical Drawings and previews from the newly configured product.',
         link: {
-          label: 'Chrome Store',
-          target: 'https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
+          label: 'you better buy one',
+          target: 'https://neu.kabelschacht.ch/',
         },
-        stats: [
-          {
-            to: 'https://chromewebstore.google.com/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
-            created: '2018-11-10', // first commit of github.com/arcs-/MatTab; the store shows no release date
-            users: 105,
-          },
-        ],
+      },
+      {
+        title: 'Sozialversicherung @ novu',
+        image: {
+          src: '/images/ahv.png',
+          width: 1631,
+          height: 1041,
+        },
+        description:
+          "I'm really proud to have been part of this project. Especially the animations and accessibility features are something I'm really happy with but also just the spirit of the website to help self-employed people to have social security.",
+        link: {
+          label: 'Check it out',
+          target: 'https://selbststaendig-erwerbend.ch/',
+        },
+      },
+      {
+        title: 'keller-druck.ch @ novu',
+        image: {
+          src: '/images/keller.png',
+          width: 1545,
+          height: 944,
+        },
+        description:
+          'My second project at novu and also the longest one, as I maintained it for several years. It has always been a pleasure to work with keller.',
+        link: {
+          label: 'How much pressure?',
+          target: 'https://keller-druck.ch/',
+        },
+      },
+      {
+        title: 'Serafin Krieger',
+        image: {
+          src: '/images/serafin.png',
+          width: 1540,
+          height: 940,
+        },
+        description:
+          'An artist and friend needed a website, inspired by his moving art we created a moving sphere as the main navigation. The most interesting part was figuring out how to render 2D text on to the sphere and how to make it comprehensible.',
+        link: {
+          label: 'Inspect',
+          target: 'https://serafinkrieger.ch/',
+        },
       },
       {
         title: 'My Wiki',
@@ -193,6 +174,64 @@ export const projects: Topic[] = [
           label: 'Read up',
           target: 'https://wiki.stillh.art/',
         },
+      },
+      {
+        title: 'MatTab',
+        image: {
+          src: '/images/mattab.png',
+          width: 1315,
+          height: 720,
+        },
+        description:
+          "Chrome has this nice new tab page but I can do one better. I've never done a browser extension but this seemed like a good start.<br /><br /> Basically better Windows 8 tiles in Chrome.",
+        link: {
+          label: 'Chrome Store',
+          target:
+            'https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
+        },
+        stats: [
+          {
+            to: 'https://chromewebstore.google.com/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
+            created: '2018-11-10', // first commit of github.com/arcs-/MatTab; the store shows no release date
+            users: 105,
+          },
+        ],
+      },
+      // runs on quite a few 404 pages out there
+      {
+        title: 'Space Invaders',
+        image: {
+          src: '/images/space-invaders.jpg',
+          width: 1280,
+          height: 720,
+        },
+        description:
+          'Business managers are about to invade our town! A Space Invaders clone on a canvas, defending an ASCII skyline.<br /><br />It started in 2015 as the game behind my 404 page and was forked in 2018 into this version. Use ← → to move and space to shoot.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/XqmKYq?default-tab=result',
+          // codepen header 51 + canvas page 647
+          width: 1216,
+          height: 700,
+          frameHeight: 740,
+        },
+        link: {
+          label: 'Play',
+          target: 'https://codepen.io/arcs/full/XqmKYq',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/vOwJBw',
+            created: '2015-08-17',
+            loves: 289,
+            views: 34674,
+          },
+          {
+            to: 'https://codepen.io/arcs/pen/XqmKYq',
+            created: '2018-04-21',
+            loves: 5,
+            views: 408,
+          },
+        ],
       },
       {
         title: 'Adminer Theme',
@@ -262,6 +301,7 @@ export const projects: Topic[] = [
   {
     label: 'Lab',
     intro: 'Personal experiments, games and pens. Made for fun, some of them got around.',
+    // highlights first, then newest to oldest
     projects: [
       {
         title: 'Outrun',
@@ -293,41 +333,6 @@ export const projects: Topic[] = [
         ],
       },
       {
-        title: 'Space Invaders',
-        image: {
-          src: '/images/space-invaders.jpg',
-          width: 1280,
-          height: 720,
-        },
-        description:
-          'Business managers are about to invade our town! A Space Invaders clone on a canvas, defending an ASCII skyline.<br /><br />It started in 2015 as the game behind my 404 page and was forked in 2018 into this version. Use ← → to move and space to shoot.',
-        embed: {
-          src: 'https://codepen.io/arcs/embed/XqmKYq?default-tab=result',
-          // codepen header 51 + canvas page 647
-          width: 1216,
-          height: 700,
-          frameHeight: 740,
-        },
-        link: {
-          label: 'Play',
-          target: 'https://codepen.io/arcs/full/XqmKYq',
-        },
-        stats: [
-          {
-            to: 'https://codepen.io/arcs/pen/vOwJBw',
-            created: '2015-08-17',
-            loves: 289,
-            views: 34674,
-          },
-          {
-            to: 'https://codepen.io/arcs/pen/XqmKYq',
-            created: '2018-04-21',
-            loves: 5,
-            views: 408,
-          },
-        ],
-      },
-      {
         title: 'Happy Birthday',
         image: {
           src: '/images/happy-birthday.jpg',
@@ -349,6 +354,27 @@ export const projects: Topic[] = [
             created: '2016-06-16',
             loves: 755,
             views: 142469,
+          },
+        ],
+      },
+      {
+        title: 'Waypoints',
+        image: {
+          src: '/images/waypoints.png',
+          width: 1505,
+          height: 857,
+        },
+        description:
+          'Waypoints turns a Proton Photos album into a map. It reads the album, decrypts everything locally, and lays the geotagged photos out as a timeline of the places you stopped.<br /><br /> I built it for my own travel photos, so it runs on your machine and never sends anything to a server.',
+        link: {
+          label: 'GitHub',
+          target: 'https://github.com/arcs-/waypoints',
+        },
+        stats: [
+          {
+            to: 'https://github.com/arcs-/waypoints',
+            created: '2026-07-03',
+            stars: 1,
           },
         ],
       },
@@ -376,6 +402,102 @@ export const projects: Topic[] = [
             views: 728,
           },
         ],
+      },
+      {
+        title: 'HUEBOO VR',
+        image: {
+          src: '/images/hueboo.png',
+          width: 1235,
+          height: 693,
+        },
+        description:
+          "HUEBOO is a VR-Game in which you are the bartender, tasked with serving drinks to your thirsty customers. It's a game about music, light and agility.",
+        link: {
+          label: 'Trailer',
+          target: 'https://www.youtube.com/watch?v=b23qYNQ274g',
+        },
+        team: {
+          'Seline (Design)': 'https://www.georgeluni.ch/',
+          'Yannick (Code)': '',
+        },
+      },
+      {
+        title: 'Flappy AI',
+        image: {
+          src: '/images/flappy-ai.png',
+          width: 1280,
+          height: 720,
+        },
+        description:
+          'A population of birds learns Flappy Bird by evolution: every generation keeps the fittest brains, mutates them and tries again, with a live chart of the progress.',
+        embed: {
+          src: '/project/flappy-ai/',
+          // the page lays itself out for a full viewport
+          width: 1280,
+          height: 720,
+        },
+        link: {
+          label: 'Watch it learn',
+          target: 'https://stillh.art/project/flappy-ai/',
+        },
+      },
+      {
+        title: 'Glühbär',
+        image: {
+          src: '/images/gluhbar.png',
+          width: 1117,
+          height: 692,
+        },
+        description:
+          'Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I was group lead and did all the code, thanks to my friends this game is marvelous.',
+        team: {
+          'Andrin (Design)': 'http://andrindobler.ch/',
+          'Tin (Design)': 'https://www.vyelo.net/',
+          'Geri (Design)': 'http://pixelfox.rocks/',
+        },
+      },
+      {
+        title: 'Tree Builder',
+        image: {
+          src: '/images/tree.png',
+          width: 1252,
+          height: 691,
+        },
+        description:
+          "In math we looked at L-Systems... and I was really bored. It was all way too simple and didn't even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.",
+        embed: {
+          src: 'https://codepen.io/arcs/embed/KeqbLd?default-tab=result',
+        },
+        link: {
+          label: 'Try It',
+          target: 'https://codepen.io/arcs/full/KeqbLd/',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/KeqbLd',
+            created: '2018-06-13',
+            loves: 11,
+            views: 935,
+          },
+        ],
+      },
+      {
+        title: 'Transmission',
+        image: {
+          src: '/images/transmission.png',
+          width: 1111,
+          height: 688,
+        },
+        description:
+          'My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the gameplay, two friends did the art<br /><br /> In Transmission you try to send a signal through the solar system.',
+        link: {
+          label: 'Play',
+          target: 'https://stillh.art/project/transmission/',
+        },
+        team: {
+          'Lukas (Design)': 'https://twitter.com/Moe5i',
+          'Simon (Design)': 'http://simon-wirth.ch',
+        },
       },
       {
         title: 'Simple register form',
@@ -428,64 +550,6 @@ export const projects: Topic[] = [
         ],
       },
       {
-        title: 'Tree Builder',
-        image: {
-          src: '/images/tree.png',
-          width: 1252,
-          height: 691,
-        },
-        description:
-          "In math we looked at L-Systems... and I was really bored. It was all way too simple and didn't even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.",
-        embed: {
-          src: 'https://codepen.io/arcs/embed/KeqbLd?default-tab=result',
-        },
-        link: {
-          label: 'Try It',
-          target: 'https://codepen.io/arcs/full/KeqbLd/',
-        },
-        stats: [
-          {
-            to: 'https://codepen.io/arcs/pen/KeqbLd',
-            created: '2018-06-13',
-            loves: 11,
-            views: 935,
-          },
-        ],
-      },
-      {
-        title: 'Glühbär',
-        image: {
-          src: '/images/gluhbar.png',
-          width: 1117,
-          height: 692,
-        },
-        description:
-          'Three designers and I had an idea, a simple one. A bear with sleep issues but he could sleep when he drinks enough.<br /><br /> I was group lead and did all the code, thanks to my friends this game is marvelous.',
-        team: {
-          'Andrin (Design)': 'http://andrindobler.ch/',
-          'Tin (Design)': 'https://www.vyelo.net/',
-          'Geri (Design)': 'http://pixelfox.rocks/',
-        },
-      },
-      {
-        title: 'HUEBOO VR',
-        image: {
-          src: '/images/hueboo.png',
-          width: 1235,
-          height: 693,
-        },
-        description:
-          "HUEBOO is a VR-Game in which you are the bartender, tasked with serving drinks to your thirsty customers. It's a game about music, light and agility.",
-        link: {
-          label: 'Trailer',
-          target: 'https://www.youtube.com/watch?v=b23qYNQ274g',
-        },
-        team: {
-          'Seline (Design)': 'https://www.georgeluni.ch/',
-          'Yannick (Code)': '',
-        },
-      },
-      {
         title: 'Minesweeper Solver',
         image: {
           src: '/images/mine.gif',
@@ -503,45 +567,6 @@ export const projects: Topic[] = [
             to: 'https://github.com/arcs-/Minesweeper-Solver/',
             created: '2016-01-03',
             stars: 7,
-          },
-        ],
-      },
-      {
-        title: 'Transmission',
-        image: {
-          src: '/images/transmission.png',
-          width: 1111,
-          height: 688,
-        },
-        description:
-          'My first time at the Global Game Jam; 48h to code a game. I coded a custom engine and the gameplay, two friends did the art<br /><br /> In Transmission you try to send a signal through the solar system.',
-        link: {
-          label: 'Play',
-          target: 'https://stillh.art/project/transmission/',
-        },
-        team: {
-          'Lukas (Design)': 'https://twitter.com/Moe5i',
-          'Simon (Design)': 'http://simon-wirth.ch',
-        },
-      },
-      {
-        title: 'Waypoints',
-        image: {
-          src: '/images/waypoints.png',
-          width: 1505,
-          height: 857,
-        },
-        description:
-          'Waypoints turns a Proton Photos album into a map. It reads the album, decrypts everything locally, and lays the geotagged photos out as a timeline of the places you stopped.<br /><br /> I built it for my own travel photos, so it runs on your machine and never sends anything to a server.',
-        link: {
-          label: 'GitHub',
-          target: 'https://github.com/arcs-/waypoints',
-        },
-        stats: [
-          {
-            to: 'https://github.com/arcs-/waypoints',
-            created: '2026-07-03',
-            stars: 1,
           },
         ],
       },

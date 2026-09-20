@@ -1,7 +1,10 @@
 <template>
   <AnimatedAppear is="article" class="relative">
-    <div class="w-full md:w-5/6" slide-right>
-      <div v-if="project.frame === 'phone'" class="flex justify-center md:justify-start md:pl-[12%]">
+    <div class="w-full md:w-5/6" slide>
+      <div
+        v-if="project.frame === 'phone'"
+        class="flex justify-center md:justify-start md:pl-[12%]"
+      >
         <div
           v-for="(shot, shotIndex) in [project.image, project.image2].filter(s => !!s)"
           :key="shot!.src"
@@ -36,7 +39,7 @@
           <div class="size-2 rounded-full bg-dark/90" />
           <div
             v-if="topicLabel === 'Work'"
-            class="mx-auto h-[9px] w-1/2 bg-dark/20 px-1 text-center text-[7px] leading-[7px] text-dark"
+            class="mx-auto h-2.25 w-1/2 bg-dark/20 px-1 text-center text-[7px] leading-1.75 text-dark"
           />
         </div>
         <ProjectLive :embed="project.embed" :title="project.title">
@@ -55,7 +58,7 @@
       class="-bottom-16 right-0 z-10 border-yellow bg-white pt-6 text-xl lg:absolute lg:w-2/5 lg:rounded-tl lg:border-l-2 lg:border-t-2 lg:pl-14 lg:pt-10 dark:bg-dark"
     >
       <h2 class="mb-2 font-bold">^ {{ project.title }}</h2>
-      <p class="text-[1rem] leading-5" v-html="project.description" />
+      <p class="text-base leading-5" v-html="project.description" />
       <p v-if="project.team" class="my-4 text-sm leading-5">
         <span class="float-left pr-8">Together with: </span>
         <span class="inline-block">

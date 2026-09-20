@@ -1,7 +1,7 @@
 <template>
   <UiGo
     :to="to"
-    class="group absolute right-0 block size-14 before:absolute before:inset-0 before:-z-1 before:scale-0 before:rounded before:bg-yellow before:transition before:duration-[1s] before:content-['_'] hover:before:rotate-[360deg] hover:before:scale-100"
+    class="group absolute right-0 block size-14 before:absolute before:inset-0 before:-z-1 before:scale-0 before:rounded before:bg-yellow before:transition before:duration-1000 before:content-['_'] hover:before:rotate-360 hover:before:scale-100"
     aria-label="Close this page"
     unstyled
   >

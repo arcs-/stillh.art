@@ -28,7 +28,7 @@
       ref="grower"
       class="absolute z-10 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-yellow transition duration-700"
       :class="{
-        'scale-[15]': expand,
+        'scale-1500': expand,
       }"
     />
   </BallsCanvas>
