@@ -6,6 +6,16 @@ type Topic = {
   projects: Project[]
 }
 
+export type Embed = {
+  src: string
+  /** Native content width in px. The frame is rendered at this width and scaled to fit the card. */
+  width?: number
+  /** Visible content height in px (with width, sets the card's aspect ratio). */
+  height?: number
+  /** Rendered frame height in px when it must exceed the visible height; the rest is cropped. */
+  frameHeight?: number
+}
+
 type Project = {
   title: string
   frame?: 'phone'
@@ -20,6 +30,8 @@ type Project = {
     height: number
   }
   description: string
+  /** Rendered in an iframe over the screenshot while the card is in the viewport */
+  embed?: Embed
   link?: {
     label: string
     target: string
@@ -27,7 +39,23 @@ type Project = {
   team?: {
     [key: string]: string
   }
+  /** Public counters for this project (snapshot, see STATS_AS_OF), each linking to its source */
+  stats?: Stat[]
 }
+
+export type Stat = {
+  to: string
+  /** ISO date (YYYY-MM-DD) the thing was created/published */
+  created?: string
+  loves?: number
+  views?: number
+  stars?: number
+  downloads?: number
+  users?: number
+}
+
+/** Date the stats were last read off CodePen (details page), GitHub and dev.bukkit.org */
+export const STATS_AS_OF = '2026-09-20'
 
 export const projects: Topic[] = [
   {
@@ -46,6 +74,13 @@ export const projects: Topic[] = [
           label: 'GitHub',
           target: 'https://github.com/arcs-/waypoints',
         },
+        stats: [
+          {
+            to: 'https://github.com/arcs-/waypoints',
+            created: '2026-07-03',
+            stars: 1,
+          },
+        ],
       },
       {
         title: 'Tavolata',
@@ -78,6 +113,13 @@ export const projects: Topic[] = [
           label: 'Chrome Store',
           target: 'https://chrome.google.com/webstore/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
         },
+        stats: [
+          {
+            to: 'https://chromewebstore.google.com/detail/mattab/anfjeecbbmmjhbpopgnhibodoblgaakj',
+            created: '2018-11-10', // first commit of github.com/arcs-/MatTab; the store shows no release date
+            users: 105,
+          },
+        ],
       },
     ],
   },
@@ -93,10 +135,84 @@ export const projects: Topic[] = [
           height: 1956,
         },
         description: 'In a discussion with a prof I got interested if one could create a game that would run smoothly within the browser only using HTML Elements.<br /><br />I tried to replicate Outrun from 1986 and really enjoy the result.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/aGzNKY?default-tab=result',
+          // fixed 800px wide game; visible = CodePen embed header (51) + content incl. controls legend (557)
+          width: 800,
+          height: 608,
+          // the pen's body is 98vh + 16px margin, so the result viewport (frame - 81px chrome) must be >= 800px
+          frameHeight: 900,
+        },
         link: {
           label: 'Play',
           target: 'https://codepen.io/arcs/full/aGzNKY',
         },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/aGzNKY',
+            created: '2018-04-19',
+            loves: 420,
+            views: 18460,
+          },
+        ],
+      },
+      {
+        title: 'Space Invaders',
+        image: {
+          src: '/images/space-invaders.jpg',
+          width: 1280,
+          height: 720,
+        },
+        description: 'Business managers are about to invade our town! A Space Invaders clone on a canvas, defending an ASCII skyline.<br /><br />It started in 2015 as the game behind my 404 page and was forked in 2018 into this version. Use ← → to move and space to shoot.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/XqmKYq?default-tab=result',
+          // fixed 1200px canvas + 8px body margins; visible = CodePen embed header (51) + content (647)
+          width: 1216,
+          height: 700,
+          frameHeight: 740,
+        },
+        link: {
+          label: 'Play',
+          target: 'https://codepen.io/arcs/full/XqmKYq',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/vOwJBw',
+            created: '2015-08-17',
+            loves: 289,
+            views: 34674,
+          },
+          {
+            to: 'https://codepen.io/arcs/pen/XqmKYq',
+            created: '2018-04-21',
+            loves: 5,
+            views: 408,
+          },
+        ],
+      },
+      {
+        title: '~',
+        image: {
+          src: '/images/tilde.jpg',
+          width: 1280,
+          height: 720,
+        },
+        description: 'Bugs are corrupting your home directory. A tiny terminal-styled shooter drawn entirely from characters on a canvas.<br /><br />Arrow keys to move, S to shoot, once you\'ve sudo-enabled the gun.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/LqGdWG?default-tab=result',
+        },
+        link: {
+          label: 'Play',
+          target: 'https://codepen.io/arcs/full/LqGdWG',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/LqGdWG',
+            created: '2019-01-25',
+            loves: 14,
+            views: 728,
+          },
+        ],
       },
       {
         title: 'Glühbär',
@@ -137,10 +253,21 @@ export const projects: Topic[] = [
           height: 691,
         },
         description: 'In math we looked at L-Systems... and I was really bored. It was all way too simple and didn\'t even look interesting.<br /><br /> Therefore I opened CodePen and tried to get into more depth (haha, because 3D) with them, you can really fall in love with them.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/KeqbLd?default-tab=result',
+        },
         link: {
           label: 'Try It',
           target: 'https://codepen.io/arcs/full/KeqbLd/',
         },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/KeqbLd',
+            created: '2018-06-13',
+            loves: 11,
+            views: 935,
+          },
+        ],
       },
       {
         title: 'Minesweeper Solver',
@@ -154,6 +281,13 @@ export const projects: Topic[] = [
           label: 'GitHub',
           target: 'https://github.com/arcs-/Minesweeper-Solver/',
         },
+        stats: [
+          {
+            to: 'https://github.com/arcs-/Minesweeper-Solver/',
+            created: '2016-01-03',
+            stars: 7,
+          },
+        ],
       },
       {
         title: 'Transmission',
@@ -184,6 +318,13 @@ export const projects: Topic[] = [
           label: 'Bukkit Page',
           target: 'https://dev.bukkit.org/projects/chat-loginrank-simple-password',
         },
+        stats: [
+          {
+            to: 'https://dev.bukkit.org/projects/chat-loginrank-simple-password',
+            created: '2012-04-03',
+            downloads: 17635,
+          },
+        ],
       },
     ],
   },
@@ -204,6 +345,30 @@ export const projects: Topic[] = [
           label: 'you better buy one',
           target: 'https://neu.kabelschacht.ch/',
         },
+      },
+      {
+        title: 'Happy Birthday',
+        image: {
+          src: '/images/happy-birthday.jpg',
+          width: 1280,
+          height: 720,
+        },
+        description: 'Canvas fireworks bursting over a birthday greeting.<br /><br />By a wide margin my most viewed pen.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/XKKYZW?default-tab=result',
+        },
+        link: {
+          label: 'Open',
+          target: 'https://codepen.io/arcs/full/XKKYZW',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/XKKYZW',
+            created: '2016-06-16',
+            loves: 755,
+            views: 142469,
+          },
+        ],
       },
       {
         title: 'Serafin Krieger',
@@ -230,6 +395,30 @@ export const projects: Topic[] = [
           label: 'Check it out',
           target: 'https://selbststaendig-erwerbend.ch/',
         },
+      },
+      {
+        title: 'Simple register form',
+        image: {
+          src: '/images/register-form.jpg',
+          width: 1280,
+          height: 720,
+        },
+        description: 'A register form that asks one question at a time, with CSS animations between the steps.<br /><br />Design after a Dribbble shot by Xavier Coulombe-M.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/OmZaex?default-tab=result',
+        },
+        link: {
+          label: 'Open',
+          target: 'https://codepen.io/arcs/full/OmZaex',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/OmZaex',
+            created: '2017-05-13',
+            loves: 682,
+            views: 58421,
+          },
+        ],
       },
       {
         title: 'bossbern @ novu',
@@ -271,6 +460,30 @@ export const projects: Topic[] = [
         },
       },
       {
+        title: 'Good Night',
+        image: {
+          src: '/images/good-night.jpg',
+          width: 1280,
+          height: 720,
+        },
+        description: 'A starry night over the dunes: a canvas sky with twinkling stars and constellation lines.',
+        embed: {
+          src: 'https://codepen.io/arcs/embed/edzJxJ?default-tab=result',
+        },
+        link: {
+          label: 'Open',
+          target: 'https://codepen.io/arcs/full/edzJxJ',
+        },
+        stats: [
+          {
+            to: 'https://codepen.io/arcs/pen/edzJxJ',
+            created: '2016-09-16',
+            loves: 172,
+            views: 13500,
+          },
+        ],
+      },
+      {
         title: 'My Wiki',
         image: {
           src: '/images/docs.png',
@@ -295,6 +508,33 @@ export const projects: Topic[] = [
           label: 'GitHub',
           target: 'https://github.com/arcs-/Adminer-Material-Theme',
         },
+        stats: [
+          {
+            to: 'https://github.com/arcs-/Adminer-Material-Theme',
+            created: '2015-11-29',
+            stars: 65,
+          },
+        ],
+      },
+      {
+        title: 'MediumButton',
+        image: {
+          src: '/images/medium-button.png',
+          width: 1066,
+          height: 279,
+        },
+        description: 'Extends MediumEditor with your own custom toolbar buttons, while keeping the default ones.<br /><br />Available on npm as medium-button.',
+        link: {
+          label: 'GitHub',
+          target: 'https://github.com/arcs-/medium-button',
+        },
+        stats: [
+          {
+            to: 'https://github.com/arcs-/medium-button',
+            created: '2015-02-24',
+            stars: 83,
+          },
+        ],
       },
     ],
   },

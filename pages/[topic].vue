@@ -90,14 +90,16 @@
                 class="mx-auto h-[9px] w-1/2 bg-dark/20 px-1 text-center text-[7px] leading-[7px] text-dark"
               />
             </div>
-            <img
-              :src="'/assets'+project.image.src"
-              :alt="'Screenshot of '+project.title"
-              :width="project.image.width"
-              :height="project.image.height"
-              :loading="index > 1 ? 'lazy' : 'eager'"
-              class="w-full rounded"
-            />
+            <ContentLive :embed="project.embed" :title="project.title">
+              <img
+                :src="'/assets'+project.image.src"
+                :alt="'Screenshot of '+project.title"
+                :width="project.image.width"
+                :height="project.image.height"
+                :loading="index > 1 ? 'lazy' : 'eager'"
+                class="w-full rounded"
+              />
+            </ContentLive>
           </div>
         </div>
         <div
@@ -127,6 +129,26 @@
             </span>
           </p>
 
+          <p
+            v-if="project.stats"
+            class="my-4 flex flex-wrap gap-x-6 text-sm leading-5"
+          >
+            <UiGo
+              v-for="stat in project.stats"
+              :key="stat.to"
+              :to="stat.to"
+              unstyled
+            >
+              <!-- numbers and dates follow the visitor's locale, so only the client can render them -->
+              <ClientOnly>
+                {{ formatStat(stat) }}
+                <template #fallback>
+                  {{ formatStat(stat, 'en-US') }}
+                </template>
+              </ClientOnly>
+            </UiGo>
+          </p>
+
           <UiButton
             v-if="project.link"
             :to="project.link.target"
@@ -150,7 +172,7 @@
 
 <script lang="ts" setup>
 import JSConfetti from 'js-confetti'
-import { projects as allProjects } from '@/assets/data/projects'
+import { projects as allProjects, type Stat } from '@/assets/data/projects'
 
 const route = useRoute()
 
@@ -174,6 +196,26 @@ useHead({
     },
   ],
 })
+
+// locale undefined = the visitor's browser locale
+const formatStat = (stat: Stat, locale?: string) => {
+  const n = (value: number) => value.toLocaleString(locale)
+  const date = (iso: string) => {
+    const [year, month, day] = iso.split('-').map(Number)
+    return new Date(year!, month! - 1, day).toLocaleDateString(locale, {
+      year: 'numeric',
+      month: 'short',
+    })
+  }
+  return [
+    stat.created && date(stat.created),
+    stat.loves !== undefined && `♥ ${n(stat.loves)}`,
+    stat.stars !== undefined && stat.stars >= 5 && `★ ${n(stat.stars)}`, // a handful of stars is nothing to brag about
+    stat.views !== undefined && `${n(stat.views)} views`,
+    stat.downloads !== undefined && `${n(stat.downloads)} downloads`,
+    stat.users !== undefined && `${n(stat.users)} users`,
+  ].filter(Boolean).join(' · ')
+}
 
 let jsConfetti: JSConfetti | null = null
 onMounted(() => {

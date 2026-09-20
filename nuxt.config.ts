@@ -15,6 +15,8 @@ export default defineNuxtConfig({
       'nuxt-security',
       {
         headers: {
+          // COEP blocks cross-origin iframes that don't opt in (CodePen embeds don't), and nothing here needs it
+          crossOriginEmbedderPolicy: 'unsafe-none',
           contentSecurityPolicy: {
             'upgrade-insecure-requests': process.env.NODE_ENV === 'production',
             'script-src': [
