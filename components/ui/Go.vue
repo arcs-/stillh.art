@@ -8,9 +8,10 @@
     :href="to"
     rel="noreferrer noopener"
     target="_blank"
-    class="bg-gradient-to-t from-yellow to-yellow bg-[0_1.06rem] bg-no-repeat transition-all hover:bg-[0_0]"
+    class="bg-linear-to-t from-yellow to-yellow bg-position-[0_1.06rem] bg-no-repeat transition-all hover:bg-position-[0_0]"
     :class="{
-      'bg-gradient-to-t from-yellow to-yellow bg-[0_1.06rem] bg-no-repeat transition-all hover:bg-[0_0]': !unstyled,
+      'bg-linear-to-t from-yellow to-yellow bg-position-[0_1.06rem] bg-no-repeat transition-all hover:bg-position-[0_0]':
+        !unstyled,
     }"
   >
     <slot />
@@ -20,7 +21,8 @@
     v-else
     :to="to"
     :class="{
-      'bg-gradient-to-t from-yellow to-yellow bg-[0_1.06rem] bg-no-repeat transition-all hover:bg-[0_0]': !unstyled,
+      'bg-linear-to-t from-yellow to-yellow bg-position-[0_1.06rem] bg-no-repeat transition-all hover:bg-position-[0_0]':
+        !unstyled,
     }"
   >
     <slot />

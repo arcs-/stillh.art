@@ -1,6 +1,6 @@
 import Matter from 'matter-js'
 import type { Body as BodyType, Constraint as ConstraintType } from 'matter-js'
-import gsap from 'gsap'
+import { gsap } from 'gsap'
 
 const { Bodies, Engine, World, Constraint, Body, Composite, Query, Common } = Matter
 
@@ -43,13 +43,14 @@ const CONFIG = {
 // ------------------------------------------------------------
 
 const timestamp = () => new Date().getTime()
-const pos = (e: any, what: string) => e.touches ? e.changedTouches[0][what] : e[what]
+const pos = (e: any, what: string) => (e.touches ? e.changedTouches[0][what] : e[what])
 
 // ------------------------------------------------------------
 // working
 // ------------------------------------------------------------
 
 let init = false
+let lastPages: BallEntry[] | null = null
 let running = false
 let canvas: HTMLCanvasElement
 let ctx: CanvasRenderingContext2D
@@ -68,16 +69,40 @@ let lastAccelerationY: number
 let config = CONFIG.DESKTOP
 let then = timestamp()
 
-type Obj = BodyType & {
-  userData: any
+export type BallEntry = {
+  label?: string
+  icon?: string
+  link?: string
+  big?: boolean
+  mini?: boolean
+  color?: string
+  pin?: {
+    x: number
+    y: number
+  }
+}
+
+export type BallObject = BodyType & {
+  userData: BallEntry
   color: string
   tween?: gsap.core.Tween
   pinned?: ConstraintType
 }
+type Obj = BallObject
+
+export type BallSelectHandler = (event: MouseEvent | TouchEvent, object: BallObject) => void
 let wheel: Obj | null = null
 const balls: Obj[] = []
 
-let clickCallback: ((e: MouseEvent, object: Obj) => void) | null = null
+const MINI_RADIUS_FACTOR = 0.4
+const MAX_MINIS = 60
+const minis: Obj[] = []
+
+const radiusFor = (entry: BallEntry) =>
+  entry.big ? config.bigBallRadius : entry.mini ? config.ballRadius * MINI_RADIUS_FACTOR : config.ballRadius
+const massFor = (entry: BallEntry) => (entry.big ? 150 : entry.mini ? 8 : 30)
+
+let clickCallback: BallSelectHandler | null = null
 
 // ------------------------------------------------------------
 // engine
@@ -121,13 +146,11 @@ function onResize() {
 
   // balls
   for (const ball of balls) {
-    const targetRadius = ball.userData.big
-      ? config.bigBallRadius
-      : config.ballRadius
+    const targetRadius = radiusFor(ball.userData)
     const factor = targetRadius / ball.circleRadius!
 
     Body.scale(ball, factor, factor)
-    Body.setMass(ball, ball.userData.big ? 150 : 30)
+    Body.setMass(ball, massFor(ball.userData))
 
     ball.circleRadius = targetRadius
 
@@ -153,9 +176,8 @@ function onResize() {
   }
 
   // wheel
-  const bodies = Composite.allBodies(engine.world)
-  for (let i = bodies.length - 1; i >= 0; i -= 1) {
-    if (bodies[i].label === 'WHEEL') World.remove(engine.world, bodies[i])
+  for (const body of Composite.allBodies(engine.world)) {
+    if (body.label === 'WHEEL') World.remove(engine.world, body)
   }
 
   const parts = []
@@ -163,13 +185,13 @@ function onResize() {
   const r = config.wheelRadius * ((1 / 5) * 2)
   for (let i = 0; i < babies; i++) {
     const segment = TAU / babies
-    const angle = ((i / babies) * TAU) + (segment / 2)
+    const angle = (i / babies) * TAU + segment / 2
 
     const x = Math.cos(angle)
     const y = Math.sin(angle)
 
-    const cx = (x * r) + (width * config.wheelFactorX)
-    const cy = (y * r) + (height * config.wheelFactorY)
+    const cx = x * r + width * config.wheelFactorX
+    const cy = y * r + height * config.wheelFactorY
 
     parts.push(
       Bodies.rectangle(cx, cy, 20, (150 / 933) * config.wheelRadius, {
@@ -198,9 +220,8 @@ function onMousedown(e: MouseEvent) {
 
   if (mouseConstraint.bodyB) return
 
-  const bodies = Composite.allBodies(engine.world)
-  for (let i = 0; i < bodies.length; i++) {
-    const element = Query.point([bodies[i]], mouse).find(el => el.label.includes('BALL'))
+  for (const body of Composite.allBodies(engine.world)) {
+    const element = Query.point([body], mouse).find(el => el.label.includes('BALL'))
     if (element) {
       mouseConstraint.pointA = mouse
       mouseConstraint.bodyB = element
@@ -225,14 +246,12 @@ function onMouseMove(e: MouseEvent) {
 }
 
 function onMouseup(e: MouseEvent) {
-  if (
-    mouse.down
-    && Math.abs(mouse.dx - pos(e, 'pageX')) < 10
-    && Math.abs(mouse.dy - pos(e, 'pageY')) < 10
-  ) {
+  if (mouse.down && Math.abs(mouse.dx - pos(e, 'pageX')) < 10 && Math.abs(mouse.dy - pos(e, 'pageY')) < 10) {
     const sight = Query.point(balls, mouse)
     if (sight.length > 0) {
       clickCallback?.(e, sight[0] as any)
+    } else if (!('button' in e) || e.button === 0) {
+      addMini(mouse.x, mouse.y)
     }
   }
   if (mouseConstraint.bodyB) {
@@ -241,6 +260,30 @@ function onMouseup(e: MouseEvent) {
   mouse.down = false
   mouse.x = -50
   mouse.y = -50
+}
+
+function addMini(x: number, y: number) {
+  const entry: BallEntry = { mini: true }
+  const ball = Bodies.circle(x, y, radiusFor(entry), {
+    label: 'BALL',
+    mass: massFor(entry),
+    frictionAir: 0.03,
+    restitution: 0.4,
+  }) as Obj
+  ball.userData = entry
+  ball.color = Colors.primary
+
+  balls.push(ball)
+  minis.push(ball)
+  World.add(engine.world, ball)
+
+  if (minis.length > MAX_MINIS) {
+    const oldest = minis.shift()
+    if (oldest) {
+      World.remove(engine.world, oldest)
+      balls.splice(balls.indexOf(oldest), 1)
+    }
+  }
 }
 
 function onMouseLeave() {
@@ -277,10 +320,11 @@ function onMotion(event: DeviceMotionEvent) {
   // will default to `accelerationIncludingGravity` but we cant use those values
   // will also reuse values
   if (
-    event.acceleration.y === lastAccelerationY
-    || event.acceleration.y === event.accelerationIncludingGravity!.y
-    || event.acceleration.x === event.accelerationIncludingGravity!.x
-  ) return
+    event.acceleration.y === lastAccelerationY ||
+    event.acceleration.y === event.accelerationIncludingGravity!.y ||
+    event.acceleration.x === event.accelerationIncludingGravity!.x
+  )
+    return
 
   lastAccelerationY = event.acceleration.y!
 
@@ -296,19 +340,20 @@ function onMotion(event: DeviceMotionEvent) {
   }
 }
 
-function setTheme(dark: boolean, init?: boolean) {
-  const _colors = {
+function setTheme(dark: boolean, immediate?: boolean) {
+  const colors = {
     primary: dark ? '#FFD168' : '#FFD168',
     hover: dark ? '#FFE3A5' : '#B59346',
     text: dark ? '#0f0f13' : '#0f0f13',
     frame: dark ? '#ffffff' : '#0f0f13',
   }
-  if (init) Colors = _colors
-  else gsap.to(Colors, {
-    ..._colors,
-    duration: 0.7,
-    ease: 'linear',
-  })
+  if (immediate) Colors = colors
+  else
+    gsap.to(Colors, {
+      ...colors,
+      duration: 0.7,
+      ease: 'linear',
+    })
 }
 
 // ------------------------------------------------------------
@@ -388,18 +433,17 @@ function update(delta: number) {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 
   // draw
-  bodies.forEach((body) => {
+  bodies.forEach(body => {
     // frame
     if (body.label.includes('WHEEL')) {
       ctx.beginPath()
       ctx.lineWidth = 1.4
 
-      const { vertices } = body
-      ctx.moveTo(vertices[0].x, vertices[0].y)
-      for (let j = 1; j < vertices.length; j += 1) {
-        ctx.lineTo(vertices[j].x, vertices[j].y)
-      }
-      ctx.lineTo(vertices[0].x, vertices[0].y)
+      const [first, ...rest] = body.vertices
+      if (!first) return
+      ctx.moveTo(first.x, first.y)
+      for (const vertex of rest) ctx.lineTo(vertex.x, vertex.y)
+      ctx.lineTo(first.x, first.y)
 
       ctx.strokeStyle = Colors.frame
       ctx.stroke()
@@ -453,7 +497,7 @@ function update(delta: number) {
 
       if (body.userData.icon) {
         ctx.fill(new Path2D(body.userData.icon))
-      } else {
+      } else if (body.userData.label) {
         ctx.textAlign = 'center'
         ctx.font = '2rem "3270"'
         ctx.fillText(body.userData.label, 0, 11)
@@ -472,11 +516,7 @@ function update(delta: number) {
 }
 
 export default {
-  init(
-    root: HTMLElement,
-    _cb: ((e: MouseEvent, object: Obj) => void) | null,
-    pages: any[],
-  ) {
+  init(root: HTMLElement, _cb: BallSelectHandler | null, pages: BallEntry[]) {
     clickCallback = _cb
 
     canvas = document.createElement('CANVAS') as HTMLCanvasElement
@@ -487,18 +527,23 @@ export default {
     running = true
     listeners(true)
 
-    if (init) {
+    // same entries as last time: keep the balls where they are
+    if (init && pages === lastPages) {
       onResize()
       return
     }
+    const firstRun = !init
     init = true
+    lastPages = pages
 
-    // pages
+    for (const ball of balls) World.remove(engine.world, ball)
+    balls.length = 0
+    minis.length = 0
 
     if (window.innerWidth < window.innerHeight) config = CONFIG.MOBILE
     else config = CONFIG.DESKTOP
 
-    for (const page of pages.reverse()) {
+    for (const page of pages.toReversed()) {
       const ball = Bodies.circle(
         page.big ? 450 : 600, // x
         280, // y
@@ -519,7 +564,7 @@ export default {
 
     // start
     onResize()
-    loop()
+    if (firstRun) loop()
   },
 
   setTheme,

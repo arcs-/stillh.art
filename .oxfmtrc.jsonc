@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+
+  "printWidth": 110,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "vueIndentScriptAndStyle": false,
+
+  "ignorePatterns": [".nuxt", ".output", "dist", "node_modules", "public", "pnpm-lock.yaml"],
+}

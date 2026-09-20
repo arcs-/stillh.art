@@ -2,11 +2,6 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "typeRoots": [
-      ".nuxt",
-      "./utils/types",
-      "@nuxt/types",
-      "@nuxt/i18n",
-    ]
+    "typeRoots": [".nuxt", "./utils/types", "@nuxt/types", "@nuxt/i18n"]
   }
 }

@@ -1,37 +1,30 @@
 <template>
-  <UiContainer
-    is="main"
-    class="overflow-hidden py-12 md:py-36 md:pb-40">
+  <UiContainer is="main" class="overflow-hidden py-12 md:py-36 md:pb-40">
     <section class="relative">
       <UiClose to="/" class="-mt-1" />
-      <h1 class="mb-4 text-6xl">
-        About
-      </h1>
-      <p
-        class="
-          md:text-xl
-          lg:w-3/5
-        ">
-        I'm a fullstack developer with a great passion for beautiful frontends.
-        I especially enjoy creating 3D experiences and animations. That allowed me to
-        create some truly exciting projects and hopefully made the web a bit more fun.
+      <h1 class="mb-4 text-6xl">About</h1>
+      <p class="md:text-xl lg:w-3/5">
+        I'm a fullstack developer with a great passion for beautiful frontends. I especially enjoy creating 3D
+        experiences and animations. That allowed me to create some truly exciting projects and hopefully made
+        the web a bit more fun.
       </p>
     </section>
 
-    <ContentStats />
+    <section class="flex flex-col gap-12 md:flex-row">
+      <AboutTimeline />
+      <AboutSkills />
+    </section>
 
     <section class="text-xl">
       <AnimatedAppear>
-        <h2
-          class="mb-4 text-4xl md:text-6xl" slide-right
-        >
-          Articles and Awards
-        </h2>
+        <h2 class="mb-4 text-4xl md:text-6xl" slide-right>Articles and Awards</h2>
       </AnimatedAppear>
       <AnimatedAppear is="ul">
         <li slide-up>
           HSLU > Apr 2021 >
-          <UiGo to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/">
+          <UiGo
+            to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/"
+          >
             Dean's List
           </UiGo>
         </li>
@@ -43,15 +36,11 @@
         </li>
         <li slide-up>
           awwwards > Aug 2020 >
-          <UiGo to="https://www.awwwards.com/sites/di-museum">
-            Honorable Mention
-          </UiGo>
+          <UiGo to="https://www.awwwards.com/sites/di-museum"> Honorable Mention </UiGo>
         </li>
         <li slide-up>
           awwwards > Jul 2020 >
-          <UiGo to="https://www.awwwards.com/sites/di-museum">
-            Mobile Excellence
-          </UiGo>
+          <UiGo to="https://www.awwwards.com/sites/di-museum"> Mobile Excellence </UiGo>
         </li>
         <li slide-up>
           ICT Berufsbildung > Aug 2017 >
@@ -62,77 +51,50 @@
       </AnimatedAppear>
 
       <AnimatedAppear is="div">
-        <h4 class="mb-2 mt-12 text-2xl" slide-up>
-          Also seen here
-        </h4>
-        <UiGo class="inline-block leading-5" to="https://soi.ch/" slide-up>
-          SOI
-        </UiGo>
+        <h4 class="mb-2 mt-12 text-2xl" slide-up>Also seen here</h4>
+        <UiGo class="inline-block leading-5" to="https://soi.ch/" slide-up> SOI </UiGo>
         <span class="inline-block px-2" slide-up>•</span>
-        <UiGo class="inline-block leading-5" to="https://globalgamejam.org/" slide-up>
-          GGJ
-        </UiGo>
+        <UiGo class="inline-block leading-5" to="https://globalgamejam.org/" slide-up> GGJ </UiGo>
       </AnimatedAppear>
     </section>
 
-    <AnimatedAppear is="section">
-      <h2
-        class="mb-4 text-4xl md:text-6xl" slide-right
-      >
-        Note
-      </h2>
-      <div
-        class="flex flex-col gap-20 md:flex-row">
-        <div
-          class="w-full md:w-3/5">
+    <AnimatedAppear is="section" class="mb-12!">
+      <h2 class="mb-4 text-4xl md:text-6xl" slide-right>Note</h2>
+      <div class="flex flex-col gap-20 md:flex-row">
+        <div class="w-full md:w-3/5">
           <div class="space-y-8 text-xl">
             <p slide-up>
               <span title="General Kenobi">Hello there!</span>
-              I’m Patrick (aka arcs); creator of many things, one of which is
-              this page. I love coding and do a lot of frontend and animation
-              work. That said, I try to gain knowledge in as many areas as I
-              can, so I’d consider myself a full-stack dev with a passion for
-              frontend.
+              I’m Patrick (aka arcs); creator of many things, one of which is this page. I love coding and do
+              a lot of frontend and animation work. That said, I try to gain knowledge in as many areas as I
+              can, so I’d consider myself a full-stack dev with a passion for frontend.
             </p>
             <p slide-up>
-              I did get into coding when I was 11 because I was too lazy to
-              manage permissions on my Minecraft server. It took me half a year
-              to finally get my 30 lines of code to work, but it was absolutely
-              worth it. From then on, most things I did were to push further into
-              the world of programming.
+              I did get into coding when I was 11 because I was too lazy to manage permissions on my Minecraft
+              server. It took me half a year to finally get my 30 lines of code to work, but it was absolutely
+              worth it. From then on, most things I did were to push further into the world of programming.
             </p>
             <p slide-up>
-              Aside from coding, I enjoy photography, camping, gaming,
-              cycling, and cooking. Also, whenever I work, I kind of need music,
-              so you rarely see me without headphones. The legend goes that
+              Aside from coding, I enjoy photography, camping, gaming, cycling, and cooking. Also, whenever I
+              work, I kind of need music, so you rarely see me without headphones. The legend goes that
               sometimes I dance to it; this is a lie.
             </p>
           </div>
         </div>
 
-        <div
-          class="w-3/5 md:w-2/5" slide-down
-        >
-          <img
-            src="/assets/images/me.jpg"
-            loading="lazy"
-            alt="Profile of me"
-          />
+        <div class="w-3/5 md:w-2/5" slide-down>
+          <img src="/assets/images/me.jpg" loading="lazy" alt="Profile of me" />
         </div>
       </div>
     </AnimatedAppear>
 
-    <AnimatedAppear class="!mt-12">
+    <AnimatedAppear>
       <p slide-up>
-        <UiButton to="https://stillh.art/cv.pdf">
-          Curriculum Vitae
-        </UiButton>
+        <UiButton to="https://stillh.art/cv.pdf"> Curriculum Vitae </UiButton>
       </p>
       <p class="my-24 text-lg" slide-up>
         cheers and <span class="text-yellow">♥</span> by yours truly,
-        <UiGo to="/">
-          Patrick
-        </UiGo>
+        <UiGo to="/"> Patrick </UiGo>
       </p>
     </AnimatedAppear>
   </UiContainer>
@@ -140,6 +102,6 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Patrick Stillhart # About',
+  title: 'About # Patrick Stillhart',
 })
 </script>

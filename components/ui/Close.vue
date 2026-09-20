@@ -1,25 +1,13 @@
 <template>
   <UiGo
     :to="to"
-    class="
-      group absolute right-0 block size-14
-      before:absolute before:inset-0 before:-z-1 before:scale-0 before:rounded before:bg-yellow
-      before:transition before:duration-[1s] before:content-['_']
-      hover:before:rotate-[360deg] hover:before:scale-100
-    "
+    class="group absolute right-0 block size-14 before:absolute before:inset-0 before:-z-1 before:scale-0 before:rounded before:bg-yellow before:transition before:duration-[1s] before:content-['_'] hover:before:rotate-[360deg] hover:before:scale-100"
     aria-label="Close this page"
     unstyled
   >
-    <span
-      class="scene"
-      aria-hidden="true"
-    >
+    <span class="scene" aria-hidden="true">
       <span class="cross">
-        <span
-          v-for="bar in 2"
-          :key="bar"
-          class="bar"
-        >
+        <span v-for="bar in 2" :key="bar" class="bar">
           <span
             v-for="face in ['front', 'back', 'left', 'right', 'top', 'bottom']"
             :key="face"
@@ -94,7 +82,7 @@ defineProps<{ to: string }>()
 .right,
 .top,
 .bottom {
-  background: theme('colors.yellow');
+  background: var(--color-yellow);
 }
 
 .left {

@@ -8,30 +8,35 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint . --fix"
-  },
-  "packageManager": "pnpm@11.2.2",
-  "engines": {
-    "node": ">=24.0.0"
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@vueuse/core": "^14.3.0",
+    "@vueuse/core": "^15.0.0",
     "d3": "^7.9.0",
     "gsap": "^3.15.0",
     "js-confetti": "^0.13.1",
     "matter-js": "^0.20.0"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.15.2",
-    "@nuxtjs/tailwindcss": "^6.13.2",
-    "@teamnovu/eslint-config-vue": "^9.0.18",
+    "@nuxtjs/color-mode": "^4.0.1",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/d3": "^7.4.3",
     "@types/matter-js": "^0.20.2",
-    "@vueuse/nuxt": "^14.3.0",
-    "eslint": "^10.4.0",
-    "nuxt": "^4.4.6",
+    "@types/node": "^26.6.2",
+    "@vueuse/nuxt": "^15.0.0",
+    "nuxt": "^4.5.2",
     "nuxt-security": "^2.6.0",
-    "tailwindcss": "^3.4.19",
-    "typescript": "^6.0.3"
-  }
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.11"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@11.2.2"
 }

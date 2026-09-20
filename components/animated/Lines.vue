@@ -3,10 +3,7 @@
     <ClientOnly>
       <svg
         ref="svg"
-        class="
-          pointer-events-none absolute size-full
-          [&_path]:fill-none [&_path]:stroke-yellow [&_path]:stroke-[4]
-        "
+        class="pointer-events-none absolute size-full [&_path]:fill-none [&_path]:stroke-yellow [&_path]:stroke-[4]"
         aria-hidden="true"
       >
         <defs />
@@ -19,7 +16,7 @@
 
 <script setup lang="ts">
 import { path as d3Path } from 'd3'
-import gsap from 'gsap'
+import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 if (import.meta.client) {
@@ -52,12 +49,12 @@ function refresh() {
 
   // draw connections
   for (let i = 0; i < connections.length - 1; i++) {
-    const start = connections[i].from
-    const startX = start.left + (start.width / 2) - offset.left
+    const start = connections[i]!.from
+    const startX = start.left + start.width / 2 - offset.left
     const startY = start.bottom - offset.top + spacing
 
-    const end = connections[i + 1].to
-    const endX = end.left + (end.width / 2) - offset.left
+    const end = connections[i + 1]!.to
+    const endX = end.left + end.width / 2 - offset.left
     const endY = end.top - offset.top - spacing
 
     const path = d3Path()
@@ -66,14 +63,14 @@ function refresh() {
     // draw connecting arcs
     if (startX !== endX) {
       const r = Math.min(Math.abs(startX - endX) / 2, maxRadius)
-      const swapY = startY + ((endY - startY) * 0.85) - (r * 2)
+      const swapY = startY + (endY - startY) * 0.85 - r * 2
 
       if (startX < endX) {
         path.arc(startX + r, swapY, r, Math.PI, Math.PI / 2, true)
-        path.arc(endX - r, swapY + (r * 2), r, Math.PI / -2, 0)
+        path.arc(endX - r, swapY + r * 2, r, Math.PI / -2, 0)
       } else {
         path.arc(startX - r, swapY, r, 0, Math.PI / 2)
-        path.arc(endX + r, swapY + (r * 2), r, Math.PI / -2, Math.PI, true)
+        path.arc(endX + r, swapY + r * 2, r, Math.PI / -2, Math.PI, true)
       }
     }
 
@@ -86,15 +83,15 @@ function refresh() {
 
     ctx = gsap.context(() => {
       stepElements.forEach((el, index) => {
-        const path = svg.value?.querySelector(`[data-path="${index}"]`)
-        if (!path) return
+        const line = svg.value?.querySelector(`[data-path="${index}"]`)
+        if (!line) return
 
-        gsap.set(path, {
-          strokeDasharray: (_, el) => el.getTotalLength(),
-          strokeDashoffset: (_, el) => el.getTotalLength(),
+        gsap.set(line, {
+          strokeDasharray: (_, target) => target.getTotalLength(),
+          strokeDashoffset: (_, target) => target.getTotalLength(),
         })
 
-        gsap.to(path, {
+        gsap.to(line, {
           duration: 0.1,
           strokeDashoffset: 0,
           scrollTrigger: {

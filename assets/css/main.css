@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-dark: #111;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-yellow: #ffd168;
+
+  --font-sans: '3270', system-ui;
+}
+
+@layer base {
+  /* tailwind 4 dropped this */
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}

@@ -1,170 +1,24 @@
 <template>
-  <UiContainer
-    is="main"
-    v-if="topic"
-    class="py-16 md:pb-40 md:pt-24">
-    <div class="relative">
+  <UiContainer is="main" v-if="topic" class="py-16 md:pb-40 md:pt-24">
+    <div class="relative mb-20!">
       <UiClose to="/" />
-      <h1 v-if="topic.label" class="mb-4 text-6xl">
-        {{ topic.label.toLowerCase() }}[]
-      </h1>
-      <p
-        class="
-          text-xl
-          lg:w-3/5
-        ">
+      <h1 v-if="topic.label" class="mb-4 text-6xl">{{ topic.label.toLowerCase() }}[]</h1>
+      <p class="text-xl lg:w-3/5">
         {{ topic.intro }}
       </p>
     </div>
 
-    <div
-      class="
-        !mt-20 space-y-28
-        md:space-y-80
-      ">
-      <AnimatedAppear
-        is="article"
+    <div class="space-y-28 md:space-y-80">
+      <ProjectCard
         v-for="(project, index) in topic.projects"
         :key="project.title"
-        class="relative"
-      >
-        <div
-          class="
-            w-full
-            md:w-5/6
-          " slide-right
-        >
-          <div
-            v-if="project.frame === 'phone'"
-            class="
-              flex justify-center
-              md:justify-start md:pl-[12%]
-            "
-          >
-            <div
-              v-for="(shot, shotIndex) in [project.image, project.image2].filter(s => !!s)"
-              :key="shot!.src"
-              class="relative w-full max-w-64"
-              :class="shotIndex > 0 ? '-ml-6 mt-12' : 'z-10'"
-            >
-              <div
-                class="absolute -left-1 top-20 h-6 w-1 rounded-l-md bg-yellow"
-              />
-              <div
-                class="absolute -left-1 top-32 h-10 w-1 rounded-l-md bg-yellow"
-              />
-              <div
-                class="absolute -left-1 top-44 h-10 w-1 rounded-l-md bg-yellow"
-              />
-              <div
-                class="absolute -right-1 top-36 h-16 w-1 rounded-r-md bg-yellow"
-              />
-              <div
-                class="
-                  relative overflow-hidden rounded-[2.5rem] border-4 border-yellow bg-white/10 drop-shadow-lg
-                "
-              >
-                <img
-                  :src="'/assets'+shot!.src"
-                  :alt="'Screenshot of '+project.title"
-                  :width="shot!.width"
-                  :height="shot!.height"
-                  :loading="index > 1 ? 'lazy' : 'eager'"
-                  class="w-full"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            v-else
-            class="
-              relative overflow-hidden rounded-xl border-2 border-t-0 border-yellow bg-white/10 drop-shadow-lg
-            "
-          >
-            <div class="flex h-4 items-center gap-1 bg-yellow px-5">
-              <div class="size-2 rounded-full bg-dark/90" />
-              <div class="size-2 rounded-full bg-dark/90" />
-              <div class="size-2 rounded-full bg-dark/90" />
-              <div
-                v-if="topic.label == 'Web'"
-                class="mx-auto h-[9px] w-1/2 bg-dark/20 px-1 text-center text-[7px] leading-[7px] text-dark"
-              />
-            </div>
-            <ContentLive :embed="project.embed" :title="project.title">
-              <img
-                :src="'/assets'+project.image.src"
-                :alt="'Screenshot of '+project.title"
-                :width="project.image.width"
-                :height="project.image.height"
-                :loading="index > 1 ? 'lazy' : 'eager'"
-                class="w-full rounded"
-              />
-            </ContentLive>
-          </div>
-        </div>
-        <div
-          class="
-            -bottom-16 right-0 z-10 border-yellow bg-white pt-6 text-xl
-            lg:absolute lg:w-2/5 lg:rounded-tl lg:border-l-2 lg:border-t-2
-            lg:pl-14 lg:pt-10
-            dark:bg-dark
-          "
-        >
-          <h2 class="mb-2 font-bold">
-            ^ {{ project.title }}
-          </h2>
-          <p class="text-[1rem] leading-5" v-html="project.description" />
-          <p v-if="project.team" class="my-4 text-sm leading-5">
-            <span class="float-left pr-8">Together with: </span>
-            <span class="inline-block">
-              <UiGo
-                v-for="(value, key) in project.team"
-                :key="key"
-                :to="value!"
-                :class="{ link: value }"
-                class="block"
-              >
-                {{ key }}
-              </UiGo>
-            </span>
-          </p>
-
-          <p
-            v-if="project.stats"
-            class="my-4 flex flex-wrap gap-x-6 text-sm leading-5"
-          >
-            <UiGo
-              v-for="stat in project.stats"
-              :key="stat.to"
-              :to="stat.to"
-              unstyled
-            >
-              <!-- numbers and dates follow the visitor's locale, so only the client can render them -->
-              <ClientOnly>
-                {{ formatStat(stat) }}
-                <template #fallback>
-                  {{ formatStat(stat, 'en-US') }}
-                </template>
-              </ClientOnly>
-            </UiGo>
-          </p>
-
-          <UiButton
-            v-if="project.link"
-            :to="project.link.target"
-            class="my-4"
-          >
-            &gt; {{ project.link.label }}
-          </UiButton>
-        </div>
-      </AnimatedAppear>
+        :project="project"
+        :topic-label="topic.label"
+        :index="index"
+      />
     </div>
 
-    <div
-      class="
-        pt-20 text-center text-2xl
-        md:pt-32
-      ">
+    <div class="pt-20 text-center text-2xl md:pt-32">
       ~ <span class="inline-block translate-y-[-6px] px-2">end</span> ~
     </div>
   </UiContainer>
@@ -172,7 +26,7 @@
 
 <script lang="ts" setup>
 import JSConfetti from 'js-confetti'
-import { projects as allProjects, type Stat } from '@/assets/data/projects'
+import { projects as allProjects } from '@/assets/data/projects'
 
 const route = useRoute()
 
@@ -188,7 +42,7 @@ if (!topic) {
 }
 
 useHead({
-  title: `Patrick Stillhart # ${topicParam}[]`,
+  title: `${topicParam}[] # Patrick Stillhart`,
   meta: [
     {
       name: 'description',
@@ -196,26 +50,6 @@ useHead({
     },
   ],
 })
-
-// locale undefined = the visitor's browser locale
-const formatStat = (stat: Stat, locale?: string) => {
-  const n = (value: number) => value.toLocaleString(locale)
-  const date = (iso: string) => {
-    const [year, month, day] = iso.split('-').map(Number)
-    return new Date(year!, month! - 1, day).toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'short',
-    })
-  }
-  return [
-    stat.created && date(stat.created),
-    stat.loves !== undefined && `♥ ${n(stat.loves)}`,
-    stat.stars !== undefined && stat.stars >= 5 && `★ ${n(stat.stars)}`, // a handful of stars is nothing to brag about
-    stat.views !== undefined && `${n(stat.views)} views`,
-    stat.downloads !== undefined && `${n(stat.downloads)} downloads`,
-    stat.users !== undefined && `${n(stat.users)} users`,
-  ].filter(Boolean).join(' · ')
-}
 
 let jsConfetti: JSConfetti | null = null
 onMounted(() => {

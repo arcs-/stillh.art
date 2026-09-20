@@ -1,16 +1,6 @@
 export const sites = {
-  pending: [
-    'kos-web.vercel.app',
-    'kabelschacht-web.vercel.app',
-    'vinova-architects.ch',
-  ],
-  best: [
-    'bossbern.ch',
-    'selbststaendig-erwerbend.ch',
-    'jkweb.ch',
-    'nfp73.ch',
-    'keller-druck.ch',
-  ],
+  pending: ['kos-web.vercel.app', 'kabelschacht-web.vercel.app', 'vinova-architects.ch'],
+  best: ['bossbern.ch', 'selbststaendig-erwerbend.ch', 'jkweb.ch', 'nfp73.ch', 'keller-druck.ch'],
   nice: [
     'lernwege-plattform.ch',
     'zukunftbahnhofbern.ch',
@@ -61,8 +51,5 @@ export const sites = {
     'jaquetpartners.com',
     'krippenstellen.ch',
   ],
-  dead: [
-    'hi-private.ch',
-    'so-go.ch',
-  ],
+  dead: ['hi-private.ch', 'so-go.ch'],
 }

@@ -5,22 +5,25 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap'
+import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 if (import.meta.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
-const props = withDefaults(defineProps<{
-  is?: string
-  start?: string
-  end?: string
-  markers?: boolean
-  delay?: number
-}>(), {
-  is: 'div',
-  delay: 0,
-})
+const props = withDefaults(
+  defineProps<{
+    is?: string
+    start?: string
+    end?: string
+    markers?: boolean
+    delay?: number
+  }>(),
+  {
+    is: 'div',
+    delay: 0,
+  },
+)
 
 const el = ref<HTMLElement>()
 
@@ -28,12 +31,15 @@ onMounted(() => {
   gsap.delayedCall(props.delay, () => initAnimation())
 })
 
-useResizeObserver(el, useThrottleFn(() => {
-  ScrollTrigger.refresh()
-}, 100))
+useResizeObserver(
+  el,
+  useThrottleFn(() => {
+    ScrollTrigger.refresh()
+  }, 100),
+)
 
 const initAnimation = () => {
-  gsap.context((self) => {
+  gsap.context(self => {
     const slide = self.selector!('[slide-up],[slide-right],[slide-left],[slide-down]')
     const zoomIn = self.selector!('[zoom-in]')
     const zoomInOut = self.selector!('[zoom-in-out]')
@@ -49,52 +55,58 @@ const initAnimation = () => {
       },
     })
 
-    if (slide.length) tl.add(
-      gsap.to(slide, {
-        opacity: 1,
-        visibility: 'visible',
-        y: 0,
-        x: 0,
-        stagger: 0.1,
-        duration: 0.4,
-        ease: 'easeOut',
-      }),
-    )
+    if (slide.length)
+      tl.add(
+        gsap.to(slide, {
+          opacity: 1,
+          visibility: 'visible',
+          y: 0,
+          x: 0,
+          stagger: 0.1,
+          duration: 0.4,
+          ease: 'easeOut',
+        }),
+      )
 
-    if (zoomIn.length) tl.add(
-      gsap.to(zoomIn, {
-        autoAlpha: 1,
-        scale: 1,
-        duration: 0.4,
-        stagger: 0.15,
-      }),
-      0,
-    )
+    if (zoomIn.length)
+      tl.add(
+        gsap.to(zoomIn, {
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.4,
+          stagger: 0.15,
+        }),
+        0,
+      )
 
-    if (zoomInOut.length) tl.add(
-      gsap.to(zoomInOut, {
-        autoAlpha: 1,
-        scale: 1.5,
-        duration: 0.9,
-        stagger: 0.4,
-        delay: 0.5,
-        ease: 'back.out(5)',
-      }),
-      0,
-    )
+    if (zoomInOut.length)
+      tl.add(
+        gsap.to(zoomInOut, {
+          autoAlpha: 1,
+          scale: 1.5,
+          duration: 0.9,
+          stagger: 0.4,
+          delay: 0.5,
+          ease: 'back.out(5)',
+        }),
+        0,
+      )
 
-    if (fadeIn.length) tl.add(
-      gsap.to(fadeIn, {
-        autoAlpha: 1,
-        duration: 0.4,
-        stagger: 0.15,
-      }),
-    )
+    if (fadeIn.length)
+      tl.add(
+        gsap.to(fadeIn, {
+          autoAlpha: 1,
+          duration: 0.4,
+          stagger: 0.15,
+        }),
+      )
   }, el.value)
 }
 </script>
 
 <style>
+@reference "~/assets/css/main.css";
+
 @media (prefers-reduced-motion: no-preference) {
   [slide-up] {
     @apply invisible;

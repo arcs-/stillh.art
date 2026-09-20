@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "vue", "unicorn", "import"],
+
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+  },
+  "rules": {
+    // misfires on ctx.fill()
+    "unicorn/no-array-fill-with-reference-type": "off",
+  },
+  "env": {
+    "browser": true,
+    "es2024": true,
+  },
+  "ignorePatterns": [".nuxt", ".output", "dist", "node_modules", "public"],
+}

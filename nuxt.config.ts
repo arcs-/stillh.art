@@ -1,39 +1,38 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-
   modules: [
     [
-      '@nuxt/eslint',
+      '@nuxtjs/color-mode',
       {
-        config: { stylistic: true },
+        classSuffix: '',
+        preference: 'system',
+        fallback: 'light',
+        storage: 'cookie',
       },
     ],
     '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss',
     [
       'nuxt-security',
       {
+        removeLoggers: { consoleType: ['log', 'warn', 'error', 'info', 'debug'] },
         headers: {
-          // COEP blocks cross-origin iframes that don't opt in (CodePen embeds don't), and nothing here needs it
+          // codepen embeds don't send COEP
           crossOriginEmbedderPolicy: 'unsafe-none',
           contentSecurityPolicy: {
             'upgrade-insecure-requests': process.env.NODE_ENV === 'production',
             'script-src': [
-              '\'self\'', // Fallback value, will be ignored by most modern browsers (level 3)
+              "'self'", // Fallback value, will be ignored by most modern browsers (level 3)
               'https:', // Fallback value, will be ignored by almost any browser (level 2)
-              '\'unsafe-inline\'', // Fallback value, will be ignored by almost any browser (level 2)
-              '\'strict-dynamic\'', // Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
-              '\'nonce-{{nonce}}\'', // Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
+              "'unsafe-inline'", // Fallback value, will be ignored by almost any browser (level 2)
+              "'strict-dynamic'", // Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
+              "'nonce-{{nonce}}'", // Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
               'static.cloudflareinsights.com',
             ],
-            'connect-src': [
-              '\'self\'',
-              'https:',
-              'static.cloudflareinsights.com',
-            ],
+            'connect-src': ["'self'", 'https:', 'static.cloudflareinsights.com'],
             'frame-src': [
-              '\'self\'',
+              "'self'",
               'https://codepen.io', // live project embeds, see ContentLive
             ],
           },
@@ -41,6 +40,12 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
+  css: ['~/assets/css/main.css'],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
   app: {
     rootAttrs: {
@@ -78,11 +83,13 @@ export default defineNuxtConfig({
         },
         {
           name: 'description',
-          content: 'Fan of great frontends, fullstack developer myself with a special passion for 3D and animations. Here to make the web more fun.',
+          content:
+            'Fan of great frontends, fullstack developer myself with a special passion for 3D and animations. Here to make the web more fun.',
         },
         {
           property: 'og:description',
-          content: 'Fan of great frontends, fullstack developer myself with a special passion for 3D and animations. Here to make the web more fun.',
+          content:
+            'Fan of great frontends, fullstack developer myself with a special passion for 3D and animations. Here to make the web more fun.',
         },
         {
           property: 'og:image',
@@ -121,7 +128,7 @@ export default defineNuxtConfig({
   },
   srcDir: '.',
   routeRules: {
-    // Assets for CodePen pens (codepen.io/arcs), fetched cross-origin via XHR/Image/CSS
+    // codepen assets
     '/static/pens/**': {
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -131,7 +138,25 @@ export default defineNuxtConfig({
     },
     '/sites': {
       redirect: {
-        to: '/web',
+        to: '/work',
+        statusCode: 301,
+      },
+    },
+    '/web': {
+      redirect: {
+        to: '/work',
+        statusCode: 301,
+      },
+    },
+    '/apps': {
+      redirect: {
+        to: '/lab',
+        statusCode: 301,
+      },
+    },
+    '/games': {
+      redirect: {
+        to: '/lab',
         statusCode: 301,
       },
     },
