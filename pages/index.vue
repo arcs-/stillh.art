@@ -23,27 +23,18 @@
     >
       Press to use gyro
     </button>
-
-    <div
-      ref="grower"
-      class="absolute z-10 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-yellow transition duration-700"
-      :class="{
-        'scale-1500': expand,
-      }"
-    />
   </BallsCanvas>
 </template>
 
 <script setup lang="ts">
 import type { BallEntry, BallObject } from '@/assets/js/balls'
 import { links, MODE_LINK } from '@/assets/data/links'
+import BallsCanvas from '@/components/balls/Canvas.vue'
 
 const colorMode = useColorMode()
 const router = useRouter()
 
-const balls = ref<{ stop: () => void }>()
-const grower = ref<HTMLDivElement>()
-const expand = ref(false)
+const balls = ref<InstanceType<typeof BallsCanvas>>()
 
 const promptInteract = ref(false)
 
@@ -88,33 +79,19 @@ function onSelect(entry: BallEntry, object: BallObject, event: MouseEvent | Touc
 
   if (!entry.link) return
   if ((event as MouseEvent).which === 3) return
-
-  grower.value!.style.top = object.position.y + 'px'
-  grower.value!.style.left = object.position.x + 'px'
-  grower.value!.style.width = object.circleRadius! * 2 + 'px'
-  grower.value!.style.height = grower.value!.style.width
-
   event.preventDefault()
 
   const mouse = event as MouseEvent
   const newTab = mouse.ctrlKey || mouse.which === 2 || entry.link.startsWith('http')
   if (newTab || entry.link.startsWith('mailto')) {
-    if (!newTab) expand.value = true
+    if (!newTab) balls.value!.grow(object)
 
     window.open(entry.link, newTab ? '_blank' : '_self', newTab ? 'noopener noreferrer' : '')
-    setTimeout(() => {
-      document.body.classList.remove('cursor-pointer')
-      expand.value = false
-    }, 700)
+    setTimeout(() => balls.value?.shrink(), 700)
 
     return
   }
 
-  expand.value = true
-  balls.value?.stop()
-  setTimeout(() => {
-    document.body.classList.remove('cursor-pointer')
-    router.push(entry.link!)
-  }, 500)
+  balls.value!.leave(object, () => router.push(entry.link!))
 }
 </script>

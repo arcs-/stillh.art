@@ -8,6 +8,11 @@
       :aria-label="ariaLabel"
     />
     <slot />
+    <div
+      ref="grower"
+      class="absolute z-10 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-yellow transition duration-700"
+      :class="{ 'scale-1500': expand }"
+    />
   </div>
 </template>
 
@@ -26,6 +31,30 @@ const emit = defineEmits<{
 const colorMode = useColorMode()
 const isDark = computed(() => colorMode.value === 'dark')
 const container = ref<HTMLDivElement>()
+const grower = ref<HTMLDivElement>()
+const expand = ref(false)
+
+// the yellow circle that grows out of a ball into the next page
+const grow = (object: BallObject) => {
+  const style = grower.value!.style
+  style.top = object.position.y + 'px'
+  style.left = object.position.x + 'px'
+  style.width = object.circleRadius! * 2 + 'px'
+  style.height = style.width
+  expand.value = true
+}
+const shrink = () => {
+  expand.value = false
+  document.body.classList.remove('cursor-pointer')
+}
+const leave = (object: BallObject, then: () => void) => {
+  grow(object)
+  Balls.stop()
+  setTimeout(() => {
+    document.body.classList.remove('cursor-pointer')
+    then()
+  }, 500)
+}
 
 watch(isDark, dark => Balls.setTheme(dark))
 
@@ -40,7 +69,5 @@ onMounted(() => {
 
 onBeforeUnmount(() => Balls.stop())
 
-defineExpose({
-  stop: () => Balls.stop(),
-})
+defineExpose({ grow, shrink, leave })
 </script>
