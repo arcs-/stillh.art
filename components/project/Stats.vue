@@ -1,5 +1,5 @@
 <template>
-  <p class="my-4 flex flex-wrap gap-x-6 text-sm leading-5">
+  <p class="my-4 flex flex-wrap gap-x-6 text-sm/5">
     <UiGo v-for="stat in stats" :key="stat.to" :to="stat.to" unstyled>
       <ClientOnly>
         {{ format(stat) }}

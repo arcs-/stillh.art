@@ -51,7 +51,7 @@
       </AnimatedAppear>
 
       <AnimatedAppear is="div">
-        <h4 class="mb-2 mt-12 text-2xl" slide-up>Also seen here</h4>
+        <h4 class="mt-12 mb-2 text-2xl" slide-up>Also seen here</h4>
         <UiGo class="inline-block leading-5" to="https://soi.ch/" slide-up> SOI </UiGo>
         <span class="inline-block px-2" slide-up>•</span>
         <UiGo class="inline-block leading-5" to="https://globalgamejam.org/" slide-up> GGJ </UiGo>

@@ -138,13 +138,13 @@ export default defineNuxtConfig({
     },
     '/sites': {
       redirect: {
-        to: '/work',
+        to: '/prod',
         statusCode: 301,
       },
     },
     '/web': {
       redirect: {
-        to: '/work',
+        to: '/prod',
         statusCode: 301,
       },
     },

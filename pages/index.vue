@@ -1,7 +1,11 @@
 <template>
   <BallsCanvas ref="balls" :entries="links" @select="onSelect">
     <nav
-      class="pointer-events-none relative z-10 w-0 whitespace-nowrap p-12 opacity-0 transition duration-700 focus-within:opacity-100"
+      class="
+        pointer-events-none relative z-10 w-0 p-12 whitespace-nowrap opacity-0
+        transition duration-700
+        focus-within:opacity-100
+      "
     >
       <h1 class="mb-4">Patrick Stillhart's Portfolio</h1>
       <menu>
@@ -18,7 +22,11 @@
     <button
       v-if="promptInteract"
       type="button"
-      class="fixed left-1/2 top-16 z-10 -translate-x-1/2 whitespace-nowrap rounded bg-yellow px-7 py-2 font-bold text-black shadow [&_*]:size-full"
+      class="
+        fixed top-16 left-1/2 z-10 -translate-x-1/2 rounded bg-yellow px-7 py-2
+        font-bold whitespace-nowrap text-black shadow
+        **:size-full
+      "
       @click="requestGyro"
     >
       Press to use gyro

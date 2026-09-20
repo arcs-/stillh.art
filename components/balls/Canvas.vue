@@ -1,16 +1,26 @@
 <template>
   <div
-    class="relative h-dvh w-dvw overflow-hidden before:absolute before:size-full before:bg-black/10 before:transition before:content-[''] before:[mask-image:url('/assets/images/banner.svg')] before:[mask-position:center] before:[mask-size:160vw] md:before:[mask-size:85vw] dark:before:bg-white/10"
+    class="
+      relative h-dvh w-dvw overflow-hidden
+      before:absolute before:size-full before:bg-black/10
+      before:mask-[url('/assets/images/banner.svg')] before:mask-size-[160vw]
+      before:mask-center before:transition before:content-['']
+      md:before:mask-size-[85vw]
+      dark:before:bg-white/10
+    "
   >
     <div
       ref="container"
-      class="absolute inset-0 h-dvh w-dvw [&_*]:size-full"
+      class="absolute inset-0 h-dvh w-dvw **:size-full"
       :aria-label="ariaLabel"
     />
     <slot />
     <div
       ref="grower"
-      class="absolute z-10 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-yellow transition duration-700"
+      class="
+        absolute z-10 -translate-1/2 scale-0 rounded-full bg-yellow transition
+        duration-700
+      "
       :class="{ 'scale-1500': expand }"
     />
   </div>

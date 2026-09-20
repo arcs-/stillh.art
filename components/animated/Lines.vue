@@ -3,7 +3,10 @@
     <ClientOnly>
       <svg
         ref="svg"
-        class="pointer-events-none absolute size-full [&_path]:fill-none [&_path]:stroke-yellow [&_path]:stroke-[4]"
+        class="
+          pointer-events-none absolute size-full
+          [&_path]:fill-none [&_path]:stroke-yellow [&_path]:stroke-4
+        "
         aria-hidden="true"
       >
         <defs />

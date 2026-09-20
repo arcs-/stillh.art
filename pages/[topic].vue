@@ -1,5 +1,5 @@
 <template>
-  <UiContainer is="main" v-if="topic" class="py-16 md:pb-40 md:pt-24">
+  <UiContainer is="main" v-if="topic" class="py-16 md:pt-24 md:pb-40">
     <div class="relative mb-20!">
       <UiClose to="/" />
       <h1 v-if="topic.label" class="mb-4 text-6xl">{{ topic.label.toLowerCase() }}[]</h1>

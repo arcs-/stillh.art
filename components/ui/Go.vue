@@ -8,7 +8,11 @@
     :href="to"
     rel="noreferrer noopener"
     target="_blank"
-    class="bg-linear-to-t from-yellow to-yellow bg-position-[0_1.06rem] bg-no-repeat transition-all hover:bg-position-[0_0]"
+    class="
+      bg-linear-to-t from-yellow to-yellow bg-position-[0_1.06rem] bg-no-repeat
+      transition-all
+      hover:bg-position-[0_0]
+    "
     :class="{
       'bg-linear-to-t from-yellow to-yellow bg-position-[0_1.06rem] bg-no-repeat transition-all hover:bg-position-[0_0]':
         !unstyled,

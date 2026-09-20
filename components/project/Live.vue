@@ -12,9 +12,13 @@
       v-if="embed && isVisible"
       :src="embed.src"
       :title="title"
-      class="absolute top-0 left-0 max-w-none origin-top-left rounded border-0 bg-dark"
+      class="
+        absolute top-0 left-0 max-w-none origin-top-left rounded border-0
+        bg-dark
+      "
       :style="frameStyle"
       allow="autoplay; fullscreen"
+      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
     />
   </div>
 </template>
@@ -50,9 +54,12 @@ onMounted(() => {
 })
 onBeforeUnmount(() => trigger?.kill())
 
+// embeds without a size still get a desktop-wide viewport, so phones show a scaled page instead of a mobile layout
+const MIN_WIDTH = 960
+
 const frameStyle = computed(() => {
-  const native = props.embed?.width
-  if (!native || !containerWidth.value) return { width: '100%', height: '100%' }
+  if (!containerWidth.value) return { width: '100%', height: '100%' }
+  const native = props.embed?.width ?? Math.max(containerWidth.value, MIN_WIDTH)
 
   const scale = containerWidth.value / native
   const height = props.embed?.frameHeight ?? containerHeight.value / scale

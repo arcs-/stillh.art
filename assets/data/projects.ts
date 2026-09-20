@@ -52,7 +52,7 @@ export const STATS_AS_OF = '2026-09-20'
 
 export const projects: Topic[] = [
   {
-    label: 'Work',
+    label: 'Prod',
     intro:
       'Things that are out there being used: sites built for clients and tools other people rely on.',
     // highlights first, then newest to oldest
