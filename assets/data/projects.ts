@@ -1,6 +1,6 @@
 /* eslint-disable @stylistic/max-len */
 
-export type Topic = {
+type Topic = {
   label: string
   /** the mono font gives some first letters a wide left bearing */
   titleClass?: string
@@ -13,7 +13,6 @@ export type Embed = {
   audio?: boolean
   width?: number
   height?: number
-  frameHeight?: number
 }
 
 export type Project = {
@@ -134,10 +133,9 @@ export const projects: Topic[] = [
           'Business managers are about to invade our town! A Space Invaders clone on a canvas, defending an ASCII skyline.<br /><br />It started in 2015 as the game behind my 404 page and was forked in 2018 into this version. Use ← → to move and space to shoot.',
         embed: {
           src: 'https://codepen.io/arcs/embed/XqmKYq?default-tab=result',
-          // codepen header 51 + canvas page 647
+          // fixed 1200px canvas; codepen header 51 + page 647 tall
           width: 1216,
           height: 700,
-          frameHeight: 740,
         },
         link: {
           label: 'Play',
@@ -329,10 +327,6 @@ export const projects: Topic[] = [
         embed: {
           src: 'https://codepen.io/arcs/embed/aGzNKY?default-tab=result',
           audio: true,
-          // codepen header 51 + game 557; the pen needs a viewport >= 800 to not scroll
-          width: 800,
-          height: 608,
-          frameHeight: 900,
         },
         link: {
           label: 'Play',

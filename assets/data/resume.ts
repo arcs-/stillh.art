@@ -1,4 +1,4 @@
-export type TimelineEntry = {
+type TimelineEntry = {
   period: string
   where: string
   text: string

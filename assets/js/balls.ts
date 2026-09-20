@@ -90,7 +90,7 @@ export type BallObject = BodyType & {
 }
 type Obj = BallObject
 
-export type BallSelectHandler = (event: MouseEvent | TouchEvent, object: BallObject) => void
+type BallSelectHandler = (event: MouseEvent | TouchEvent, object: BallObject) => void
 let wheel: Obj | null = null
 const balls: Obj[] = []
 

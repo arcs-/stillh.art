@@ -79,9 +79,7 @@ const frameStyle = computed(() => {
   const native = props.embed?.width ?? Math.max(containerWidth.value, MIN_WIDTH)
 
   const scale = containerWidth.value / native
-  const height =
-    props.embed?.frameHeight ??
-    containerHeight.value / scale + (isCodepen.value ? CODEPEN_FOOTER : 0)
+  const height = containerHeight.value / scale + (isCodepen.value ? CODEPEN_FOOTER : 0)
   return {
     width: `${native}px`,
     height: `${height}px`,
