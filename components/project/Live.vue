@@ -9,13 +9,10 @@
   >
     <slot />
     <iframe
-      v-if="embed && isVisible"
+      v-if="embed && loaded"
       :src="src"
       :title="title"
-      class="
-        absolute top-0 left-0 max-w-none origin-top-left rounded border-0
-        bg-dark
-      "
+      class="absolute top-0 left-0 max-w-none origin-top-left border-0 bg-dark"
       :style="frameStyle"
       allow="autoplay 'none'; fullscreen"
       sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
@@ -32,14 +29,14 @@ if (import.meta.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-// mounted one viewport ahead; fixed-size embeds render at native width and get scaled down
+// loaded a viewport ahead and kept, pens with sound unload again; fixed-size embeds render at native width and get scaled down
 const props = defineProps<{
   embed?: Embed
   title: string
 }>()
 
 const container = ref<HTMLDivElement>()
-const isVisible = ref(false)
+const loaded = ref(false)
 const { width: containerWidth, height: containerHeight } = useElementSize(container)
 
 let trigger: ScrollTrigger | undefined
@@ -49,7 +46,10 @@ onMounted(() => {
     trigger: container.value,
     start: 'top 200%',
     end: 'bottom -100%',
-    onToggle: self => (isVisible.value = self.isActive),
+    once: !props.embed.audio,
+    onToggle: self => (loaded.value = loaded.value || self.isActive),
+    onLeave: () => props.embed?.audio && (loaded.value = false),
+    onLeaveBack: () => props.embed?.audio && (loaded.value = false),
   })
 })
 onBeforeUnmount(() => trigger?.kill())

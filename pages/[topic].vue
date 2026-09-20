@@ -5,7 +5,7 @@
       <h1 v-if="topic.label" class="mb-4 text-6xl" :class="topic.titleClass">
         {{ topic.label.toLowerCase() }}[]
       </h1>
-      <p class="text-xl lg:w-3/5">
+      <p class="text-xl text-balance lg:w-3/5">
         {{ topic.intro }}
       </p>
     </div>
@@ -64,13 +64,15 @@ onUnmounted(() => {
   jsConfetti = null
 })
 
+const colorMode = useColorMode()
 let reachedEnd = false
 useEventListener(document, 'scroll', () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     if (!reachedEnd) {
       reachedEnd = true
       jsConfetti?.addConfetti({
-        confettiColors: ['#FFD168', '#FFD168', '#ffffff', '#000000'],
+        // no white on white, no black on black
+        confettiColors: ['#FFD168', '#FFD168', colorMode.value === 'dark' ? '#ffffff' : '#000000'],
       })
     }
   } else {

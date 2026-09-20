@@ -10,6 +10,7 @@ export type Topic = {
 
 export type Embed = {
   src: string
+  audio?: boolean
   width?: number
   height?: number
   frameHeight?: number
@@ -327,6 +328,7 @@ export const projects: Topic[] = [
           'In a discussion with a prof I got interested if one could create a game that would run smoothly within the browser only using HTML Elements.<br /><br />I tried to replicate Outrun from 1986 and really enjoy the result.',
         embed: {
           src: 'https://codepen.io/arcs/embed/aGzNKY?default-tab=result',
+          audio: true,
           // codepen header 51 + game 557; the pen needs a viewport >= 800 to not scroll
           width: 800,
           height: 608,
@@ -401,6 +403,7 @@ export const projects: Topic[] = [
           "Bugs are corrupting your home directory. A tiny terminal-styled shooter drawn entirely from characters on a canvas.<br /><br />Arrow keys to move, S to shoot, once you've sudo-enabled the gun.",
         embed: {
           src: 'https://codepen.io/arcs/embed/LqGdWG?default-tab=result',
+          audio: true,
         },
         link: {
           label: 'Play',

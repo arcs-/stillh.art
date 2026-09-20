@@ -58,7 +58,7 @@
             :width="project.image.width"
             :height="project.image.height"
             :loading="index > 1 ? 'lazy' : 'eager'"
-            class="w-full rounded"
+            class="w-full"
           />
         </ProjectLive>
       </div>
