@@ -2,7 +2,9 @@
   <UiContainer is="main" v-if="topic" class="py-16 md:pt-24 md:pb-40">
     <div class="relative mb-20!">
       <UiClose to="/" />
-      <h1 v-if="topic.label" class="mb-4 text-6xl">{{ topic.label.toLowerCase() }}[]</h1>
+      <h1 v-if="topic.label" class="mb-4 text-6xl" :class="topic.titleClass">
+        {{ topic.label.toLowerCase() }}[]
+      </h1>
       <p class="text-xl lg:w-3/5">
         {{ topic.intro }}
       </p>
@@ -19,7 +21,9 @@
     </div>
 
     <div class="pt-20 text-center text-2xl md:pt-32">
-      ~ <span class="inline-block -translate-y-1.5 px-2">end</span> ~
+      <p class="text-sm">
+        <UiButton to="/"> &lt; see more</UiButton>
+      </p>
     </div>
   </UiContainer>
 </template>

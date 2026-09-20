@@ -4,9 +4,9 @@
       <UiClose to="/" class="-mt-1" />
       <h1 class="mb-4 text-6xl">About</h1>
       <p class="md:text-xl lg:w-3/5">
-        I'm a fullstack developer with a great passion for beautiful frontends. I especially enjoy
-        creating 3D experiences and animations. That allowed me to create some truly exciting
-        projects and hopefully made the web a bit more fun.
+        I'm a fullstack developer with a passion for lovely frontends. I particurlarly enjoy
+        creating 3D experiences and animations. That allowed me to create some exciting
+        projects and hopefully made the web a bit more fun since 2010, well before AI. :)
       </p>
     </section>
 
@@ -15,47 +15,53 @@
       <AboutSkills />
     </section>
 
-    <section class="text-xl">
-      <AnimatedAppear>
-        <h2 class="mb-4 text-4xl md:text-6xl" slide-right>Articles and Awards</h2>
-      </AnimatedAppear>
-      <AnimatedAppear is="ul">
-        <li slide-up>
-          HSLU > Apr 2021 >
-          <UiGo
-            to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/"
-          >
-            Dean's List
-          </UiGo>
-        </li>
-        <li slide-up>
-          PAGE > Oct 2020 >
-          <UiGo to="https://page-online.de/branche-karriere/bachelorarbeit-werkschau-mal-anders/">
-            Werkschau mal anders
-          </UiGo>
-        </li>
-        <li slide-up>
-          awwwards > Aug 2020 >
-          <UiGo to="https://www.awwwards.com/sites/di-museum"> Honorable Mention </UiGo>
-        </li>
-        <li slide-up>
-          awwwards > Jul 2020 >
-          <UiGo to="https://www.awwwards.com/sites/di-museum"> Mobile Excellence </UiGo>
-        </li>
-        <li slide-up>
-          ICT Berufsbildung > Aug 2017 >
-          <UiGo to="https://www.zli.ch/berufsverband-oda/ict-berufsabschluss/">
-            Berufsabschluss im Rang
-          </UiGo>
-        </li>
-      </AnimatedAppear>
+    <section class="flex flex-col gap-12 md:flex-row md:items-baseline">
+      <div class="text-xl md:w-3/5">
+        <AnimatedAppear>
+          <h2 class="mb-4 text-4xl md:text-6xl" slide-right>Reach</h2>
+        </AnimatedAppear>
+        <AnimatedAppear is="ul">
+          <li slide-up>
+            HSLU > Apr 2021 >
+            <UiGo
+              to="https://www.hslu.ch/en/lucerne-school-of-information-technology/degree-programs/dean-list/"
+            >
+              Dean's List
+            </UiGo>
+          </li>
+          <li slide-up>
+            PAGE > Oct 2020 >
+            <UiGo to="https://page-online.de/branche-karriere/bachelorarbeit-werkschau-mal-anders/">
+              Werkschau mal anders
+            </UiGo>
+          </li>
+          <li slide-up>
+            awwwards > Aug 2020 >
+            <UiGo to="https://www.awwwards.com/sites/di-museum"> Honorable Mention </UiGo>
+          </li>
+          <li slide-up>
+            awwwards > Jul 2020 >
+            <UiGo to="https://www.awwwards.com/sites/di-museum"> Mobile Excellence </UiGo>
+          </li>
+          <li slide-up>
+            ICT Berufsbildung > Aug 2017 >
+            <UiGo to="https://www.zli.ch/berufsverband-oda/ict-berufsabschluss/">
+              Berufsabschluss im Rang
+            </UiGo>
+          </li>
+        </AnimatedAppear>
 
-      <AnimatedAppear is="div">
-        <h4 class="mt-12 mb-2 text-2xl" slide-up>Also seen here</h4>
-        <UiGo class="inline-block leading-5" to="https://soi.ch/" slide-up> SOI </UiGo>
-        <span class="inline-block px-2" slide-up>•</span>
-        <UiGo class="inline-block leading-5" to="https://globalgamejam.org/" slide-up> GGJ </UiGo>
-      </AnimatedAppear>
+        <AnimatedAppear is="div">
+          <h4 class="mt-12 mb-2 text-2xl" slide-up>Also seen here</h4>
+          <UiGo class="inline-block leading-5" to="https://soi.ch/" slide-up> SOI </UiGo>
+          <span class="inline-block px-2" slide-up>•</span>
+          <UiGo class="inline-block leading-5" to="https://globalgamejam.org/" slide-up> GGJ </UiGo>
+          <span class="inline-block px-2" slide-up>•</span>
+          <UiGo class="inline-block leading-5" to="https://zurichjs.com/" slide-up> ZürichJS </UiGo>
+        </AnimatedAppear>
+      </div>
+
+      <AboutHighlights />
     </section>
 
     <AnimatedAppear is="section" class="mb-12!">

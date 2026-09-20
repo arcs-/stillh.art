@@ -15,6 +15,7 @@ defineProps<{ to: string }>()
   position: relative;
   display: inline-block;
   overflow: hidden;
+  isolation: isolate; /* keeps the z-index: -1 circles inside the button */
   @apply border-yellow border-3;
   padding: 10px 30px;
   margin-top: 30px;
@@ -26,6 +27,7 @@ defineProps<{ to: string }>()
   &:after {
     content: '';
     position: absolute;
+    display: block;
     top: 50%;
     width: 20px;
     height: 20px;

@@ -204,6 +204,17 @@ function onResize() {
         label: 'WHEEL',
       }),
     )
+
+    if (i % 5 === 0) {
+      const bump = config.wheelRadius * 0.005
+      parts.push(
+        Bodies.polygon(cx - x * (10 + bump / 2), cy - y * (10 + bump / 2), 3, bump, {
+          angle: angle, // base towards the center
+          isStatic: true,
+          label: 'WHEEL',
+        }),
+      )
+    }
   }
 
   World.add(engine.world, parts)

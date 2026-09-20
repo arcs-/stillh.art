@@ -2,6 +2,8 @@
 
 export type Topic = {
   label: string
+  /** the mono font gives some first letters a wide left bearing */
+  titleClass?: string
   intro: string
   projects: Project[]
 }
@@ -273,6 +275,10 @@ export const projects: Topic[] = [
             created: '2015-02-24',
             stars: 83,
           },
+          {
+            to: 'https://www.npmjs.com/package/medium-button',
+            downloads: 84806,
+          },
         ],
       },
       {
@@ -294,12 +300,19 @@ export const projects: Topic[] = [
             created: '2012-04-03',
             downloads: 17635,
           },
+          // EasyShop, the other plugin
+          {
+            to: 'https://dev.bukkit.org/projects/easy-shop',
+            created: '2013-01-05',
+            downloads: 11908,
+          },
         ],
       },
     ],
   },
   {
     label: 'Lab',
+    titleClass: '-ml-2.75',
     intro: 'Personal experiments, games and pens. Made for fun, some of them got around.',
     // highlights first, then newest to oldest
     projects: [
